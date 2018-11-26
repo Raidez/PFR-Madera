@@ -31,6 +31,10 @@
     <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
     <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -51,15 +55,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainForm.cs" />
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="GestionConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionConfiguration.Designer.cs">
+      <DependentUpon>GestionConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestionGamme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestionGamme.Designer.cs">
+      <DependentUpon>GestionGamme.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Projet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projet.Designer.cs">
+      <DependentUpon>Projet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GestionConfiguration.resx">
+      <DependentUpon>GestionConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestionGamme.resx">
+      <DependentUpon>GestionGamme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Projet.resx">
+      <DependentUpon>Projet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoMadera.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
