@@ -12,8 +12,7 @@ namespace Madera
 {
     public partial class GestionGamme : Form
     {
-        public GestionGamme()
-        {
+        public GestionGamme() {
             InitializeComponent();
         }
 
@@ -31,5 +30,9 @@ namespace Madera
         {
             MessageBox.Show("Gamme modifié !");
         }
+        
+		void BtnRetourClick(object sender, EventArgs e) {
+        	ActionBoutonGeneric.GoBack(this);
+		}
     }
 }

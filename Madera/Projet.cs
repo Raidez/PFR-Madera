@@ -12,29 +12,16 @@ namespace Madera
 {
     public partial class Projet : Form
     {
-        public Projet()
-        {
+        public Projet() {
             InitializeComponent();
         }
-
-        private void panel1_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void panel2_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void panel3_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void BtnDeconnection_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
+    	
+		void Panel3Click(object sender, EventArgs e) {
+    		ActionBoutonGeneric.GoNextForm(this, new GestionConfiguration());
+		}
+    	
+		void BtnDeconnectionClick(object sender, EventArgs e) {
+    		Application.Exit();
+		}
     }
 }
