@@ -13,9 +13,9 @@ using System.Windows.Forms;
 namespace Madera
 {
 	/// <summary>
-	/// Description of ActionBoutonGeneric.
+	/// Description of ActionButtonGeneric.
 	/// </summary>
-	public static class ActionBoutonGeneric
+	public static class ActionButtonGeneric
 	{
 		public static Stack<Form> pile = new Stack<Form>();
 		
@@ -29,5 +29,9 @@ namespace Madera
 			next.Show();
 			current.Hide();
 		}
-	}
+		
+		public static void Deconnexion() {
+			Application.Exit();
+		}
+ 	}
 }

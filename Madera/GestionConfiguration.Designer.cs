@@ -119,6 +119,7 @@
         	this.BtnDeconnexion.Name = "BtnDeconnexion";
         	this.BtnDeconnexion.Size = new System.Drawing.Size(130, 63);
         	this.BtnDeconnexion.TabIndex = 3;
+        	this.BtnDeconnexion.Click += new System.EventHandler(this.BtnDeconnexionClick);
         	// 
         	// label3
         	// 

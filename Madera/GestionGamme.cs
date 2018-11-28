@@ -32,7 +32,11 @@ namespace Madera
         }
         
 		void BtnRetourClick(object sender, EventArgs e) {
-        	ActionBoutonGeneric.GoBack(this);
+        	ActionButtonGeneric.GoBack(this);
+		}
+        
+		void BtnDeconnexionClick(object sender, EventArgs e) {
+        	ActionButtonGeneric.Deconnexion();
 		}
     }
 }

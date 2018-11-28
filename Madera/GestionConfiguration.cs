@@ -17,11 +17,15 @@ namespace Madera
         }
     	
 		void BtnGestionGammesClick(object sender, EventArgs e) {
-    		ActionBoutonGeneric.GoNextForm(this, new GestionGamme());
+    		ActionButtonGeneric.GoNextForm(this, new GestionGamme());
 		}
     	
     	void BtnRetourClick(object sender, EventArgs e) {
-    		ActionBoutonGeneric.GoBack(this);
+    		ActionButtonGeneric.GoBack(this);
+		}
+    	
+		void BtnDeconnexionClick(object sender, EventArgs e) {
+			ActionButtonGeneric.Deconnexion();
 		}
     }
 }

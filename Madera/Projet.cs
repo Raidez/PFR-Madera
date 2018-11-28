@@ -17,11 +17,11 @@ namespace Madera
         }
     	
 		void Panel3Click(object sender, EventArgs e) {
-    		ActionBoutonGeneric.GoNextForm(this, new GestionConfiguration());
+    		ActionButtonGeneric.GoNextForm(this, new GestionConfiguration());
 		}
     	
 		void BtnDeconnectionClick(object sender, EventArgs e) {
-    		Application.Exit();
+    		ActionButtonGeneric.Deconnexion();
 		}
     }
 }

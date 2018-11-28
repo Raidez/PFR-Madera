@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionBoutonGeneric.cs" />
     <Compile Include="GestionConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
