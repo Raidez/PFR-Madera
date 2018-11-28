@@ -55,6 +55,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Fournisseur.cs" />
+    <Compile Include="Classes\Gamme.cs" />
+    <Compile Include="Classes\Matiere.cs" />
+    <Compile Include="Classes\Module.cs" />
+    <Compile Include="Classes\Parametre.cs" />
     <Compile Include="GestionConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
