@@ -18,15 +18,21 @@ namespace Madera.Classes
 			this.gamLibelle = gamLibelle;
 		}
 
-		public void ajoutGamme(Gamme g) {
+		public static void _init (){
+			listGamme.Add(new Gamme(1, "Basic"));
+			listGamme.Add(new Gamme(2, "Standard"));
+			listGamme.Add(new Gamme(3, "Premium"));
+		}
+
+		public static void ajoutGamme(Gamme g) {
 			listGamme.Add(g);
 		}
 
-		public void modifierGamme(Gamme g) {
+		public static void modifierGamme(Gamme g) {
 
 		}
 
-		public bool supprimeGamme(Gamme g) {
+		public static bool supprimeGamme(Gamme g) {
 			
 
 			return true;
