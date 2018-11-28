@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Madera.Classes;
 
 namespace Madera
 {
@@ -18,13 +19,21 @@ namespace Madera
         }
     	
     	public void reloadGammes() {
-    		Dictionary<string, string> data = new Dictionary<string, string>();
-            foreach (Classes.Gamme g in Classes.Gamme.listGamme) {
-            	data.Add(g.gamId.ToString(), g.gamLibelle);
-            }
-            this.comboBox1.DataSource = new BindingSource(data, null);
-            this.comboBox1.DisplayMember = "Value";
-            this.comboBox1.ValueMember = "Key";
+    		// vidage des combobox
+    		this.comboBox1.Items.Clear();
+    		this.comboBox2.Items.Clear();
+    		
+    		// ajout des valeurs
+			ComboxItem item;
+			foreach (Gamme g in Gamme.listGamme) {
+				item = new ComboxItem(g.gamLibelle, g.gamId);
+				this.comboBox1.Items.Add(item);
+				this.comboBox2.Items.Add(item);
+			}
+			
+			// sélection du 1er élément
+			this.comboBox1.SelectedIndex = 0;
+			this.comboBox2.SelectedIndex = 0;
     	}
     	
     	private void BtnAjoutGamme_Click(object sender, EventArgs e) {
@@ -32,7 +41,7 @@ namespace Madera
             	MessageBox.Show("Vous devez renseigner le nom de la gamme !");
     		} else {
     			// ajout de la gamme
-    			Classes.Gamme.ajoutGamme(new Classes.Gamme(42, this.textBox1.Text));
+    			Gamme.ajoutGamme(new Gamme(new Random().Next(1, 9999), this.textBox1.Text));
     			MessageBox.Show("La gamme a été créer !");
     			this.textBox1.Text = "";
     			reloadGammes();
@@ -40,11 +49,23 @@ namespace Madera
         }
     	
     	private void BtnModificationGamme_Click(object sender, EventArgs e) {
-            MessageBox.Show("Gamme modifié !");
+    		if (!this.textBox2.Text.Any()) {
+    			MessageBox.Show("Vous devez renseigner le nouveau nom de la gamme sélectionnée");
+    		} else {
+    			// modification de la gamme
+    			int id = (int) (comboBox1.SelectedItem as ComboxItem).Value;
+    			Gamme.modifierGamme(new Gamme(id, this.textBox2.Text));
+    			MessageBox.Show("La gamme a été modifiée !");
+    			this.textBox2.Text = "";
+    			reloadGammes();
+    		}
         }
 
         private void BtnSupprimerGamme_Click(object sender, EventArgs e) {
-            MessageBox.Show("Gamme supprimé !");
+            ComboxItem item = (ComboxItem) comboBox1.SelectedItem;
+            Gamme.supprimeGamme(new Gamme((int) item.Value, item.Text));
+            MessageBox.Show("La gamme a été supprimée !");
+    		reloadGammes();
         }
         
 		void BtnRetourClick(object sender, EventArgs e) {

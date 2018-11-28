@@ -61,6 +61,7 @@
     <Compile Include="Classes\Module.cs" />
     <Compile Include="Classes\Parametre.cs" />
     <Compile Include="ActionBoutonGeneric.cs" />
+    <Compile Include="ComboxItem.cs" />
     <Compile Include="GestionConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>

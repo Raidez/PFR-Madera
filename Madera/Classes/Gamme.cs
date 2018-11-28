@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace Madera.Classes
 		}
 
 		public static void _init (){
+			listGamme = new List<Gamme>();
 			listGamme.Add(new Gamme(1, "Basic"));
 			listGamme.Add(new Gamme(2, "Standard"));
 			listGamme.Add(new Gamme(3, "Premium"));
