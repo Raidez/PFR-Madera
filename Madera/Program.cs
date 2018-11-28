@@ -23,6 +23,8 @@ namespace Madera
 		[STAThread]
 		private static void Main(string[] args)
 		{
+			Classes.Gamme._init(); // instancie des fake gammes
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new Projet());

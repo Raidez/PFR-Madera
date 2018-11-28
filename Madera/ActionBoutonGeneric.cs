@@ -33,11 +33,5 @@ namespace Madera
 		public static void Deconnexion() {
 			Application.Exit();
 		}
-		
-		public static void AjoutGamme() {
-			MessageBox.Show("gamme ajouté");
-		}
-		public static void ModifierGamme() {}
-		public static void SupprimerGamme() {}
  	}
 }
