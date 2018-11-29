@@ -30,19 +30,18 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnGestionFournisseurs = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.BtnGestionGammes = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.BtnDeconnexion = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnRetour = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BtnGestionGammes = new System.Windows.Forms.Button();
+            this.BtnGestionFournisseurs = new System.Windows.Forms.Button();
+            this.panelNavBar = new System.Windows.Forms.Panel();
+            this.BtnReduce = new System.Windows.Forms.Button();
+            this.BtnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.BtnGestionFournisseurs.SuspendLayout();
-            this.BtnGestionGammes.SuspendLayout();
             this.BtnDeconnexion.SuspendLayout();
             this.BtnRetour.SuspendLayout();
             this.SuspendLayout();
@@ -51,7 +50,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(406, 120);
             this.pictureBox1.TabIndex = 1;
@@ -66,44 +65,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1038, 366);
             this.panel1.TabIndex = 2;
-            // 
-            // BtnGestionFournisseurs
-            // 
-            this.BtnGestionFournisseurs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BtnGestionFournisseurs.Controls.Add(this.label2);
-            this.BtnGestionFournisseurs.Location = new System.Drawing.Point(3, 111);
-            this.BtnGestionFournisseurs.Name = "BtnGestionFournisseurs";
-            this.BtnGestionFournisseurs.Size = new System.Drawing.Size(402, 77);
-            this.BtnGestionFournisseurs.TabIndex = 5;
-            this.BtnGestionFournisseurs.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnGestionFournisseurs_MouseClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 34);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 17);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Gestion des fournisseurs";
-            // 
-            // BtnGestionGammes
-            // 
-            this.BtnGestionGammes.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BtnGestionGammes.Controls.Add(this.label1);
-            this.BtnGestionGammes.Location = new System.Drawing.Point(3, 28);
-            this.BtnGestionGammes.Name = "BtnGestionGammes";
-            this.BtnGestionGammes.Size = new System.Drawing.Size(402, 77);
-            this.BtnGestionGammes.TabIndex = 4;
-            this.BtnGestionGammes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BtnGestionGammes_MouseClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(141, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Gestion des gammes";
             // 
             // BtnDeconnexion
             // 
@@ -151,25 +112,80 @@
             this.panel4.Size = new System.Drawing.Size(656, 77);
             this.panel4.TabIndex = 5;
             // 
+            // BtnGestionGammes
+            // 
+            this.BtnGestionGammes.BackColor = System.Drawing.Color.White;
+            this.BtnGestionGammes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGestionGammes.Location = new System.Drawing.Point(11, 24);
+            this.BtnGestionGammes.Name = "BtnGestionGammes";
+            this.BtnGestionGammes.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.BtnGestionGammes.Size = new System.Drawing.Size(406, 78);
+            this.BtnGestionGammes.TabIndex = 10;
+            this.BtnGestionGammes.Text = "Gestion des gammes";
+            this.BtnGestionGammes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGestionGammes.UseVisualStyleBackColor = false;
+            // 
+            // BtnGestionFournisseurs
+            // 
+            this.BtnGestionFournisseurs.BackColor = System.Drawing.Color.White;
+            this.BtnGestionFournisseurs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnGestionFournisseurs.Location = new System.Drawing.Point(11, 106);
+            this.BtnGestionFournisseurs.Name = "BtnGestionFournisseurs";
+            this.BtnGestionFournisseurs.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
+            this.BtnGestionFournisseurs.Size = new System.Drawing.Size(406, 78);
+            this.BtnGestionFournisseurs.TabIndex = 11;
+            this.BtnGestionFournisseurs.Text = "Gestion des fournisseurs";
+            this.BtnGestionFournisseurs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGestionFournisseurs.UseVisualStyleBackColor = false;
+            // 
+            // panelNavBar
+            // 
+            this.panelNavBar.Location = new System.Drawing.Point(12, 1);
+            this.panelNavBar.Name = "panelNavBar";
+            this.panelNavBar.Size = new System.Drawing.Size(978, 51);
+            this.panelNavBar.TabIndex = 11;
+            // 
+            // BtnReduce
+            // 
+            this.BtnReduce.FlatAppearance.BorderSize = 0;
+            this.BtnReduce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReduce.Location = new System.Drawing.Point(996, 1);
+            this.BtnReduce.Name = "BtnReduce";
+            this.BtnReduce.Size = new System.Drawing.Size(35, 34);
+            this.BtnReduce.TabIndex = 10;
+            this.BtnReduce.Text = "_";
+            this.BtnReduce.UseVisualStyleBackColor = true;
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.FlatAppearance.BorderSize = 0;
+            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExit.Location = new System.Drawing.Point(1037, 7);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(23, 23);
+            this.BtnExit.TabIndex = 9;
+            this.BtnExit.Text = "X";
+            this.BtnExit.UseVisualStyleBackColor = true;
+            // 
             // GestionConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.panelNavBar);
+            this.Controls.Add(this.BtnReduce);
+            this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.BtnDeconnexion);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionConfiguration";
             this.Text = "Gestion Configuration";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.BtnGestionFournisseurs.ResumeLayout(false);
-            this.BtnGestionFournisseurs.PerformLayout();
-            this.BtnGestionGammes.ResumeLayout(false);
-            this.BtnGestionGammes.PerformLayout();
             this.BtnDeconnexion.ResumeLayout(false);
             this.BtnDeconnexion.PerformLayout();
             this.BtnRetour.ResumeLayout(false);
@@ -182,14 +198,15 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel BtnGestionFournisseurs;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel BtnGestionGammes;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel BtnDeconnexion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel BtnRetour;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button BtnGestionFournisseurs;
+        private System.Windows.Forms.Button BtnGestionGammes;
+        private System.Windows.Forms.Panel panelNavBar;
+        private System.Windows.Forms.Button BtnReduce;
+        private System.Windows.Forms.Button BtnExit;
     }
 }

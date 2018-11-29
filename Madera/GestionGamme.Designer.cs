@@ -47,6 +47,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.BtnDeconnexion = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.panelNavBar = new System.Windows.Forms.Panel();
+            this.BtnReduce = new System.Windows.Forms.Button();
+            this.BtnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -59,7 +62,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 63);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(406, 120);
             this.pictureBox1.TabIndex = 1;
@@ -71,7 +74,7 @@
             this.panel1.Controls.Add(this.BtnAjoutGamme);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 162);
+            this.panel1.Location = new System.Drawing.Point(12, 213);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1038, 98);
             this.panel1.TabIndex = 2;
@@ -113,7 +116,7 @@
             this.panel2.Controls.Add(this.BtnModificationGamme);
             this.panel2.Controls.Add(this.comboBox1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(12, 304);
+            this.panel2.Location = new System.Drawing.Point(12, 355);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1038, 79);
             this.panel2.TabIndex = 3;
@@ -162,7 +165,7 @@
             this.panel3.Controls.Add(this.BtnSupprimerGamme);
             this.panel3.Controls.Add(this.comboBox2);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(12, 423);
+            this.panel3.Location = new System.Drawing.Point(12, 474);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1038, 79);
             this.panel3.TabIndex = 4;
@@ -242,12 +245,44 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Déconnexion";
             // 
+            // panelNavBar
+            // 
+            this.panelNavBar.Location = new System.Drawing.Point(12, 6);
+            this.panelNavBar.Name = "panelNavBar";
+            this.panelNavBar.Size = new System.Drawing.Size(978, 51);
+            this.panelNavBar.TabIndex = 11;
+            // 
+            // BtnReduce
+            // 
+            this.BtnReduce.FlatAppearance.BorderSize = 0;
+            this.BtnReduce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReduce.Location = new System.Drawing.Point(996, 6);
+            this.BtnReduce.Name = "BtnReduce";
+            this.BtnReduce.Size = new System.Drawing.Size(35, 34);
+            this.BtnReduce.TabIndex = 10;
+            this.BtnReduce.Text = "_";
+            this.BtnReduce.UseVisualStyleBackColor = true;
+            // 
+            // BtnExit
+            // 
+            this.BtnExit.FlatAppearance.BorderSize = 0;
+            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnExit.Location = new System.Drawing.Point(1037, 12);
+            this.BtnExit.Name = "BtnExit";
+            this.BtnExit.Size = new System.Drawing.Size(23, 23);
+            this.BtnExit.TabIndex = 9;
+            this.BtnExit.Text = "X";
+            this.BtnExit.UseVisualStyleBackColor = true;
+            // 
             // GestionGamme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.panelNavBar);
+            this.Controls.Add(this.BtnReduce);
+            this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.BtnDeconnexion);
@@ -255,6 +290,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionGamme";
             this.Text = "GestionGamme";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -293,5 +329,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel BtnDeconnexion;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panelNavBar;
+        private System.Windows.Forms.Button BtnReduce;
+        private System.Windows.Forms.Button BtnExit;
     }
 }

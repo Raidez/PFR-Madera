@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnModificationGamme = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnListeProjet = new System.Windows.Forms.Button();
+            this.BtnVoirProjet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -43,39 +43,39 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Projet enregistré !";
             // 
-            // BtnModificationGamme
+            // BtnListeProjet
             // 
-            this.BtnModificationGamme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.BtnModificationGamme.FlatAppearance.BorderSize = 0;
-            this.BtnModificationGamme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnModificationGamme.ForeColor = System.Drawing.Color.White;
-            this.BtnModificationGamme.Location = new System.Drawing.Point(87, 109);
-            this.BtnModificationGamme.Name = "BtnModificationGamme";
-            this.BtnModificationGamme.Size = new System.Drawing.Size(117, 29);
-            this.BtnModificationGamme.TabIndex = 4;
-            this.BtnModificationGamme.Text = "Liste Projet";
-            this.BtnModificationGamme.UseVisualStyleBackColor = false;
+            this.BtnListeProjet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.BtnListeProjet.FlatAppearance.BorderSize = 0;
+            this.BtnListeProjet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnListeProjet.ForeColor = System.Drawing.Color.White;
+            this.BtnListeProjet.Location = new System.Drawing.Point(87, 109);
+            this.BtnListeProjet.Name = "BtnListeProjet";
+            this.BtnListeProjet.Size = new System.Drawing.Size(117, 29);
+            this.BtnListeProjet.TabIndex = 4;
+            this.BtnListeProjet.Text = "Liste Projet";
+            this.BtnListeProjet.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // BtnVoirProjet
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(245, 109);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 29);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Voir Projet";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnVoirProjet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.BtnVoirProjet.FlatAppearance.BorderSize = 0;
+            this.BtnVoirProjet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVoirProjet.ForeColor = System.Drawing.Color.White;
+            this.BtnVoirProjet.Location = new System.Drawing.Point(245, 109);
+            this.BtnVoirProjet.Name = "BtnVoirProjet";
+            this.BtnVoirProjet.Size = new System.Drawing.Size(124, 29);
+            this.BtnVoirProjet.TabIndex = 5;
+            this.BtnVoirProjet.Text = "Voir Projet";
+            this.BtnVoirProjet.UseVisualStyleBackColor = false;
             // 
             // ValidationCreation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(479, 211);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.BtnModificationGamme);
+            this.Controls.Add(this.BtnVoirProjet);
+            this.Controls.Add(this.BtnListeProjet);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ValidationCreation";
@@ -88,7 +88,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnModificationGamme;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnListeProjet;
+        private System.Windows.Forms.Button BtnVoirProjet;
     }
 }
