@@ -16,6 +16,7 @@ namespace Madera.Classes
 		public Gamme(string gamLibelle)
 		{
 			this.gamLibelle = gamLibelle;
+			this.gamId = listGamme.Count;
 		}
 
 		public static void _init (){
@@ -29,11 +30,12 @@ namespace Madera.Classes
 		}
 
 		public static void modifierGamme(Gamme g) {
-
+			listGamme.RemoveAt(g.gamId);
+			listGamme.Insert(g.gamId, g);
 		}
 
 		public static bool supprimeGamme(Gamme g) {
-			
+			listGamme.RemoveAt(g.gamId);
 
 			return true;
 		}
