@@ -10,7 +10,7 @@ namespace Madera.Classes
 	{
 		public int gamId { get; set; }
 		public string gamLibelle { get; set; }
-		public static List<Gamme> listGamme { get; set; } = new List<Gamme>();
+		public static List<Gamme> listGamme = new List<Gamme>();
 		
 
 		public Gamme(string gamLibelle)
@@ -36,14 +36,19 @@ namespace Madera.Classes
 		}
 
 		public static void modifierGamme(Gamme g) {
-			listGamme.RemoveAt(g.gamId);
-			listGamme.Insert(g.gamId, g);
+			int i = listGamme.FindIndex(x => x.gamId == g.gamId);
+			listGamme.Insert(i, g);
 		}
 
 		public static bool supprimeGamme(int gamId) {
-			listGamme.RemoveAt(gamId);
+			try {
+				listGamme.RemoveAt(listGamme.FindIndex(x => x.gamId == gamId));
+			} catch (Exception e) {
+				return false;
+			}
 
 			return true;
+			
 		}
 	}
 }

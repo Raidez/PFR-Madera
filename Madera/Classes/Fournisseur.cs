@@ -17,7 +17,7 @@ namespace Madera.Classes
 		public string fouVille { get; set; }
 		public string fouPays { get; set; }
 		public string fouMail { get; set; }
-		public static List<Fournisseur> listFourniseurs { get; set; } = new List<Fournisseur>();
+		public static List<Fournisseur> listFourniseurs = new List<Fournisseur>();
 
 		public Fournisseur(string fouNom, string fouTel, int fouAdrNumero, string fouAdrRue, string fouAdrCodePostal, string fouVille, string fouPays, string fouMail)
 		{

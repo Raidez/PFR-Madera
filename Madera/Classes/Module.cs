@@ -14,7 +14,7 @@ namespace Madera.Classes
 		public Matiere modMatiere { get; set; }
 		public double prixBase { get; set; }
 		public List<Parametre> modParametres { get; set; } = new List<Parametre>();
-		public static List<Module> listModule { get; set; } = new List<Module>();
+		public static List<Module> listModule = new List<Module>();
 
 		public Module(string modLibele, Gamme modGamme, Matiere modMatiere, double prixBase, List<Parametre> modParametres)
 		{
