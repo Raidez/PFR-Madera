@@ -25,5 +25,13 @@ namespace Madera.Classes
 			this.modParametres = modParametres;
 			this.modId = listModule.Count;
 		}
+
+		public void changerGamme(Gamme g) {
+			this.modGamme = g;
+		}
+
+		public void changerMatiere(Matiere m) {
+			this.modMatiere = m;
+		}
 	}
 }

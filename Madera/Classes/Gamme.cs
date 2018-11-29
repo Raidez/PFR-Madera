@@ -20,6 +20,12 @@ namespace Madera.Classes
 			this.gamId = listGamme.Count;
 		}
 
+		public Gamme(int gamId, string gamLibelle)
+		{
+			this.gamLibelle = gamLibelle;
+			this.gamId = gamId;
+		}
+
 		public static void _init (){
 			listGamme.Add(new Gamme("Basic"));
 			listGamme.Add(new Gamme("Standard"));
@@ -35,8 +41,8 @@ namespace Madera.Classes
 			listGamme.Insert(g.gamId, g);
 		}
 
-		public static bool supprimeGamme(Gamme g) {
-			listGamme.RemoveAt(g.gamId);
+		public static bool supprimeGamme(int gamId) {
+			listGamme.RemoveAt(gamId);
 
 			return true;
 		}
