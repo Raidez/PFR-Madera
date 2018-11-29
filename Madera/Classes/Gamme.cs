@@ -11,19 +11,19 @@ namespace Madera.Classes
 	{
 		public int gamId { get; set; }
 		public string gamLibelle { get; set; }
-		public static List<Gamme> listGamme { get; set; }
+		public static List<Gamme> listGamme { get; set; } = new List<Gamme>();
+		
 
-		public Gamme(int gamId, string gamLibelle)
+		public Gamme(string gamLibelle)
 		{
-			this.gamId = gamId;
 			this.gamLibelle = gamLibelle;
+			this.gamId = listGamme.Count;
 		}
 
 		public static void _init (){
-			listGamme = new List<Gamme>();
-			listGamme.Add(new Gamme(1, "Basic"));
-			listGamme.Add(new Gamme(2, "Standard"));
-			listGamme.Add(new Gamme(3, "Premium"));
+			listGamme.Add(new Gamme("Basic"));
+			listGamme.Add(new Gamme("Standard"));
+			listGamme.Add(new Gamme("Premium"));
 		}
 
 		public static void ajoutGamme(Gamme g) {
@@ -31,11 +31,12 @@ namespace Madera.Classes
 		}
 
 		public static void modifierGamme(Gamme g) {
-
+			listGamme.RemoveAt(g.gamId);
+			listGamme.Insert(g.gamId, g);
 		}
 
 		public static bool supprimeGamme(Gamme g) {
-			
+			listGamme.RemoveAt(g.gamId);
 
 			return true;
 		}

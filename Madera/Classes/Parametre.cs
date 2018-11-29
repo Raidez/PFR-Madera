@@ -11,13 +11,28 @@ namespace Madera.Classes
 		public int parID { get; set; }
 		public string parNom { get; set; }
 		public Object parValeur { get; set; }
+		public static List<Parametre> listParametre { get; set; } = new List<Parametre>();
 
-		public Parametre(int parID, string parNom, object parValeur)
+		public Parametre(string parNom, object parValeur)
 		{
-			this.parID = parID;
 			this.parNom = parNom;
 			this.parValeur = parValeur;
+			this.parID = listParametre.Count;
 		}
 
+		public void ajouterParam(Parametre p) {
+			listParametre.Add(p);
+		}
+
+		public void modifierParam(Parametre p) {
+			listParametre.RemoveAt(p.parID);
+			listParametre.Insert(p.parID, p);
+		}
+
+		public bool supprimerParam(Parametre p) {
+			listParametre.Remove(p);
+
+			return true;
+		}
 	}
 }
