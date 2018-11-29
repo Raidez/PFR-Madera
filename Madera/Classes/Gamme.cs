@@ -37,6 +37,7 @@ namespace Madera.Classes
 
 		public static void modifierGamme(Gamme g) {
 			int i = listGamme.FindIndex(x => x.gamId == g.gamId);
+			listGamme.RemoveAt(i);
 			listGamme.Insert(i, g);
 		}
 
