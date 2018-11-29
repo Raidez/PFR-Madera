@@ -11,7 +11,7 @@ namespace Madera.Classes
 		public int parID { get; set; }
 		public string parNom { get; set; }
 		public Object parValeur { get; set; }
-		public static List<Parametre> listParametre { get; set; } = new List<Parametre>();
+		public static List<Parametre> listParametre = new List<Parametre>();
 
 		public Parametre(string parNom, object parValeur)
 		{

@@ -11,7 +11,7 @@ namespace Madera.Classes
 		public int matID { get; set; }
 		public string matLibelle { get; set; }
 		public Fournisseur matFournisseur { get; set; }
-		public static List<Matiere> listMatiere { get; set; } = new List<Matiere>();
+		public static List<Matiere> listMatiere = new List<Matiere>();
 
 		public Matiere(string matLibelle, Fournisseur matFournisseur)
 		{
