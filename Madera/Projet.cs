@@ -19,7 +19,7 @@ namespace Madera
 
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
-
+            Microsoft.VisualBasic.Interaction.InputBox("Saisir nom du projet", "Saisir nom du projet", "");
         }
 
         private void panel2_MouseClick(object sender, MouseEventArgs e)
@@ -33,6 +33,11 @@ namespace Madera
         }
 
         private void BtnDeconnection_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -39,6 +39,7 @@
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -55,6 +56,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreerProjet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreerProjet.Designer.cs">
+      <DependentUpon>CreerProjet.cs</DependentUpon>
+    </Compile>
     <Compile Include="GestionConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,11 +87,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ValidationCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ValidationCreation.Designer.cs">
+      <DependentUpon>ValidationCreation.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="CreerProjet.resx">
+      <DependentUpon>CreerProjet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GestionConfiguration.resx">
       <DependentUpon>GestionConfiguration.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,9 +114,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ValidationCreation.resx">
+      <DependentUpon>ValidationCreation.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logoMadera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BtnPlus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
