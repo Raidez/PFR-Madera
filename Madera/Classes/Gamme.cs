@@ -26,10 +26,11 @@ namespace Madera.Classes
 			this.gamId = gamId;
 		}
 
-		public static void _init (){
-			listGamme.Add(new Gamme("Basic"));
-			listGamme.Add(new Gamme("Standard"));
-			listGamme.Add(new Gamme("Premium"));
+		public static void _init () {
+			listGamme.Add(new Gamme("One"));
+			listGamme.Add(new Gamme("Deux"));
+			listGamme.Add(new Gamme("Three"));
+			listGamme.Add(new Gamme("Four"));
 		}
 
 		public static void ajoutGamme(Gamme g) {
@@ -44,8 +45,9 @@ namespace Madera.Classes
 
 		public static bool supprimeGamme(int gamId) {
 			try {
-				listGamme.RemoveAt(listGamme.FindIndex(x => x.gamId == gamId));
-			} catch (Exception e) {
+				int idx = listGamme.FindIndex(x => x.gamId == gamId);
+				listGamme.RemoveAt(idx);
+			} catch (Exception) {
 				return false;
 			}
 

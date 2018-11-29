@@ -20,30 +20,32 @@ namespace Madera
     	
     	public void reloadGammes() {
     		// vidage des combobox
-    		this.comboBox1.Items.Clear();
-    		this.comboBox2.Items.Clear();
+    		comboBox1.Items.Clear();
+    		comboBox2.Items.Clear();
+    		comboBox1.Text = "";
+    		comboBox2.Text = "";
 			
 			if (Gamme.listGamme.Count > 0) {
     			// ajout des valeurs
 				ComboxItem item;
 				foreach (Gamme g in Gamme.listGamme) {
 					item = new ComboxItem(g.gamLibelle, g.gamId);
-					this.comboBox1.Items.Add(item);
-					this.comboBox2.Items.Add(item);
+					comboBox1.Items.Add(item);
+					comboBox2.Items.Add(item);
 				}
     			
 				// sélection du 1er élément
-				this.comboBox1.SelectedIndex = 0;
-				this.comboBox2.SelectedIndex = 0;
+				comboBox1.SelectedIndex = 0;
+				comboBox2.SelectedIndex = 0;
     		}
     	}
     	
     	private void BtnAjoutGamme_Click(object sender, EventArgs e) {
-    		if (!this.textBox1.Text.Any()) {
+    		if (!textBox1.Text.Any()) {
             	MessageBox.Show("Vous devez renseigner le nom de la gamme !");
     		} else {
     			// ajout de la gamme
-    			Gamme.ajoutGamme(new Gamme(this.textBox1.Text));
+    			Gamme.ajoutGamme(new Gamme(textBox1.Text));
     			MessageBox.Show("La gamme a été créer !");
     			this.textBox1.Text = "";
     			reloadGammes();
@@ -51,12 +53,12 @@ namespace Madera
         }
     	
     	private void BtnModificationGamme_Click(object sender, EventArgs e) {
-    		if (!this.textBox2.Text.Any()) {
+    		if (!textBox2.Text.Any()) {
     			MessageBox.Show("Vous devez renseigner le nouveau nom de la gamme sélectionnée");
     		} else {
     			// modification de la gamme
     			int id = (int) (comboBox1.SelectedItem as ComboxItem).Value;
-    			Gamme.modifierGamme(new Gamme(id, this.textBox2.Text));
+    			Gamme.modifierGamme(new Gamme(id, textBox2.Text));
     			MessageBox.Show("La gamme a été modifiée !");
     			this.textBox2.Text = "";
     			reloadGammes();
@@ -64,10 +66,11 @@ namespace Madera
         }
 
         private void BtnSupprimerGamme_Click(object sender, EventArgs e) {
-            ComboxItem item = (ComboxItem) comboBox1.SelectedItem;
-            Gamme.supprimeGamme((int) item.Value);
-            MessageBox.Show("La gamme a été supprimée !");
-    		reloadGammes();
+            ComboxItem item = (ComboxItem) comboBox2.SelectedItem;
+            if (Gamme.supprimeGamme((int) item.Value)) {
+            	MessageBox.Show("La gamme a été supprimée !");
+    			reloadGammes();
+            }
         }
         
 		void BtnRetourClick(object sender, EventArgs e) {
