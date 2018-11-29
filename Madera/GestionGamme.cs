@@ -22,18 +22,20 @@ namespace Madera
     		// vidage des combobox
     		this.comboBox1.Items.Clear();
     		this.comboBox2.Items.Clear();
-    		
-    		// ajout des valeurs
-			ComboxItem item;
-			foreach (Gamme g in Gamme.listGamme) {
-				item = new ComboxItem(g.gamLibelle, g.gamId);
-				this.comboBox1.Items.Add(item);
-				this.comboBox2.Items.Add(item);
-			}
 			
-			// sélection du 1er élément
-			this.comboBox1.SelectedIndex = 0;
-			this.comboBox2.SelectedIndex = 0;
+			if (Gamme.listGamme.Count > 0) {
+    			// ajout des valeurs
+				ComboxItem item;
+				foreach (Gamme g in Gamme.listGamme) {
+					item = new ComboxItem(g.gamLibelle, g.gamId);
+					this.comboBox1.Items.Add(item);
+					this.comboBox2.Items.Add(item);
+				}
+    			
+				// sélection du 1er élément
+				this.comboBox1.SelectedIndex = 0;
+				this.comboBox2.SelectedIndex = 0;
+    		}
     	}
     	
     	private void BtnAjoutGamme_Click(object sender, EventArgs e) {
@@ -41,7 +43,7 @@ namespace Madera
             	MessageBox.Show("Vous devez renseigner le nom de la gamme !");
     		} else {
     			// ajout de la gamme
-    			Gamme.ajoutGamme(new Gamme(new Random().Next(1, 9999), this.textBox1.Text));
+    			Gamme.ajoutGamme(new Gamme(this.textBox1.Text));
     			MessageBox.Show("La gamme a été créer !");
     			this.textBox1.Text = "";
     			reloadGammes();
@@ -63,7 +65,7 @@ namespace Madera
 
         private void BtnSupprimerGamme_Click(object sender, EventArgs e) {
             ComboxItem item = (ComboxItem) comboBox1.SelectedItem;
-            Gamme.supprimeGamme(new Gamme((int) item.Value, item.Text));
+            Gamme.supprimeGamme((int) item.Value);
             MessageBox.Show("La gamme a été supprimée !");
     		reloadGammes();
         }
