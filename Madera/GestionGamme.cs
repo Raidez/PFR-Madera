@@ -53,8 +53,8 @@ namespace Madera
         }
     	
     	private void BtnModificationGamme_Click(object sender, EventArgs e) {
-    		if (!textBox2.Text.Any()) {
-    			MessageBox.Show("Vous devez renseigner le nouveau nom de la gamme sélectionnée");
+    		if (!textBox2.Text.Any() || Gamme.listGamme.Count <= 0) {
+    			MessageBox.Show((!textBox2.Text.Any())? "Vous devez renseigner le nouveau nom de la gamme sélectionnée" : "Il n'y a pas de gammes !");
     		} else {
     			// modification de la gamme
     			int id = (int) (comboBox1.SelectedItem as ComboxItem).Value;
@@ -66,11 +66,15 @@ namespace Madera
         }
 
         private void BtnSupprimerGamme_Click(object sender, EventArgs e) {
-            ComboxItem item = (ComboxItem) comboBox2.SelectedItem;
-            if (Gamme.supprimeGamme((int) item.Value)) {
-            	MessageBox.Show("La gamme a été supprimée !");
-    			reloadGammes();
-            }
+    		if (Gamme.listGamme.Count <= 0) {
+    			MessageBox.Show("Il n'y a pas de gammes !");
+    		} else {
+	            ComboxItem item = (ComboxItem) comboBox2.SelectedItem;
+	            if (Gamme.supprimeGamme((int) item.Value)) {
+	            	MessageBox.Show("La gamme a été supprimée !");
+	    			reloadGammes();
+	            }
+    		}
         }
         
 		void BtnRetourClick(object sender, EventArgs e) {
