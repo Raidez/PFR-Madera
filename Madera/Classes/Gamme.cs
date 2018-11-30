@@ -19,16 +19,14 @@ namespace Madera.Classes
 			this.gamId = Guid.NewGuid();
 		}
 
-		public Gamme(int gamId, string gamLibelle)
-		{
-			this.gamLibelle = gamLibelle;
-			this.gamId = gamId;
-		}
-
 		public static void _init (){
 			listGamme.Add(new Gamme("Basic"));
 			listGamme.Add(new Gamme("Standard"));
 			listGamme.Add(new Gamme("Premium"));
+		}
+
+		public static Gamme afficherGamme(Guid gamId) {
+			return listGamme.Find(x => x.gamId == gamId);
 		}
 
 		public void ajoutGamme() {
@@ -53,7 +51,7 @@ namespace Madera.Classes
 		public static bool supprimeGamme(Guid gamId) {
 			try {
 				listGamme.RemoveAt(listGamme.FindIndex(x => x.gamId == gamId));
-			} catch (Exception e) {
+			} catch (Exception) {
 				return false;
 			}
 

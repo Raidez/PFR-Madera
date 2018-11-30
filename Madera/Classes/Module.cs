@@ -73,7 +73,7 @@ namespace Madera.Classes
 			{
 				listModule.RemoveAt(listModule.FindIndex(x => x.modId == modId));
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				return false;
 			}

@@ -50,7 +50,7 @@ namespace Madera.Classes
 			{
 				listParametre.RemoveAt(listParametre.FindIndex(x => x.parId == parId));
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				return false;
 			}

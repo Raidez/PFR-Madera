@@ -54,7 +54,7 @@ namespace Madera.Classes
 			{
 				listMatiere.RemoveAt(listMatiere.FindIndex(x => x.matId == matId));
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				return false;
 			}

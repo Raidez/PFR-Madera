@@ -69,7 +69,7 @@ namespace Madera.Classes
 			{
 				listFournisseur.RemoveAt(listFournisseur.FindIndex(x => x.fouId == fouId));
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				return false;
 			}
