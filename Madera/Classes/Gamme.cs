@@ -31,17 +31,17 @@ namespace Madera.Classes
 			listGamme.Add(new Gamme("Premium"));
 		}
 
-		public static void ajoutGamme(Gamme g) {
+		public void ajoutGamme() {
 			try
 			{
-				listGamme.FindIndex(x => x.gamId == g.gamId);
+				listGamme.FindIndex(x => x.gamId == this.gamId);
 			}
 			catch (Exception e)
 			{
 				throw new Exception("Gamme déjà existante");
 			}
 
-			listGamme.Add(g);
+			listGamme.Add(this);
 		}
 
 		public static void modifierGamme(Gamme g) {

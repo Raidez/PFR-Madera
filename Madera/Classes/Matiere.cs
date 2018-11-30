@@ -27,18 +27,18 @@ namespace Madera.Classes
 			listMatiere.Add(new Matiere("Papier", fou));
 		}
 
-		public static void ajouterMatiere(Matiere m)
+		public void ajouterMatiere()
 		{
 			try
 			{
-				listMatiere.FindIndex(x => x.matId == m.matId);
+				listMatiere.FindIndex(x => x.matId == this.matId);
 			}
 			catch (Exception e)
 			{
 				throw new Exception("Matière déjà existante");
 			}
 
-			listMatiere.Add(m);
+			listMatiere.Add(this);
 		}
 
 		public static void modifierMatiere(Matiere m)

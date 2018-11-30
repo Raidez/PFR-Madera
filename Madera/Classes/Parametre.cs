@@ -26,17 +26,17 @@ namespace Madera.Classes
 			listParametre.Add(new Parametre("Profondeur", 14));
 		}
 
-		public static void ajouterParam(Parametre p) {
+		public void ajouterParam() {
 			try
 			{
-				listParametre.FindIndex(x => x.parId == p.parId);
+				listParametre.FindIndex(x => x.parId == this.parId);
 			}
 			catch (Exception e)
 			{
 				throw new Exception("Paramètre déjà existant");
 			}
 
-			listParametre.Add(p);
+			listParametre.Add(this);
 		}
 
 		public static void modifierParam(Parametre p) {

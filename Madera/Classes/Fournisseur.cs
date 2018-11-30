@@ -42,18 +42,18 @@ namespace Madera.Classes
 			return new Fournisseur("YoloLand3", "0123456789", 15, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
 		}
 
-		public static void ajouterFourni(Fournisseur f)
+		public void ajouterFourni()
 		{
 			try
 			{
-				listFournisseur.FindIndex(x => x.fouId == f.fouId);
+				listFournisseur.FindIndex(x => x.fouId == this.fouId);
 			}
 			catch (Exception e)
 			{
 				throw new Exception("Fournisseur déjà existant");
 			}
 
-			listFournisseur.Add(f);
+			listFournisseur.Add(this);
 		}
 
 		public static void modifierFourni(Fournisseur f)

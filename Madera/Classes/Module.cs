@@ -46,18 +46,18 @@ namespace Madera.Classes
 			listModule.Add(new Module("Home Sweet Home", g, m, 11.5, Parametre.listParametre));
 		}
 
-		public static void ajouterModule(Module m)
+		public void ajouterModule()
 		{
 			try
 			{
-				listModule.FindIndex(x => x.modId == m.modId);
+				listModule.FindIndex(x => x.modId == this.modId);
 			}
 			catch (Exception e)
 			{
 				throw new Exception("Module déjà existant");
 			}
 
-			listModule.Add(m);
+			listModule.Add(this);
 		}
 
 		public static void modifierModule(Module m)
