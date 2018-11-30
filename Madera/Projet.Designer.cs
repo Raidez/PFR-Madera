@@ -29,46 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Projet));
-            this.BtnDeconnection = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BtnExit = new System.Windows.Forms.Button();
             this.BtnReduce = new System.Windows.Forms.Button();
             this.panelNavBar = new System.Windows.Forms.Panel();
             this.BtnCreerProjet = new System.Windows.Forms.Button();
             this.BtnOuvrirProjet = new System.Windows.Forms.Button();
             this.BtnGestionConfiguration = new System.Windows.Forms.Button();
-            this.BtnDeconnection.SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BtnDeconnection
-            // 
-            this.BtnDeconnection.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BtnDeconnection.Controls.Add(this.label4);
-            this.BtnDeconnection.Location = new System.Drawing.Point(12, 582);
-            this.BtnDeconnection.Name = "BtnDeconnection";
-            this.BtnDeconnection.Size = new System.Drawing.Size(236, 78);
-            this.BtnDeconnection.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 17);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Déconnexion";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 83);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(406, 120);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // BtnExit
             // 
@@ -138,6 +107,16 @@
             this.BtnGestionConfiguration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnGestionConfiguration.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 83);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(406, 120);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Projet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -151,23 +130,18 @@
             this.Controls.Add(this.panelNavBar);
             this.Controls.Add(this.BtnReduce);
             this.Controls.Add(this.BtnExit);
-            this.Controls.Add(this.BtnDeconnection);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Projet";
             this.Text = "Projet";
             this.Load += new System.EventHandler(this.Projet_Load);
-            this.BtnDeconnection.ResumeLayout(false);
-            this.BtnDeconnection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel BtnDeconnection;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button BtnReduce;

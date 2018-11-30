@@ -21,6 +21,7 @@ namespace Madera
         public void AjoutModule()
         {
             Button button1 = new Button();
+            button1.Text = "mon boutton";
             flowLayoutPanelListModule.Controls.Add(button1);
         }
     }

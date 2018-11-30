@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnAjoutGamme = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -43,30 +42,20 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.BtnRetour = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.BtnDeconnexion = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.panelNavBar = new System.Windows.Forms.Panel();
             this.BtnReduce = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.BtnDeconnection = new System.Windows.Forms.Button();
+            this.BtnRetour = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.BtnRetour.SuspendLayout();
-            this.BtnDeconnexion.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(406, 120);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
@@ -204,46 +193,12 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Location = new System.Drawing.Point(224, 584);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Controls.Add(this.label4);
+            this.panel4.Location = new System.Drawing.Point(182, 584);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(656, 77);
+            this.panel4.Size = new System.Drawing.Size(698, 77);
             this.panel4.TabIndex = 8;
-            // 
-            // BtnRetour
-            // 
-            this.BtnRetour.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BtnRetour.Controls.Add(this.label4);
-            this.BtnRetour.Location = new System.Drawing.Point(886, 584);
-            this.BtnRetour.Name = "BtnRetour";
-            this.BtnRetour.Size = new System.Drawing.Size(172, 77);
-            this.BtnRetour.TabIndex = 7;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 17);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Retour";
-            // 
-            // BtnDeconnexion
-            // 
-            this.BtnDeconnexion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BtnDeconnexion.Controls.Add(this.label5);
-            this.BtnDeconnexion.Location = new System.Drawing.Point(20, 584);
-            this.BtnDeconnexion.Name = "BtnDeconnexion";
-            this.BtnDeconnexion.Size = new System.Drawing.Size(172, 77);
-            this.BtnDeconnexion.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 30);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 17);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Déconnexion";
             // 
             // panelNavBar
             // 
@@ -274,18 +229,66 @@
             this.BtnExit.Text = "X";
             this.BtnExit.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(406, 120);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // BtnDeconnection
+            // 
+            this.BtnDeconnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnDeconnection.Location = new System.Drawing.Point(12, 584);
+            this.BtnDeconnection.Name = "BtnDeconnection";
+            this.BtnDeconnection.Size = new System.Drawing.Size(164, 77);
+            this.BtnDeconnection.TabIndex = 12;
+            this.BtnDeconnection.Text = "déconnection";
+            this.BtnDeconnection.UseVisualStyleBackColor = true;
+            // 
+            // BtnRetour
+            // 
+            this.BtnRetour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRetour.Location = new System.Drawing.Point(886, 584);
+            this.BtnRetour.Name = "BtnRetour";
+            this.BtnRetour.Size = new System.Drawing.Size(164, 77);
+            this.BtnRetour.TabIndex = 13;
+            this.BtnRetour.Text = "Retour";
+            this.BtnRetour.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 17);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Nom du client :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 17);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Date de création :";
+            // 
             // GestionGamme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 673);
+            this.Controls.Add(this.BtnRetour);
+            this.Controls.Add(this.BtnDeconnection);
             this.Controls.Add(this.panelNavBar);
             this.Controls.Add(this.BtnReduce);
             this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.BtnRetour);
-            this.Controls.Add(this.BtnDeconnexion);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -293,17 +296,15 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "GestionGamme";
             this.Text = "GestionGamme";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.BtnRetour.ResumeLayout(false);
-            this.BtnRetour.PerformLayout();
-            this.BtnDeconnexion.ResumeLayout(false);
-            this.BtnDeconnexion.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -325,12 +326,12 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel BtnRetour;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel BtnDeconnexion;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panelNavBar;
         private System.Windows.Forms.Button BtnReduce;
         private System.Windows.Forms.Button BtnExit;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BtnDeconnection;
+        private System.Windows.Forms.Button BtnRetour;
     }
 }

@@ -48,10 +48,11 @@
             this.BtnListeProjet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.BtnListeProjet.FlatAppearance.BorderSize = 0;
             this.BtnListeProjet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnListeProjet.Font = new System.Drawing.Font("Roboto", 13.8F);
             this.BtnListeProjet.ForeColor = System.Drawing.Color.White;
-            this.BtnListeProjet.Location = new System.Drawing.Point(87, 109);
+            this.BtnListeProjet.Location = new System.Drawing.Point(62, 109);
             this.BtnListeProjet.Name = "BtnListeProjet";
-            this.BtnListeProjet.Size = new System.Drawing.Size(117, 29);
+            this.BtnListeProjet.Size = new System.Drawing.Size(177, 43);
             this.BtnListeProjet.TabIndex = 4;
             this.BtnListeProjet.Text = "Liste Projet";
             this.BtnListeProjet.UseVisualStyleBackColor = false;
@@ -61,10 +62,11 @@
             this.BtnVoirProjet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.BtnVoirProjet.FlatAppearance.BorderSize = 0;
             this.BtnVoirProjet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVoirProjet.Font = new System.Drawing.Font("Roboto", 13.8F);
             this.BtnVoirProjet.ForeColor = System.Drawing.Color.White;
             this.BtnVoirProjet.Location = new System.Drawing.Point(245, 109);
             this.BtnVoirProjet.Name = "BtnVoirProjet";
-            this.BtnVoirProjet.Size = new System.Drawing.Size(124, 29);
+            this.BtnVoirProjet.Size = new System.Drawing.Size(169, 43);
             this.BtnVoirProjet.TabIndex = 5;
             this.BtnVoirProjet.Text = "Voir Projet";
             this.BtnVoirProjet.UseVisualStyleBackColor = false;
@@ -73,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 211);
+            this.ClientSize = new System.Drawing.Size(479, 183);
             this.Controls.Add(this.BtnVoirProjet);
             this.Controls.Add(this.BtnListeProjet);
             this.Controls.Add(this.label1);
