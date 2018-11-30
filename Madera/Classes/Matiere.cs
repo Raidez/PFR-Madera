@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Madera.Classes
+namespace Madera
 {
 	class Matiere
 	{
@@ -13,13 +13,18 @@ namespace Madera.Classes
 		public Fournisseur matFournisseur { get; set; }
 		public static List<Matiere> listMatiere = new List<Matiere>();
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="matLibelle"></param>
+		/// <param name="matFournisseur"></param>
 		public Matiere(string matLibelle, Fournisseur matFournisseur)
 		{
 			this.matLibelle = matLibelle;
 			this.matFournisseur = matFournisseur;
 			this.matId = Guid.NewGuid();
 		}
-
+		
 		public static void _init() {
 			Fournisseur fou = new Fournisseur("YoloLand1", "0123456789", 5, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
 			listMatiere.Add(new Matiere("Bois", fou));
@@ -27,13 +32,16 @@ namespace Madera.Classes
 			listMatiere.Add(new Matiere("Papier", fou));
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		public void ajouterMatiere()
 		{
 			try
 			{
 				listMatiere.FindIndex(x => x.matId == this.matId);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				throw new Exception("Matière déjà existante");
 			}
@@ -41,6 +49,10 @@ namespace Madera.Classes
 			listMatiere.Add(this);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="m"></param>
 		public static void modifierMatiere(Matiere m)
 		{
 			int i = listMatiere.FindIndex(x => x.matId == m.matId);
@@ -48,6 +60,11 @@ namespace Madera.Classes
 			listMatiere.Insert(i, m);
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="matId"></param>
+		/// <returns>Vrai si réussi | Faux en cas d'erreur</returns>
 		public static bool supprimerMatiere(Guid matId)
 		{
 			try
