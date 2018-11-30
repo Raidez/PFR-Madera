@@ -15,10 +15,10 @@ namespace Madera
     {
         public GestionFournisseur() {
             InitializeComponent();
-            reloadFourn();
+            ReloadFourn();
         }
     	
-    	public void reloadFourn() {
+    	public void ReloadFourn() {
     		// vidage des combox
     		ComboBoxModifierFournisseur.Items.Clear();
     		ComboBoxSupprimerFournisseur.Items.Clear();
@@ -42,14 +42,29 @@ namespace Madera
     	}
     	
     	void GestionFournisseurPaint(object sender, PaintEventArgs e) {
-    		reloadFourn();
+    		ReloadFourn();
 		}
+    	
+    	public void ResetControls() {
+    		TextBoxNom.Text = "";
+			TextBoxNumRue.Text = "";
+			TextBoxRue.Text = "";
+			TextBoxCodePostal.Text = "";
+			TextBoxVille.Text = "";
+			TextBoxTelephone.Text = "";
+			TextBoxEmail.Text = "";
+			ComboBoxPays.Text = "";
+			ComboBoxPays.SelectedIndex = -1;
+    	}
     	
     	public bool CheckControls() {
     		bool isOK = TextBoxNom.Text.Any();
-    		isOK &= TextBoxTelephone.Text.Any();
+    		isOK &= TextBoxNumRue.Text.Any();
     		isOK &= TextBoxRue.Text.Any();
     		isOK &= TextBoxCodePostal.Text.Any();
+    		isOK &= TextBoxVille.Text.Any();
+    		isOK &= TextBoxTelephone.Text.Any();
+    		isOK &= TextBoxEmail.Text.Any();
     		isOK &= ComboBoxPays.SelectedIndex >= 0;
     		
     		return isOK;
@@ -59,12 +74,9 @@ namespace Madera
     		if (!CheckControls()) {
     			MessageBox.Show("Renseignez tout les champs !");
     		} else {
-    			new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, 31, TextBoxRue.Text, TextBoxCodePostal.Text, "ville", ComboBoxPays.SelectedText, "a@a.ab").ajouterFourni();
-    			TextBoxNom.Text = "";
-    			TextBoxTelephone.Text = "";
-    			TextBoxCodePostal.Text = "";
-    			ComboBoxPays.Text = "";
-    			reloadFourn();
+    			new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, ComboBoxPays.SelectedText, TextBoxEmail.Text).ajouterFourni();
+    			ResetControls();
+    			ReloadFourn();
     		}
 		}
     	
@@ -86,7 +98,7 @@ namespace Madera
     			Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
     			if (Fournisseur.supprimer(fournisseur)) {
 	            	MessageBox.Show("Le fournisseur a été supprimé !");
-	            	reloadFourn();
+	            	ReloadFourn();
     			}
     		}
 		}

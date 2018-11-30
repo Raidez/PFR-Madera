@@ -24,24 +24,28 @@ namespace Madera
             InitializeComponent();
     		fournisseur = Fournisseur.afficher(((Fournisseur) f).fouId);
     		fournisseurBak = (Fournisseur) fournisseur.Clone();
-    		reloadForm();
+    		ReloadForm();
     	}
     	
-    	public void reloadForm() {
+    	public void ReloadForm() {
     		TextBoxFournisseur.Text = fournisseur.fouNom;
-    		TextBoxTelephone.Text = fournisseur.fouTel;
+    		TextBoxNumRue.Text = fournisseur.fouAdrNumero.ToString();
     		TextBoxRue.Text = fournisseur.fouAdrRue;
     		TextBoxCodePostal.Text = fournisseur.fouAdrCodePostal;
     		TextBoxVille.Text = fournisseur.fouVille;
+    		TextBoxTelephone.Text = fournisseur.fouTel;
+    		TextBoxEmail.Text = fournisseur.fouMail;
     		ComboBoxPays.Text = fournisseur.fouPays;
     	}
     	
 		void BtnModificationFournisseurClick(object sender, EventArgs e) {
     		fournisseur.fouNom = TextBoxFournisseur.Text;
-    		fournisseur.fouTel = TextBoxTelephone.Text;
+    		fournisseur.fouAdrNumero = Int32.Parse(TextBoxNumRue.Text);
     		fournisseur.fouAdrRue = TextBoxRue.Text;
-    		fournisseur.fouAdrCodePostal = TextBoxCodePostal.Text;
     		fournisseur.fouVille = TextBoxVille.Text;
+    		fournisseur.fouAdrCodePostal = TextBoxCodePostal.Text;
+    		fournisseur.fouTel = TextBoxTelephone.Text;
+    		fournisseur.fouMail = TextBoxEmail.Text;
     		fournisseur.fouPays = ComboBoxPays.Text;
 			ActionButtonGeneric.GoBack(this);
 		}
@@ -49,7 +53,7 @@ namespace Madera
     	
 		void BtnResetClick(object sender, EventArgs e) {
     		fournisseur = (Fournisseur) fournisseurBak.Clone();
-    		reloadForm();
+    		ReloadForm();
 		}
     	
 		void BtnRetourClick(object sender, EventArgs e) {

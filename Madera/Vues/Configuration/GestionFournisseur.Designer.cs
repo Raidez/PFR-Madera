@@ -61,6 +61,8 @@
         	this.panelNavBar = new System.Windows.Forms.Panel();
         	this.BtnReduce = new System.Windows.Forms.Button();
         	this.BtnExit = new System.Windows.Forms.Button();
+        	this.TextBoxVille = new System.Windows.Forms.TextBox();
+        	this.label12 = new System.Windows.Forms.Label();
         	this.panel1.SuspendLayout();
         	this.panel3.SuspendLayout();
         	this.panel2.SuspendLayout();
@@ -177,6 +179,8 @@
         	// panel2
         	// 
         	this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        	this.panel2.Controls.Add(this.TextBoxVille);
+        	this.panel2.Controls.Add(this.label12);
         	this.panel2.Controls.Add(this.TextBoxNumRue);
         	this.panel2.Controls.Add(this.label11);
         	this.panel2.Controls.Add(this.TextBoxEmail);
@@ -457,6 +461,24 @@
         	this.BtnExit.UseVisualStyleBackColor = true;
         	this.BtnExit.Click += new System.EventHandler(this.BtnExitClick);
         	// 
+        	// TextBoxVille
+        	// 
+        	this.TextBoxVille.Location = new System.Drawing.Point(193, 76);
+        	this.TextBoxVille.Margin = new System.Windows.Forms.Padding(2);
+        	this.TextBoxVille.Name = "TextBoxVille";
+        	this.TextBoxVille.Size = new System.Drawing.Size(181, 20);
+        	this.TextBoxVille.TabIndex = 18;
+        	// 
+        	// label12
+        	// 
+        	this.label12.AutoSize = true;
+        	this.label12.Location = new System.Drawing.Point(157, 79);
+        	this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        	this.label12.Name = "label12";
+        	this.label12.Size = new System.Drawing.Size(35, 13);
+        	this.label12.TabIndex = 17;
+        	this.label12.Text = "Ville : ";
+        	// 
         	// GestionFournisseur
         	// 
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,5 +544,7 @@
         private System.Windows.Forms.Panel panelNavBar;
         private System.Windows.Forms.Button BtnReduce;
         private System.Windows.Forms.Button BtnExit;
+        private System.Windows.Forms.TextBox TextBoxVille;
+        private System.Windows.Forms.Label label12;
     }
 }
