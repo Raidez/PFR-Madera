@@ -8,7 +8,7 @@ namespace Madera.Classes
 {
 	class Parametre
 	{
-		public int parID { get; set; }
+		public int parId { get; set; }
 		public string parNom { get; set; }
 		public Object parValeur { get; set; }
 		public static List<Parametre> listParametre = new List<Parametre>();
@@ -17,20 +17,34 @@ namespace Madera.Classes
 		{
 			this.parNom = parNom;
 			this.parValeur = parValeur;
-			this.parID = listParametre.Count;
+			this.parId = listParametre.Count;
 		}
 
-		public void ajouterParam(Parametre p) {
+		public static void _init(){
+			listParametre.Add(new Parametre("Longueur", 15));
+			listParametre.Add(new Parametre("Largeur", 10));
+			listParametre.Add(new Parametre("Profondeur", 14));
+		}
+
+		public static void ajouterParam(Parametre p) {
 			listParametre.Add(p);
 		}
 
-		public void modifierParam(Parametre p) {
-			listParametre.RemoveAt(p.parID);
-			listParametre.Insert(p.parID, p);
+		public static void modifierParam(Parametre p) {
+			int i = listParametre.FindIndex(x => x.parId == p.parId);
+			listParametre.RemoveAt(i);
+			listParametre.Insert(i, p);
 		}
 
-		public bool supprimerParam(Parametre p) {
-			listParametre.Remove(p);
+		public static bool supprimerParam(int parId) {
+			try
+			{
+				listParametre.RemoveAt(listParametre.FindIndex(x => x.parId == parId));
+			}
+			catch (Exception e)
+			{
+				return false;
+			}
 
 			return true;
 		}
