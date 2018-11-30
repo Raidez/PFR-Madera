@@ -31,7 +31,7 @@ namespace Madera.Classes
 			{
 				listParametre.FindIndex(x => x.parId == this.parId);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				throw new Exception("Paramètre déjà existant");
 			}

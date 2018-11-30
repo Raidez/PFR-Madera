@@ -35,7 +35,7 @@ namespace Madera.Classes
 			{
 				listGamme.FindIndex(x => x.gamId == this.gamId);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				throw new Exception("Gamme déjà existante");
 			}
