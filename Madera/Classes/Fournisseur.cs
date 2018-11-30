@@ -38,19 +38,19 @@ namespace Madera.Classes
 			listFournisseur.Add(new Fournisseur("YoloLand3", "0123456789", 15, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us"));
 		}
 
-		public static void ajouterParam(Fournisseur f)
+		public static void ajouterFourni(Fournisseur f)
 		{
 			listFournisseur.Add(f);
 		}
 
-		public static void modifierParam(Fournisseur f)
+		public static void modifierFourni(Fournisseur f)
 		{
 			int i = listFournisseur.FindIndex(x => x.fouId == f.fouId);
 			listFournisseur.RemoveAt(i);
 			listFournisseur.Insert(i, f);
 		}
 
-		public static bool supprimerParam(int fouId)
+		public static bool supprimerFourni(int fouId)
 		{
 			try
 			{
