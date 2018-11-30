@@ -8,7 +8,7 @@ namespace Madera.Classes
 {
 	class Fournisseur
 	{
-		public int fouId { get; set; }
+		public Guid fouId { get; set; }
 		public string fouNom { get; set; }
 		public string fouTel { get; set; }
 		public int fouAdrNumero { get; set; }
@@ -29,8 +29,7 @@ namespace Madera.Classes
 			this.fouVille = fouVille;
 			this.fouPays = fouPays;
 			this.fouMail = fouMail;
-			this.fouId = listFournisseur.Count;
-			listFournisseur.Add(this);
+			this.fouId = Guid.NewGuid();
 		}
 
 		public static void _init() {
@@ -38,6 +37,23 @@ namespace Madera.Classes
 			new Fournisseur("YoloLand2", "0123456789", 10, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
 			new Fournisseur("YoloLand3", "0123456789", 15, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
 		}
+
+		public static Fournisseur _initOne() {
+			return new Fournisseur("YoloLand3", "0123456789", 15, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
+		}
+
+		public void ajouterFourni()
+		{
+			try
+			{
+				listFournisseur.FindIndex(x => x.fouId == this.fouId);
+			}
+			catch (Exception e)
+			{
+				throw new Exception("Fournisseur déjà existant");
+			}
+
+			listFournisseur.Add(this);
 		
 		public static Fournisseur afficher(int id) {
 			return listFournisseur.Find(x => x.fouId == id);
@@ -45,6 +61,20 @@ namespace Madera.Classes
 		
 		public static bool supprimer(Fournisseur fourn) {
 			return listFournisseur.Remove(fourn);
+		}
+
+		public static bool supprimerFourni(Guid fouId)
+		{
+			try
+			{
+				listFournisseur.RemoveAt(listFournisseur.FindIndex(x => x.fouId == fouId));
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+
+			return true;
 		}
 	}
 }
