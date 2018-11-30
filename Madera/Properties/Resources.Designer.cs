@@ -73,6 +73,16 @@ namespace Madera.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dossier {
+            get {
+                object obj = ResourceManager.GetObject("dossier", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoMadera {
             get {
                 object obj = ResourceManager.GetObject("logoMadera", resourceCulture);
