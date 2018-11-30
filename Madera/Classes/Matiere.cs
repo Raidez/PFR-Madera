@@ -8,7 +8,7 @@ namespace Madera.Classes
 {
 	class Matiere
 	{
-		public int matId { get; set; }
+		public Guid matId { get; set; }
 		public string matLibelle { get; set; }
 		public Fournisseur matFournisseur { get; set; }
 		public static List<Matiere> listMatiere = new List<Matiere>();
@@ -17,7 +17,7 @@ namespace Madera.Classes
 		{
 			this.matLibelle = matLibelle;
 			this.matFournisseur = matFournisseur;
-			this.matId = listMatiere.Count;
+			this.matId = Guid.NewGuid();
 		}
 
 		public static void _init() {
@@ -29,6 +29,15 @@ namespace Madera.Classes
 
 		public static void ajouterMatiere(Matiere m)
 		{
+			try
+			{
+				listMatiere.FindIndex(x => x.matId == m.matId);
+			}
+			catch (Exception e)
+			{
+				throw new Exception("Matière déjà existante");
+			}
+
 			listMatiere.Add(m);
 		}
 
@@ -39,7 +48,7 @@ namespace Madera.Classes
 			listMatiere.Insert(i, m);
 		}
 
-		public static bool supprimerMatiere(int matId)
+		public static bool supprimerMatiere(Guid matId)
 		{
 			try
 			{

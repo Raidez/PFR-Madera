@@ -8,7 +8,7 @@ namespace Madera.Classes
 {
 	class Module
 	{
-		public int modId { get; set; }
+		public Guid modId { get; set; }
 		public string modLibele { get; set; }
 		public Gamme modGamme { get; set; }
 		public Matiere modMatiere { get; set; }
@@ -23,7 +23,7 @@ namespace Madera.Classes
 			this.modMatiere = modMatiere;
 			this.prixBase = prixBase;
 			this.modParametres = modParametres;
-			this.modId = listModule.Count;
+			this.modId = Guid.NewGuid();
 		}
 
 		public void changerGamme(Gamme g) {
@@ -32,6 +32,53 @@ namespace Madera.Classes
 
 		public void changerMatiere(Matiere m) {
 			this.modMatiere = m;
+		}
+
+		public void modifierParametre(Parametre p) {
+			int i = modParametres.FindIndex(x => x.parId == p.parId);
+			modParametres.RemoveAt(i);
+			modParametres.Insert(i, p);
+		}
+
+		public static void _init() {
+			Gamme g = new Gamme("Yolo");
+			Matiere m = new Matiere("Ouaiche", Fournisseur._initOne());
+			listModule.Add(new Module("Home Sweet Home", g, m, 11.5, Parametre.listParametre));
+		}
+
+		public static void ajouterModule(Module m)
+		{
+			try
+			{
+				listModule.FindIndex(x => x.modId == m.modId);
+			}
+			catch (Exception e)
+			{
+				throw new Exception("Module déjà existant");
+			}
+
+			listModule.Add(m);
+		}
+
+		public static void modifierModule(Module m)
+		{
+			int i = listModule.FindIndex(x => x.modId == m.modId);
+			listModule.RemoveAt(i);
+			listModule.Insert(i, m);
+		}
+
+		public static bool supprimerModule(Guid modId)
+		{
+			try
+			{
+				listModule.RemoveAt(listModule.FindIndex(x => x.modId == modId));
+			}
+			catch (Exception e)
+			{
+				return false;
+			}
+
+			return true;
 		}
 	}
 }

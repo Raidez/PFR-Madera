@@ -8,7 +8,7 @@ namespace Madera.Classes
 {
 	class Gamme
 	{
-		public int gamId { get; set; }
+		public Guid gamId { get; set; }
 		public string gamLibelle { get; set; }
 		public static List<Gamme> listGamme = new List<Gamme>();
 		
@@ -16,7 +16,7 @@ namespace Madera.Classes
 		public Gamme(string gamLibelle)
 		{
 			this.gamLibelle = gamLibelle;
-			this.gamId = listGamme.Count;
+			this.gamId = Guid.NewGuid();
 		}
 
 		public Gamme(int gamId, string gamLibelle)
@@ -32,6 +32,15 @@ namespace Madera.Classes
 		}
 
 		public static void ajoutGamme(Gamme g) {
+			try
+			{
+				listGamme.FindIndex(x => x.gamId == g.gamId);
+			}
+			catch (Exception e)
+			{
+				throw new Exception("Gamme déjà existante");
+			}
+
 			listGamme.Add(g);
 		}
 
@@ -41,7 +50,7 @@ namespace Madera.Classes
 			listGamme.Insert(i, g);
 		}
 
-		public static bool supprimeGamme(int gamId) {
+		public static bool supprimeGamme(Guid gamId) {
 			try {
 				listGamme.RemoveAt(listGamme.FindIndex(x => x.gamId == gamId));
 			} catch (Exception e) {

@@ -8,7 +8,7 @@ namespace Madera.Classes
 {
 	class Parametre
 	{
-		public int parId { get; set; }
+		public Guid parId { get; set; }
 		public string parNom { get; set; }
 		public Object parValeur { get; set; }
 		public static List<Parametre> listParametre = new List<Parametre>();
@@ -17,7 +17,7 @@ namespace Madera.Classes
 		{
 			this.parNom = parNom;
 			this.parValeur = parValeur;
-			this.parId = listParametre.Count;
+			this.parId = Guid.NewGuid();
 		}
 
 		public static void _init(){
@@ -27,6 +27,15 @@ namespace Madera.Classes
 		}
 
 		public static void ajouterParam(Parametre p) {
+			try
+			{
+				listParametre.FindIndex(x => x.parId == p.parId);
+			}
+			catch (Exception e)
+			{
+				throw new Exception("Paramètre déjà existant");
+			}
+
 			listParametre.Add(p);
 		}
 
@@ -36,7 +45,7 @@ namespace Madera.Classes
 			listParametre.Insert(i, p);
 		}
 
-		public static bool supprimerParam(int parId) {
+		public static bool supprimerParam(Guid parId) {
 			try
 			{
 				listParametre.RemoveAt(listParametre.FindIndex(x => x.parId == parId));

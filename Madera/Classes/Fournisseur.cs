@@ -8,7 +8,7 @@ namespace Madera.Classes
 {
 	class Fournisseur
 	{
-		public int fouId { get; set; }
+		public Guid fouId { get; set; }
 		public string fouNom { get; set; }
 		public string fouTel { get; set; }
 		public int fouAdrNumero { get; set; }
@@ -29,7 +29,7 @@ namespace Madera.Classes
 			this.fouVille = fouVille;
 			this.fouPays = fouPays;
 			this.fouMail = fouMail;
-			this.fouId = listFournisseur.Count;
+			this.fouId = Guid.NewGuid();
 		}
 
 		public static void _init() {
@@ -38,8 +38,21 @@ namespace Madera.Classes
 			listFournisseur.Add(new Fournisseur("YoloLand3", "0123456789", 15, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us"));
 		}
 
+		public static Fournisseur _initOne() {
+			return new Fournisseur("YoloLand3", "0123456789", 15, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
+		}
+
 		public static void ajouterFourni(Fournisseur f)
 		{
+			try
+			{
+				listFournisseur.FindIndex(x => x.fouId == f.fouId);
+			}
+			catch (Exception e)
+			{
+				throw new Exception("Fournisseur déjà existant");
+			}
+
 			listFournisseur.Add(f);
 		}
 
@@ -50,7 +63,7 @@ namespace Madera.Classes
 			listFournisseur.Insert(i, f);
 		}
 
-		public static bool supprimerFourni(int fouId)
+		public static bool supprimerFourni(Guid fouId)
 		{
 			try
 			{
