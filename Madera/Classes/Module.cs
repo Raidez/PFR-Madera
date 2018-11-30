@@ -48,12 +48,10 @@ namespace Madera.Classes
 
 		public void ajouterModule()
 		{
-			try
-			{
+			try {
 				listModule.FindIndex(x => x.modId == this.modId);
 			}
-			catch (Exception)
-			{
+			catch (Exception) {
 				throw new Exception("Module déjà existant");
 			}
 

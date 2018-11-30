@@ -27,12 +27,10 @@ namespace Madera.Classes
 		}
 
 		public void ajouterParam() {
-			try
-			{
+			try {
 				listParametre.FindIndex(x => x.parId == this.parId);
 			}
-			catch (Exception)
-			{
+			catch (Exception) {
 				throw new Exception("Paramètre déjà existant");
 			}
 

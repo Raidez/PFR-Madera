@@ -31,12 +31,10 @@ namespace Madera.Classes
 		}
 
 		public void ajoutGamme() {
-			try
-			{
+			try {
 				listGamme.FindIndex(x => x.gamId == this.gamId);
 			}
-			catch (Exception)
-			{
+			catch (Exception) {
 				throw new Exception("Gamme déjà existante");
 			}
 

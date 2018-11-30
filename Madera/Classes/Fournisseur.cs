@@ -32,9 +32,9 @@ namespace Madera.Classes
 		}
 
 		public static void _init() {
-			new Fournisseur("YoloLand1", "0123456789", 5, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
-			new Fournisseur("YoloLand2", "0123456789", 10, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
-			new Fournisseur("YoloLand3", "0123456789", 15, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
+			new Fournisseur("YoloLand1", "0123456789", 5, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us").ajouterFourni();
+			new Fournisseur("YoloLand2", "0123456789", 10, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us").ajouterFourni();
+			new Fournisseur("YoloLand3", "0123456789", 15, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us").ajouterFourni();
 		}
 
 		public static Fournisseur _initOne() {
@@ -43,18 +43,17 @@ namespace Madera.Classes
 
 		public void ajouterFourni()
 		{
-			try
-			{
+			try {
 				listFournisseur.FindIndex(x => x.fouId == this.fouId);
 			}
-			catch (Exception)
-			{
+			catch (Exception) {
 				throw new Exception("Fournisseur déjà existant");
 			}
 
 			listFournisseur.Add(this);
+		}
 		
-		public static Fournisseur afficher(int id) {
+		public static Fournisseur afficher(Guid id) {
 			return listFournisseur.Find(x => x.fouId == id);
 		}
 		

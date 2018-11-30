@@ -45,7 +45,7 @@ namespace Madera
             	MessageBox.Show("Vous devez renseigner le nom de la gamme !");
     		} else {
     			// ajout de la gamme
-    			Gamme.ajoutGamme(new Gamme(textBox1.Text));
+    			new Gamme(textBox1.Text).ajoutGamme();
     			MessageBox.Show("La gamme a été créer !");
     			this.textBox1.Text = "";
     			reloadGammes();
@@ -57,10 +57,10 @@ namespace Madera
     			MessageBox.Show((!textBox2.Text.Any())? "Vous devez renseigner le nouveau nom de la gamme sélectionnée" : "Il n'y a pas de gammes !");
     		} else {
     			// modification de la gamme
-    			int id = (int) (comboBox1.SelectedItem as ComboxItem).Value;
-    			Gamme.modifierGamme(new Gamme(id, textBox2.Text));
+    			Guid id = (Guid) (comboBox1.SelectedItem as ComboxItem).Value;
+    			Gamme.afficherGamme(id).gamLibelle = textBox2.Text;
     			MessageBox.Show("La gamme a été modifiée !");
-    			this.textBox2.Text = "";
+    			textBox2.Text = "";
     			reloadGammes();
     		}
         }
@@ -70,7 +70,7 @@ namespace Madera
     			MessageBox.Show("Il n'y a pas de gammes !");
     		} else {
 	            ComboxItem item = (ComboxItem) comboBox2.SelectedItem;
-	            if (Gamme.supprimeGamme((int) item.Value)) {
+	            if (Gamme.supprimeGamme((Guid) item.Value)) {
 	            	MessageBox.Show("La gamme a été supprimée !");
 	    			reloadGammes();
 	            }

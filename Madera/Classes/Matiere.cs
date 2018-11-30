@@ -29,12 +29,10 @@ namespace Madera.Classes
 
 		public void ajouterMatiere()
 		{
-			try
-			{
+			try {
 				listMatiere.FindIndex(x => x.matId == this.matId);
 			}
-			catch (Exception e)
-			{
+			catch (Exception) {
 				throw new Exception("Matière déjà existante");
 			}
 

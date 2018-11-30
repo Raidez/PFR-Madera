@@ -59,7 +59,7 @@ namespace Madera
     		if (!CheckControls()) {
     			MessageBox.Show("Renseignez tout les champs !");
     		} else {
-    			Fournisseur fourn = new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, 31, TextBoxRue.Text, TextBoxCodePostal.Text, "ville", ComboBoxPays.SelectedText, "a@a.ab");
+    			new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, 31, TextBoxRue.Text, TextBoxCodePostal.Text, "ville", ComboBoxPays.SelectedText, "a@a.ab").ajouterFourni();
     			TextBoxNom.Text = "";
     			TextBoxTelephone.Text = "";
     			TextBoxCodePostal.Text = "";
@@ -73,7 +73,7 @@ namespace Madera
     			MessageBox.Show("Il n'y a pas de fournisseurs !");
     		} else {
     			ComboxItem item = (ComboxItem) ComboBoxModifierFournisseur.SelectedItem;
-    			Fournisseur fournisseur = Fournisseur.afficher((int) item.Value);
+    			Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
     			ActionButtonGeneric.GoNextForm(this, new ModificationFournisseur(fournisseur));
     		}
 		}
@@ -82,8 +82,8 @@ namespace Madera
 			if (Fournisseur.listFournisseur.Count <= 0) {
     			MessageBox.Show("Il n'y a pas de fournisseurs !");
     		} else {
-    			ComboxItem item = (ComboxItem) ComboBoxModifierFournisseur.SelectedItem;
-    			Fournisseur fournisseur = Fournisseur.afficher((int) item.Value);
+    			ComboxItem item = (ComboxItem) ComboBoxSupprimerFournisseur.SelectedItem;
+    			Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
     			if (Fournisseur.supprimer(fournisseur)) {
 	            	MessageBox.Show("Le fournisseur a été supprimé !");
 	            	reloadFourn();
