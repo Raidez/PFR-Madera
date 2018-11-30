@@ -13,23 +13,47 @@ namespace Madera
 {
     public partial class ModificationFournisseur : Form
     {
+    	Fournisseur fournisseur;
+    	Fournisseur fournisseurBak;
+    	
         public ModificationFournisseur() {
             InitializeComponent();
         }
     	
     	public ModificationFournisseur(object f) {
-    		Fournisseur fournisseur = (Fournisseur) f;
+            InitializeComponent();
+    		fournisseur = Fournisseur.afficher(((Fournisseur) f).fouId);
+    		fournisseurBak = (Fournisseur) fournisseur.Clone();
+    		reloadForm();
+    	}
+    	
+    	public void reloadForm() {
     		TextBoxFournisseur.Text = fournisseur.fouNom;
     		TextBoxTelephone.Text = fournisseur.fouTel;
     		TextBoxRue.Text = fournisseur.fouAdrRue;
     		TextBoxCodePostal.Text = fournisseur.fouAdrCodePostal;
     		TextBoxVille.Text = fournisseur.fouVille;
-    		//ComboBoxPays
-    		//fournisseur.fouAdrNumero;
+    		ComboBoxPays.Text = fournisseur.fouPays;
     	}
     	
 		void BtnModificationFournisseurClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.GoBack(this);
+    		fournisseur.fouNom = TextBoxFournisseur.Text;
+    		fournisseur.fouTel = TextBoxTelephone.Text;
+    		fournisseur.fouAdrRue = TextBoxRue.Text;
+    		fournisseur.fouAdrCodePostal = TextBoxCodePostal.Text;
+    		fournisseur.fouVille = TextBoxVille.Text;
+    		fournisseur.fouPays = ComboBoxPays.Text;
+			ActionButtonGeneric.GoBack(this);
+		}
+    	
+    	
+		void BtnResetClick(object sender, EventArgs e) {
+    		fournisseur = (Fournisseur) fournisseurBak.Clone();
+    		reloadForm();
+		}
+    	
+		void BtnRetourClick(object sender, EventArgs e) {
+			ActionButtonGeneric.GoBack(this);
 		}
     }
 }

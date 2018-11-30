@@ -41,19 +41,16 @@ namespace Madera
     		
     	}
     	
+    	void GestionFournisseurPaint(object sender, PaintEventArgs e) {
+    		reloadFourn();
+		}
+    	
     	public bool CheckControls() {
     		bool isOK = TextBoxNom.Text.Any();
     		isOK &= TextBoxTelephone.Text.Any();
     		isOK &= TextBoxRue.Text.Any();
     		isOK &= TextBoxCodePostal.Text.Any();
     		isOK &= ComboBoxPays.SelectedIndex >= 0;
-    		
-    		if (isOK) {
-    			TextBoxNom.Text = "";
-    			TextBoxTelephone.Text = "";
-    			TextBoxCodePostal.Text = "";
-    			ComboBoxPays.Text = "";
-    		}
     		
     		return isOK;
     	}
@@ -63,6 +60,10 @@ namespace Madera
     			MessageBox.Show("Renseignez tout les champs !");
     		} else {
     			Fournisseur fourn = new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, 31, TextBoxRue.Text, TextBoxCodePostal.Text, "ville", ComboBoxPays.SelectedText, "a@a.ab");
+    			TextBoxNom.Text = "";
+    			TextBoxTelephone.Text = "";
+    			TextBoxCodePostal.Text = "";
+    			ComboBoxPays.Text = "";
     			reloadFourn();
     		}
 		}

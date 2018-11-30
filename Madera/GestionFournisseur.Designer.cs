@@ -391,6 +391,7 @@
         	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "GestionFournisseur";
         	this.Text = "GestionFournisseur";
+        	this.Paint += new System.Windows.Forms.PaintEventHandler(this.GestionFournisseurPaint);
         	this.panel1.ResumeLayout(false);
         	this.panel1.PerformLayout();
         	this.panel3.ResumeLayout(false);

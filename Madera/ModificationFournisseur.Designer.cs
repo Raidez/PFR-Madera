@@ -48,6 +48,7 @@
         	this.label5 = new System.Windows.Forms.Label();
         	this.label4 = new System.Windows.Forms.Label();
         	this.pictureBox1 = new System.Windows.Forms.PictureBox();
+        	this.BtnReset = new System.Windows.Forms.Button();
         	this.panel1.SuspendLayout();
         	this.panel4.SuspendLayout();
         	((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,16 +58,18 @@
         	// 
         	this.BtnRetour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         	this.BtnRetour.Location = new System.Drawing.Point(671, 513);
-        	this.BtnRetour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.BtnRetour.Margin = new System.Windows.Forms.Padding(2);
         	this.BtnRetour.Name = "BtnRetour";
         	this.BtnRetour.Size = new System.Drawing.Size(123, 63);
         	this.BtnRetour.TabIndex = 26;
         	this.BtnRetour.Text = "Retour";
         	this.BtnRetour.UseVisualStyleBackColor = true;
+        	this.BtnRetour.Click += new System.EventHandler(this.BtnRetourClick);
         	// 
         	// panel1
         	// 
         	this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        	this.panel1.Controls.Add(this.BtnReset);
         	this.panel1.Controls.Add(this.BtnModificationFournisseur);
         	this.panel1.Controls.Add(this.ComboBoxPays);
         	this.panel1.Controls.Add(this.label9);
@@ -81,7 +84,7 @@
         	this.panel1.Controls.Add(this.TextBoxFournisseur);
         	this.panel1.Controls.Add(this.label1);
         	this.panel1.Location = new System.Drawing.Point(16, 112);
-        	this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.panel1.Margin = new System.Windows.Forms.Padding(2);
         	this.panel1.Name = "panel1";
         	this.panel1.Size = new System.Drawing.Size(779, 396);
         	this.panel1.TabIndex = 23;
@@ -93,7 +96,7 @@
         	this.BtnModificationFournisseur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         	this.BtnModificationFournisseur.ForeColor = System.Drawing.Color.White;
         	this.BtnModificationFournisseur.Location = new System.Drawing.Point(683, 348);
-        	this.BtnModificationFournisseur.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.BtnModificationFournisseur.Margin = new System.Windows.Forms.Padding(2);
         	this.BtnModificationFournisseur.Name = "BtnModificationFournisseur";
         	this.BtnModificationFournisseur.Size = new System.Drawing.Size(65, 24);
         	this.BtnModificationFournisseur.TabIndex = 15;
@@ -135,7 +138,7 @@
 			"Suède",
 			"Tchéquie"});
         	this.ComboBoxPays.Location = new System.Drawing.Point(57, 181);
-        	this.ComboBoxPays.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.ComboBoxPays.Margin = new System.Windows.Forms.Padding(2);
         	this.ComboBoxPays.Name = "ComboBoxPays";
         	this.ComboBoxPays.Size = new System.Drawing.Size(177, 21);
         	this.ComboBoxPays.TabIndex = 14;
@@ -153,7 +156,7 @@
         	// TextBoxVille
         	// 
         	this.TextBoxVille.Location = new System.Drawing.Point(53, 150);
-        	this.TextBoxVille.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.TextBoxVille.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxVille.Name = "TextBoxVille";
         	this.TextBoxVille.Size = new System.Drawing.Size(181, 20);
         	this.TextBoxVille.TabIndex = 9;
@@ -171,7 +174,7 @@
         	// TextBoxCodePostal
         	// 
         	this.TextBoxCodePostal.Location = new System.Drawing.Point(88, 123);
-        	this.TextBoxCodePostal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.TextBoxCodePostal.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxCodePostal.Name = "TextBoxCodePostal";
         	this.TextBoxCodePostal.Size = new System.Drawing.Size(146, 20);
         	this.TextBoxCodePostal.TabIndex = 7;
@@ -189,7 +192,7 @@
         	// TextBoxRue
         	// 
         	this.TextBoxRue.Location = new System.Drawing.Point(53, 97);
-        	this.TextBoxRue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.TextBoxRue.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxRue.Name = "TextBoxRue";
         	this.TextBoxRue.Size = new System.Drawing.Size(181, 20);
         	this.TextBoxRue.TabIndex = 5;
@@ -207,7 +210,7 @@
         	// TextBoxTelephone
         	// 
         	this.TextBoxTelephone.Location = new System.Drawing.Point(84, 71);
-        	this.TextBoxTelephone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.TextBoxTelephone.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxTelephone.Name = "TextBoxTelephone";
         	this.TextBoxTelephone.Size = new System.Drawing.Size(150, 20);
         	this.TextBoxTelephone.TabIndex = 3;
@@ -225,7 +228,7 @@
         	// TextBoxFournisseur
         	// 
         	this.TextBoxFournisseur.Location = new System.Drawing.Point(127, 41);
-        	this.TextBoxFournisseur.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.TextBoxFournisseur.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxFournisseur.Name = "TextBoxFournisseur";
         	this.TextBoxFournisseur.Size = new System.Drawing.Size(108, 20);
         	this.TextBoxFournisseur.TabIndex = 1;
@@ -244,7 +247,7 @@
         	// 
         	this.BtnDeconnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
         	this.BtnDeconnection.Location = new System.Drawing.Point(16, 513);
-        	this.BtnDeconnection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.BtnDeconnection.Margin = new System.Windows.Forms.Padding(2);
         	this.BtnDeconnection.Name = "BtnDeconnection";
         	this.BtnDeconnection.Size = new System.Drawing.Size(123, 63);
         	this.BtnDeconnection.TabIndex = 25;
@@ -257,7 +260,7 @@
         	this.panel4.Controls.Add(this.label5);
         	this.panel4.Controls.Add(this.label4);
         	this.panel4.Location = new System.Drawing.Point(143, 513);
-        	this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.panel4.Margin = new System.Windows.Forms.Padding(2);
         	this.panel4.Name = "panel4";
         	this.panel4.Size = new System.Drawing.Size(524, 63);
         	this.panel4.TabIndex = 24;
@@ -287,11 +290,21 @@
         	this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
         	this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
         	this.pictureBox1.Location = new System.Drawing.Point(16, 10);
-        	this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
         	this.pictureBox1.Name = "pictureBox1";
         	this.pictureBox1.Size = new System.Drawing.Size(304, 98);
         	this.pictureBox1.TabIndex = 22;
         	this.pictureBox1.TabStop = false;
+        	// 
+        	// BtnReset
+        	// 
+        	this.BtnReset.Location = new System.Drawing.Point(594, 348);
+        	this.BtnReset.Name = "BtnReset";
+        	this.BtnReset.Size = new System.Drawing.Size(75, 23);
+        	this.BtnReset.TabIndex = 16;
+        	this.BtnReset.Text = "Reset";
+        	this.BtnReset.UseVisualStyleBackColor = true;
+        	this.BtnReset.Click += new System.EventHandler(this.BtnResetClick);
         	// 
         	// ModificationFournisseur
         	// 
@@ -304,7 +317,7 @@
         	this.Controls.Add(this.pictureBox1);
         	this.Controls.Add(this.panel4);
         	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-        	this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+        	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "ModificationFournisseur";
         	this.Text = "ModificationFournisseur";
         	this.panel1.ResumeLayout(false);
@@ -338,5 +351,6 @@
         private System.Windows.Forms.ComboBox ComboBoxPays;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button BtnModificationFournisseur;
+        private System.Windows.Forms.Button BtnReset;
     }
 }

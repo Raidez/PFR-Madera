@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Madera.Classes
 {
-	class Fournisseur
+	class Fournisseur : ICloneable
 	{
 		public Guid fouId { get; set; }
 		public string fouNom { get; set; }
@@ -19,8 +19,7 @@ namespace Madera.Classes
 		public string fouMail { get; set; }
 		public static List<Fournisseur> listFournisseur = new List<Fournisseur>();
 
-		public Fournisseur(string fouNom, string fouTel, int fouAdrNumero, string fouAdrRue, string fouAdrCodePostal, string fouVille, string fouPays, string fouMail)
-		{
+		public Fournisseur(string fouNom, string fouTel, int fouAdrNumero, string fouAdrRue, string fouAdrCodePostal, string fouVille, string fouPays, string fouMail) {
 			this.fouNom = fouNom;
 			this.fouTel = fouTel;
 			this.fouAdrNumero = fouAdrNumero;
@@ -75,6 +74,10 @@ namespace Madera.Classes
 			}
 
 			return true;
+		}
+		
+		public object Clone() {
+			return this.MemberwiseClone();
 		}
 	}
 }
