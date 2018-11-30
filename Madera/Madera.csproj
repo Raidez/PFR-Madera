@@ -56,13 +56,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionBoutonGeneric.cs" />
-    <Compile Include="AffichageModule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AffichageModule.Designer.cs">
-      <DependentUpon>AffichageModule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\Devis.cs" />
     <Compile Include="Classes\Fournisseur.cs" />
@@ -71,60 +64,67 @@
     <Compile Include="Classes\Module.cs" />
     <Compile Include="Classes\Parametre.cs" />
     <Compile Include="Classes\Salarie.cs" />
-    <Compile Include="ComboxItem.cs" />
-    <Compile Include="CreerProjet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreerProjet.Designer.cs">
-      <DependentUpon>CreerProjet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EtatDevis.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EtatDevis.Designer.cs">
-      <DependentUpon>EtatDevis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionConfiguration.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionConfiguration.Designer.cs">
-      <DependentUpon>GestionConfiguration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionFournisseur.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionFournisseur.Designer.cs">
-      <DependentUpon>GestionFournisseur.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GestionGamme.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestionGamme.Designer.cs">
-      <DependentUpon>GestionGamme.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModificationFournisseur.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ModificationFournisseur.Designer.cs">
-      <DependentUpon>ModificationFournisseur.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="Projet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Projet.Designer.cs">
-      <DependentUpon>Projet.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ValidationCreation.cs">
+    <Compile Include="Vues\Configuration\AffichageModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ValidationCreation.Designer.cs">
+    <Compile Include="Vues\Configuration\AffichageModule.Designer.cs">
+      <DependentUpon>AffichageModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionConfiguration.Designer.cs">
+      <DependentUpon>GestionConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionFournisseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionFournisseur.Designer.cs">
+      <DependentUpon>GestionFournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionGamme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionGamme.Designer.cs">
+      <DependentUpon>GestionGamme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Configuration\ModificationFournisseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Configuration\ModificationFournisseur.Designer.cs">
+      <DependentUpon>ModificationFournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\CreerProjet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\CreerProjet.Designer.cs">
+      <DependentUpon>CreerProjet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\EtatDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\EtatDevis.Designer.cs">
+      <DependentUpon>EtatDevis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Projet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Projet.Designer.cs">
+      <DependentUpon>Projet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Util\ActionBoutonGeneric.cs" />
+    <Compile Include="Vues\Util\ComboxItem.cs" />
+    <Compile Include="Vues\ValidationCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\ValidationCreation.Designer.cs">
       <DependentUpon>ValidationCreation.cs</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -132,35 +132,35 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AffichageModule.resx">
-      <DependentUpon>AffichageModule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreerProjet.resx">
-      <DependentUpon>CreerProjet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EtatDevis.resx">
-      <DependentUpon>EtatDevis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionConfiguration.resx">
-      <DependentUpon>GestionConfiguration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionFournisseur.resx">
-      <DependentUpon>GestionFournisseur.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GestionGamme.resx">
-      <DependentUpon>GestionGamme.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ModificationFournisseur.resx">
-      <DependentUpon>ModificationFournisseur.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Projet.resx">
-      <DependentUpon>Projet.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ValidationCreation.resx">
+    <EmbeddedResource Include="Vues\Configuration\AffichageModule.resx">
+      <DependentUpon>AffichageModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Configuration\GestionConfiguration.resx">
+      <DependentUpon>GestionConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Configuration\GestionFournisseur.resx">
+      <DependentUpon>GestionFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Configuration\GestionGamme.resx">
+      <DependentUpon>GestionGamme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Configuration\ModificationFournisseur.resx">
+      <DependentUpon>ModificationFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\CreerProjet.resx">
+      <DependentUpon>CreerProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\EtatDevis.resx">
+      <DependentUpon>EtatDevis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Projet.resx">
+      <DependentUpon>Projet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\ValidationCreation.resx">
       <DependentUpon>ValidationCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -178,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes" />
+    <Folder Include="Vues" />
+    <Folder Include="Vues\Configuration" />
+    <Folder Include="Vues\Util" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

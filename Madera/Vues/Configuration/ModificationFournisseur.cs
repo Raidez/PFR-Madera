@@ -55,5 +55,9 @@ namespace Madera
 		void BtnRetourClick(object sender, EventArgs e) {
 			ActionButtonGeneric.GoBack(this);
 		}
+    	
+		void BtnExitClick(object sender, EventArgs e) {
+    		ActionButtonGeneric.Deconnexion();
+		}
     }
 }
