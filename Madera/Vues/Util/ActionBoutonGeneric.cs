@@ -20,14 +20,30 @@ namespace Madera
 		public static Stack<Form> pile = new Stack<Form>();
 		
 		public static void GoBack(Form frm) {
-    		pile.Pop().Show();
-    		frm.Hide();
+			if (pile.Count > 0) {
+	    		pile.Pop().Show();
+	    		frm.Hide();
+			}
 		}
 		
 		public static void GoNextForm(Form current, Form next) {
 			pile.Push(current);
 			next.Show();
 			current.Hide();
+		}
+		
+		public static void GoHome() {
+			while(pile.Count > 1) {
+				pile.Pop();
+			}
+			pile.Pop().Show();
+			
+			//Application.Run();
+			
+			/*
+			pile.Clear();
+			new Projet();
+			*/
 		}
 		
 		public static void Deconnexion() {
