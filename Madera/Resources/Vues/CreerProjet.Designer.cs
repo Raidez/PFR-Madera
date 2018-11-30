@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,10 +43,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panelNavBar = new System.Windows.Forms.Panel();
-            this.BtnReduce = new System.Windows.Forms.Button();
-            this.BtnExit = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -66,28 +63,15 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.BtnAjouterModule);
             this.panel1.Controls.Add(this.BtnValider);
-            this.panel1.Location = new System.Drawing.Point(12, 195);
+            this.panel1.Location = new System.Drawing.Point(12, 138);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1038, 430);
+            this.panel1.Size = new System.Drawing.Size(1038, 487);
             this.panel1.TabIndex = 3;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = global::Madera.Resources.BtnPlus;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(221, 230);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(32, 25);
-            this.button1.TabIndex = 13;
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(69, 230);
+            this.label6.Location = new System.Drawing.Point(72, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(146, 17);
             this.label6.TabIndex = 12;
@@ -96,7 +80,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(187, 178);
+            this.comboBox1.Location = new System.Drawing.Point(190, 122);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(163, 24);
             this.comboBox1.TabIndex = 11;
@@ -104,7 +88,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(112, 178);
+            this.label3.Location = new System.Drawing.Point(115, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 17);
             this.label3.TabIndex = 10;
@@ -112,7 +96,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(187, 150);
+            this.textBox2.Location = new System.Drawing.Point(190, 94);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(163, 22);
             this.textBox2.TabIndex = 9;
@@ -120,7 +104,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 150);
+            this.label2.Location = new System.Drawing.Point(35, 94);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 17);
             this.label2.TabIndex = 8;
@@ -128,7 +112,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(187, 117);
+            this.textBox1.Location = new System.Drawing.Point(190, 61);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(163, 22);
             this.textBox1.TabIndex = 7;
@@ -136,7 +120,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 117);
+            this.label1.Location = new System.Drawing.Point(69, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(115, 17);
             this.label1.TabIndex = 6;
@@ -216,44 +200,28 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Nom du client :";
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Madera.Properties.Resources.BtnPlus;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(224, 174);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(32, 25);
+            this.button1.TabIndex = 13;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Madera.Resources.logoMadera;
+            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 69);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(406, 120);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // panelNavBar
-            // 
-            this.panelNavBar.Location = new System.Drawing.Point(12, 0);
-            this.panelNavBar.Name = "panelNavBar";
-            this.panelNavBar.Size = new System.Drawing.Size(995, 63);
-            this.panelNavBar.TabIndex = 30;
-            // 
-            // BtnReduce
-            // 
-            this.BtnReduce.FlatAppearance.BorderSize = 0;
-            this.BtnReduce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnReduce.Location = new System.Drawing.Point(1013, 12);
-            this.BtnReduce.Name = "BtnReduce";
-            this.BtnReduce.Size = new System.Drawing.Size(35, 34);
-            this.BtnReduce.TabIndex = 29;
-            this.BtnReduce.Text = "_";
-            this.BtnReduce.UseVisualStyleBackColor = true;
-            // 
-            // BtnExit
-            // 
-            this.BtnExit.FlatAppearance.BorderSize = 0;
-            this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnExit.Location = new System.Drawing.Point(1054, 18);
-            this.BtnExit.Name = "BtnExit";
-            this.BtnExit.Size = new System.Drawing.Size(23, 23);
-            this.BtnExit.TabIndex = 28;
-            this.BtnExit.Text = "X";
-            this.BtnExit.UseVisualStyleBackColor = true;
             // 
             // CreerProjet
             // 
@@ -261,9 +229,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1080, 720);
-            this.Controls.Add(this.panelNavBar);
-            this.Controls.Add(this.BtnReduce);
-            this.Controls.Add(this.BtnExit);
             this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BtnDeconnection);
@@ -300,8 +265,5 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panelNavBar;
-        private System.Windows.Forms.Button BtnReduce;
-        private System.Windows.Forms.Button BtnExit;
     }
 }

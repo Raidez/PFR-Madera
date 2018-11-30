@@ -116,7 +116,7 @@
       <DependentUpon>Projet.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
+    <Compile Include="Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
@@ -156,7 +156,7 @@
     <EmbeddedResource Include="Projet.resx">
       <DependentUpon>Projet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
+    <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -169,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BtnPlus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logoMadera1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BtnPlus1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes" />
