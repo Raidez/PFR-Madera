@@ -74,7 +74,7 @@ namespace Madera
     		if (!CheckControls()) {
     			MessageBox.Show("Renseignez tout les champs !");
     		} else {
-    			new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, ComboBoxPays.SelectedText, TextBoxEmail.Text).ajouterFourni();
+    			new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, (string) ComboBoxPays.SelectedItem, TextBoxEmail.Text).ajouterFourni();
     			ResetControls();
     			ReloadFourn();
     		}
