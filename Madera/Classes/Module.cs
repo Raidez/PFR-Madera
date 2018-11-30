@@ -52,12 +52,16 @@ namespace Madera.Classes
 			{
 				listModule.FindIndex(x => x.modId == this.modId);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				throw new Exception("Module déjà existant");
 			}
 
 			listModule.Add(this);
+		}
+
+		public static Module afficherModule(Guid modId) {
+			return listModule.Find(x => x.modId == modId);
 		}
 
 		public static void modifierModule(Module m)

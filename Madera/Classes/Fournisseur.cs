@@ -48,7 +48,7 @@ namespace Madera.Classes
 			{
 				listFournisseur.FindIndex(x => x.fouId == this.fouId);
 			}
-			catch (Exception e)
+			catch (Exception)
 			{
 				throw new Exception("Fournisseur déjà existant");
 			}
