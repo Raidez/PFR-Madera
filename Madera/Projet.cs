@@ -20,7 +20,7 @@ namespace Madera
     		ActionButtonGeneric.GoNextForm(this, new GestionConfiguration());
 		}
     	
-    	void BtnDeconnectionClick(object sender, EventArgs e) {
+		void BtnExitClick(object sender, EventArgs e) {
     		ActionButtonGeneric.Deconnexion();
 		}
     }

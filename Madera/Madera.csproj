@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionBoutonGeneric.cs" />
     <Compile Include="AffichageModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +71,7 @@
     <Compile Include="Classes\Module.cs" />
     <Compile Include="Classes\Parametre.cs" />
     <Compile Include="Classes\Salarie.cs" />
+    <Compile Include="ComboxItem.cs" />
     <Compile Include="CreerProjet.cs">
       <SubType>Form</SubType>
     </Compile>

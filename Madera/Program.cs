@@ -9,6 +9,7 @@
 using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using Madera.Classes;
 
 namespace Madera
 {
@@ -23,7 +24,9 @@ namespace Madera
 		[STAThread]
 		private static void Main(string[] args)
 		{
-			Classes.Gamme._init(); // instancie des fake gammes
+			// instancie des données vides
+			Gamme._init();
+			Fournisseur._init();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

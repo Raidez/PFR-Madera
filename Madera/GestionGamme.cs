@@ -81,7 +81,7 @@ namespace Madera
         	ActionButtonGeneric.GoBack(this);
 		}
         
-		void BtnDeconnexionClick(object sender, EventArgs e) {
+		void BtnExitClick(object sender, EventArgs e) {
         	ActionButtonGeneric.Deconnexion();
 		}
     }

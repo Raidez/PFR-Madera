@@ -20,11 +20,15 @@ namespace Madera
     		ActionButtonGeneric.GoNextForm(this, new GestionGamme());
 		}
     	
+    	void BtnGestionFournisseurClick(object sender, EventArgs e) {
+    		ActionButtonGeneric.GoNextForm(this, new GestionFournisseur());
+		}
+    	
     	void BtnRetourClick(object sender, EventArgs e) {
     		ActionButtonGeneric.GoBack(this);
 		}
     	
-		void BtnDeconnexionClick(object sender, EventArgs e) {
+		void BtnExitClick(object sender, EventArgs e) {
 			ActionButtonGeneric.Deconnexion();
 		}
     }
