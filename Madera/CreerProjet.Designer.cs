@@ -73,7 +73,7 @@
             // 
             // button1
             // 
-            this.button1.BackgroundImage = global::Madera.Properties.Resources.BtnPlus;
+            this.button1.BackgroundImage = global::Madera.Resources.BtnPlus;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.button1.FlatAppearance.BorderSize = 0;
@@ -218,7 +218,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
+            this.pictureBox1.BackgroundImage = global::Madera.Resources.logoMadera;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(12, 69);
             this.pictureBox1.Name = "pictureBox1";

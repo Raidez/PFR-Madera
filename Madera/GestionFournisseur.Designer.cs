@@ -350,7 +350,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(21, 58);
             this.pictureBox1.Name = "pictureBox1";

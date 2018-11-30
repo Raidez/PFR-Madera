@@ -34,7 +34,7 @@
             this.panelNavBar = new System.Windows.Forms.Panel();
             this.BtnReduce = new System.Windows.Forms.Button();
             this.BtnExit = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnRetour = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -111,15 +111,15 @@
             this.BtnExit.UseVisualStyleBackColor = true;
             this.BtnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
-            // button2
+            // BtnRetour
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(874, 584);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 77);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Retour";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnRetour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRetour.Location = new System.Drawing.Point(874, 584);
+            this.BtnRetour.Name = "BtnRetour";
+            this.BtnRetour.Size = new System.Drawing.Size(176, 77);
+            this.BtnRetour.TabIndex = 16;
+            this.BtnRetour.Text = "Retour";
+            this.BtnRetour.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -161,7 +161,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
+            this.pictureBox1.BackgroundImage = global::Madera.Resources.logoMadera;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(12, 47);
             this.pictureBox1.Name = "pictureBox1";
@@ -175,7 +175,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1062, 673);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnRetour);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelNavBar);
@@ -203,7 +203,7 @@
         private System.Windows.Forms.Button BtnReduce;
         private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnRetour;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;

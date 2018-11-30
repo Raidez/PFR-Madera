@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnAjoutModule = new System.Windows.Forms.Button();
             this.BtnModifierEtat = new System.Windows.Forms.Button();
             this.LblEtatDevis = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.BtnAjoutModule);
             this.panel1.Controls.Add(this.BtnModifierEtat);
             this.panel1.Controls.Add(this.LblEtatDevis);
             this.panel1.Controls.Add(this.label2);
@@ -62,6 +64,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1038, 430);
             this.panel1.TabIndex = 29;
+            // 
+            // BtnAjoutModule
+            // 
+            this.BtnAjoutModule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnAjoutModule.Location = new System.Drawing.Point(822, 238);
+            this.BtnAjoutModule.Name = "BtnAjoutModule";
+            this.BtnAjoutModule.Size = new System.Drawing.Size(196, 44);
+            this.BtnAjoutModule.TabIndex = 6;
+            this.BtnAjoutModule.Text = "Ajouter module ";
+            this.BtnAjoutModule.UseVisualStyleBackColor = true;
             // 
             // BtnModifierEtat
             // 
@@ -119,7 +131,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Madera.Properties.Resources.logoMadera;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Location = new System.Drawing.Point(16, 69);
             this.pictureBox1.Name = "pictureBox1";
@@ -247,5 +258,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BtnAjoutModule;
     }
 }
