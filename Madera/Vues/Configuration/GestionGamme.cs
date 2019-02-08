@@ -13,10 +13,21 @@ namespace Madera
 {
     public partial class GestionGamme : Form
     {
-        public GestionGamme() {
+        public GestionGamme()
+        {
             InitializeComponent();
             reloadGammes();
         }
+    	
+		void Deconnexion(object sender, FormClosedEventArgs e)
+		{
+    		ActionButtonGeneric.Deconnexion();
+		}
+    	
+    	void BtnRetour_Click(object sender, EventArgs e)
+    	{
+    		ActionButtonGeneric.GoBack(this);
+		}
     	
     	public void reloadGammes() {
     		// vidage des combobox
@@ -40,7 +51,7 @@ namespace Madera
     		}
     	}
     	
-    	private void BtnAjoutGamme_Click(object sender, EventArgs e) {
+    	private void BtnAjouter_Click(object sender, EventArgs e) {
     		if (!textBox1.Text.Any()) {
             	MessageBox.Show("Vous devez renseigner le nom de la gamme !");
     		} else {
@@ -52,7 +63,7 @@ namespace Madera
     		}
         }
     	
-    	private void BtnModificationGamme_Click(object sender, EventArgs e) {
+    	private void BtnModifier_Click(object sender, EventArgs e) {
     		if (!textBox2.Text.Any() || Gamme.listGamme.Count <= 0) {
     			MessageBox.Show((!textBox2.Text.Any())? "Vous devez renseigner le nouveau nom de la gamme sélectionnée" : "Il n'y a pas de gammes !");
     		} else {
@@ -65,7 +76,7 @@ namespace Madera
     		}
         }
 
-        private void BtnSupprimerGamme_Click(object sender, EventArgs e) {
+        private void BtnSupprimer_Click(object sender, EventArgs e) {
     		if (Gamme.listGamme.Count <= 0) {
     			MessageBox.Show("Il n'y a pas de gammes !");
     		} else {
@@ -76,13 +87,5 @@ namespace Madera
 	            }
     		}
         }
-        
-		void BtnRetourClick(object sender, EventArgs e) {
-        	ActionButtonGeneric.GoBack(this);
-		}
-        
-		void BtnExitClick(object sender, EventArgs e) {
-        	ActionButtonGeneric.Deconnexion();
-		}
     }
 }
