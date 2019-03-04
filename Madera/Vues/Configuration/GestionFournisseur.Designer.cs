@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-        	this.BtnRetour = new System.Windows.Forms.Button();
         	this.panel1 = new System.Windows.Forms.Panel();
         	this.BtnModificationFournisseur = new System.Windows.Forms.Button();
         	this.panel3 = new System.Windows.Forms.Panel();
@@ -38,6 +37,8 @@
         	this.ComboBoxModifierFournisseur = new System.Windows.Forms.ComboBox();
         	this.label7 = new System.Windows.Forms.Label();
         	this.panel2 = new System.Windows.Forms.Panel();
+        	this.TextBoxVille = new System.Windows.Forms.TextBox();
+        	this.label12 = new System.Windows.Forms.Label();
         	this.TextBoxNumRue = new System.Windows.Forms.TextBox();
         	this.label11 = new System.Windows.Forms.Label();
         	this.TextBoxEmail = new System.Windows.Forms.TextBox();
@@ -53,34 +54,19 @@
         	this.label2 = new System.Windows.Forms.Label();
         	this.TextBoxNom = new System.Windows.Forms.TextBox();
         	this.label1 = new System.Windows.Forms.Label();
-        	this.BtnDeconnection = new System.Windows.Forms.Button();
+        	this.panel5 = new System.Windows.Forms.Panel();
+        	this.ImgLogo = new System.Windows.Forms.PictureBox();
+        	this.BtnRetour = new System.Windows.Forms.Button();
         	this.panel4 = new System.Windows.Forms.Panel();
-        	this.label5 = new System.Windows.Forms.Label();
         	this.label4 = new System.Windows.Forms.Label();
-        	this.pictureBox1 = new System.Windows.Forms.PictureBox();
-        	this.panelNavBar = new System.Windows.Forms.Panel();
-        	this.BtnReduce = new System.Windows.Forms.Button();
-        	this.BtnExit = new System.Windows.Forms.Button();
-        	this.TextBoxVille = new System.Windows.Forms.TextBox();
-        	this.label12 = new System.Windows.Forms.Label();
+        	this.label5 = new System.Windows.Forms.Label();
         	this.panel1.SuspendLayout();
         	this.panel3.SuspendLayout();
         	this.panel2.SuspendLayout();
+        	this.panel5.SuspendLayout();
+        	((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).BeginInit();
         	this.panel4.SuspendLayout();
-        	((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
         	this.SuspendLayout();
-        	// 
-        	// BtnRetour
-        	// 
-        	this.BtnRetour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        	this.BtnRetour.Location = new System.Drawing.Point(671, 513);
-        	this.BtnRetour.Margin = new System.Windows.Forms.Padding(2);
-        	this.BtnRetour.Name = "BtnRetour";
-        	this.BtnRetour.Size = new System.Drawing.Size(123, 63);
-        	this.BtnRetour.TabIndex = 21;
-        	this.BtnRetour.Text = "Retour";
-        	this.BtnRetour.UseVisualStyleBackColor = true;
-        	this.BtnRetour.Click += new System.EventHandler(this.BtnRetourClick);
         	// 
         	// panel1
         	// 
@@ -90,10 +76,10 @@
         	this.panel1.Controls.Add(this.ComboBoxModifierFournisseur);
         	this.panel1.Controls.Add(this.label7);
         	this.panel1.Controls.Add(this.panel2);
-        	this.panel1.Location = new System.Drawing.Point(16, 175);
+        	this.panel1.Location = new System.Drawing.Point(9, 166);
         	this.panel1.Margin = new System.Windows.Forms.Padding(2);
         	this.panel1.Name = "panel1";
-        	this.panel1.Size = new System.Drawing.Size(779, 334);
+        	this.panel1.Size = new System.Drawing.Size(766, 334);
         	this.panel1.TabIndex = 18;
         	// 
         	// BtnModificationFournisseur
@@ -201,6 +187,24 @@
         	this.panel2.Name = "panel2";
         	this.panel2.Size = new System.Drawing.Size(779, 153);
         	this.panel2.TabIndex = 0;
+        	// 
+        	// TextBoxVille
+        	// 
+        	this.TextBoxVille.Location = new System.Drawing.Point(193, 76);
+        	this.TextBoxVille.Margin = new System.Windows.Forms.Padding(2);
+        	this.TextBoxVille.Name = "TextBoxVille";
+        	this.TextBoxVille.Size = new System.Drawing.Size(181, 20);
+        	this.TextBoxVille.TabIndex = 18;
+        	// 
+        	// label12
+        	// 
+        	this.label12.AutoSize = true;
+        	this.label12.Location = new System.Drawing.Point(157, 79);
+        	this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        	this.label12.Name = "label12";
+        	this.label12.Size = new System.Drawing.Size(35, 13);
+        	this.label12.TabIndex = 17;
+        	this.label12.Text = "Ville : ";
         	// 
         	// TextBoxNumRue
         	// 
@@ -375,124 +379,82 @@
         	this.label1.TabIndex = 0;
         	this.label1.Text = "Ajouter un fournisseur :";
         	// 
-        	// BtnDeconnection
+        	// panel5
         	// 
-        	this.BtnDeconnection.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        	this.BtnDeconnection.Location = new System.Drawing.Point(16, 513);
-        	this.BtnDeconnection.Margin = new System.Windows.Forms.Padding(2);
-        	this.BtnDeconnection.Name = "BtnDeconnection";
-        	this.BtnDeconnection.Size = new System.Drawing.Size(123, 63);
-        	this.BtnDeconnection.TabIndex = 20;
-        	this.BtnDeconnection.Text = "déconnection";
-        	this.BtnDeconnection.UseVisualStyleBackColor = true;
+        	this.panel5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+        	this.panel5.Controls.Add(this.ImgLogo);
+        	this.panel5.Location = new System.Drawing.Point(9, 9);
+        	this.panel5.Margin = new System.Windows.Forms.Padding(0);
+        	this.panel5.Name = "panel5";
+        	this.panel5.Size = new System.Drawing.Size(766, 100);
+        	this.panel5.TabIndex = 22;
+        	// 
+        	// ImgLogo
+        	// 
+        	this.ImgLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+        	this.ImgLogo.BackgroundImage = global::Madera.Resources.logo;
+        	this.ImgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+        	this.ImgLogo.Location = new System.Drawing.Point(246, 0);
+        	this.ImgLogo.Margin = new System.Windows.Forms.Padding(0);
+        	this.ImgLogo.Name = "ImgLogo";
+        	this.ImgLogo.Size = new System.Drawing.Size(300, 100);
+        	this.ImgLogo.TabIndex = 0;
+        	this.ImgLogo.TabStop = false;
+        	// 
+        	// BtnRetour
+        	// 
+        	this.BtnRetour.Anchor = System.Windows.Forms.AnchorStyles.Right;
+        	this.BtnRetour.Location = new System.Drawing.Point(655, 502);
+        	this.BtnRetour.Margin = new System.Windows.Forms.Padding(0);
+        	this.BtnRetour.Name = "BtnRetour";
+        	this.BtnRetour.Size = new System.Drawing.Size(120, 50);
+        	this.BtnRetour.TabIndex = 23;
+        	this.BtnRetour.Text = "Retour";
+        	this.BtnRetour.UseVisualStyleBackColor = true;
         	// 
         	// panel4
         	// 
+        	this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
         	this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        	this.panel4.Controls.Add(this.label5);
         	this.panel4.Controls.Add(this.label4);
-        	this.panel4.Location = new System.Drawing.Point(143, 513);
-        	this.panel4.Margin = new System.Windows.Forms.Padding(2);
+        	this.panel4.Controls.Add(this.label5);
+        	this.panel4.Location = new System.Drawing.Point(9, 502);
+        	this.panel4.Margin = new System.Windows.Forms.Padding(0);
         	this.panel4.Name = "panel4";
-        	this.panel4.Size = new System.Drawing.Size(524, 63);
-        	this.panel4.TabIndex = 19;
-        	// 
-        	// label5
-        	// 
-        	this.label5.AutoSize = true;
-        	this.label5.Location = new System.Drawing.Point(10, 37);
-        	this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-        	this.label5.Name = "label5";
-        	this.label5.Size = new System.Drawing.Size(92, 13);
-        	this.label5.TabIndex = 1;
-        	this.label5.Text = "Date de création :";
+        	this.panel4.Size = new System.Drawing.Size(640, 50);
+        	this.panel4.TabIndex = 24;
         	// 
         	// label4
         	// 
         	this.label4.AutoSize = true;
-        	this.label4.Location = new System.Drawing.Point(10, 12);
+        	this.label4.Location = new System.Drawing.Point(10, 25);
         	this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label4.Name = "label4";
-        	this.label4.Size = new System.Drawing.Size(78, 13);
-        	this.label4.TabIndex = 0;
-        	this.label4.Text = "Nom du client :";
+        	this.label4.Size = new System.Drawing.Size(92, 13);
+        	this.label4.TabIndex = 1;
+        	this.label4.Text = "Date de création :";
         	// 
-        	// pictureBox1
+        	// label5
         	// 
-        	this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-        	this.pictureBox1.Image = global::Madera.Resources.logoMadera;
-        	this.pictureBox1.Location = new System.Drawing.Point(16, 47);
-        	this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-        	this.pictureBox1.Name = "pictureBox1";
-        	this.pictureBox1.Size = new System.Drawing.Size(407, 124);
-        	this.pictureBox1.TabIndex = 17;
-        	this.pictureBox1.TabStop = false;
-        	// 
-        	// panelNavBar
-        	// 
-        	this.panelNavBar.Location = new System.Drawing.Point(9, 1);
-        	this.panelNavBar.Margin = new System.Windows.Forms.Padding(2);
-        	this.panelNavBar.Name = "panelNavBar";
-        	this.panelNavBar.Size = new System.Drawing.Size(734, 41);
-        	this.panelNavBar.TabIndex = 24;
-        	// 
-        	// BtnReduce
-        	// 
-        	this.BtnReduce.FlatAppearance.BorderSize = 0;
-        	this.BtnReduce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        	this.BtnReduce.Location = new System.Drawing.Point(747, 1);
-        	this.BtnReduce.Margin = new System.Windows.Forms.Padding(2);
-        	this.BtnReduce.Name = "BtnReduce";
-        	this.BtnReduce.Size = new System.Drawing.Size(26, 28);
-        	this.BtnReduce.TabIndex = 23;
-        	this.BtnReduce.Text = "_";
-        	this.BtnReduce.UseVisualStyleBackColor = true;
-        	// 
-        	// BtnExit
-        	// 
-        	this.BtnExit.FlatAppearance.BorderSize = 0;
-        	this.BtnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        	this.BtnExit.Location = new System.Drawing.Point(778, 6);
-        	this.BtnExit.Margin = new System.Windows.Forms.Padding(2);
-        	this.BtnExit.Name = "BtnExit";
-        	this.BtnExit.Size = new System.Drawing.Size(17, 19);
-        	this.BtnExit.TabIndex = 22;
-        	this.BtnExit.Text = "X";
-        	this.BtnExit.UseVisualStyleBackColor = true;
-        	this.BtnExit.Click += new System.EventHandler(this.BtnExitClick);
-        	// 
-        	// TextBoxVille
-        	// 
-        	this.TextBoxVille.Location = new System.Drawing.Point(193, 76);
-        	this.TextBoxVille.Margin = new System.Windows.Forms.Padding(2);
-        	this.TextBoxVille.Name = "TextBoxVille";
-        	this.TextBoxVille.Size = new System.Drawing.Size(181, 20);
-        	this.TextBoxVille.TabIndex = 18;
-        	// 
-        	// label12
-        	// 
-        	this.label12.AutoSize = true;
-        	this.label12.Location = new System.Drawing.Point(157, 79);
-        	this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-        	this.label12.Name = "label12";
-        	this.label12.Size = new System.Drawing.Size(35, 13);
-        	this.label12.TabIndex = 17;
-        	this.label12.Text = "Ville : ";
+        	this.label5.AutoSize = true;
+        	this.label5.Location = new System.Drawing.Point(10, 12);
+        	this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+        	this.label5.Name = "label5";
+        	this.label5.Size = new System.Drawing.Size(78, 13);
+        	this.label5.TabIndex = 0;
+        	this.label5.Text = "Nom du client :";
         	// 
         	// GestionFournisseur
         	// 
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
         	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        	this.ClientSize = new System.Drawing.Size(810, 585);
-        	this.Controls.Add(this.panelNavBar);
-        	this.Controls.Add(this.BtnReduce);
-        	this.Controls.Add(this.BtnExit);
+        	this.BackColor = System.Drawing.Color.White;
+        	this.ClientSize = new System.Drawing.Size(784, 561);
         	this.Controls.Add(this.BtnRetour);
-        	this.Controls.Add(this.panel1);
-        	this.Controls.Add(this.BtnDeconnection);
-        	this.Controls.Add(this.pictureBox1);
         	this.Controls.Add(this.panel4);
-        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+        	this.Controls.Add(this.panel5);
+        	this.Controls.Add(this.panel1);
+        	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "GestionFournisseur";
         	this.Text = "GestionFournisseur";
@@ -502,22 +464,17 @@
         	this.panel3.PerformLayout();
         	this.panel2.ResumeLayout(false);
         	this.panel2.PerformLayout();
+        	this.panel5.ResumeLayout(false);
+        	((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).EndInit();
         	this.panel4.ResumeLayout(false);
         	this.panel4.PerformLayout();
-        	((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
         	this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button BtnRetour;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BtnDeconnection;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox ComboBoxModifierFournisseur;
@@ -541,10 +498,13 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TextBoxEmail;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panelNavBar;
-        private System.Windows.Forms.Button BtnReduce;
-        private System.Windows.Forms.Button BtnExit;
         private System.Windows.Forms.TextBox TextBoxVille;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.PictureBox ImgLogo;
+        private System.Windows.Forms.Button BtnRetour;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

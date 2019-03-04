@@ -53,16 +53,16 @@
         	this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         	this.panel1.Controls.Add(this.BtnFourn);
         	this.panel1.Controls.Add(this.BtnGamme);
-        	this.panel1.Location = new System.Drawing.Point(9, 205);
+        	this.panel1.Location = new System.Drawing.Point(9, 111);
         	this.panel1.Margin = new System.Windows.Forms.Padding(2);
         	this.panel1.Name = "panel1";
-        	this.panel1.Size = new System.Drawing.Size(766, 289);
+        	this.panel1.Size = new System.Drawing.Size(766, 383);
         	this.panel1.TabIndex = 2;
         	// 
         	// BtnFourn
         	// 
-        	this.BtnFourn.Anchor = System.Windows.Forms.AnchorStyles.Top;
-        	this.BtnFourn.Location = new System.Drawing.Point(271, 71);
+        	this.BtnFourn.Anchor = System.Windows.Forms.AnchorStyles.None;
+        	this.BtnFourn.Location = new System.Drawing.Point(271, 174);
         	this.BtnFourn.Name = "BtnFourn";
         	this.BtnFourn.Size = new System.Drawing.Size(233, 62);
         	this.BtnFourn.TabIndex = 14;
@@ -72,8 +72,8 @@
         	// 
         	// BtnGamme
         	// 
-        	this.BtnGamme.Anchor = System.Windows.Forms.AnchorStyles.Top;
-        	this.BtnGamme.Location = new System.Drawing.Point(271, 3);
+        	this.BtnGamme.Anchor = System.Windows.Forms.AnchorStyles.None;
+        	this.BtnGamme.Location = new System.Drawing.Point(271, 106);
         	this.BtnGamme.Name = "BtnGamme";
         	this.BtnGamme.Size = new System.Drawing.Size(233, 62);
         	this.BtnGamme.TabIndex = 13;
