@@ -18,6 +18,16 @@ namespace Madera
             ReloadFourn();
         }
     	
+		void Deconnexion(object sender, FormClosedEventArgs e)
+		{
+    		ActionButtonGeneric.Deconnexion();
+		}
+    	
+    	void BtnRetour_Click(object sender, EventArgs e)
+    	{
+    		ActionButtonGeneric.GoBack(this);
+		}
+    	
     	public void ReloadFourn() {
     		// vidage des combox
     		ComboBoxModifierFournisseur.Items.Clear();
@@ -70,7 +80,7 @@ namespace Madera
     		return isOK;
     	}
 		
-		void BtnAjoutFournisseurClick(object sender, EventArgs e) {
+		void BtnAjouter_Click(object sender, EventArgs e) {
     		if (!CheckControls()) {
     			MessageBox.Show("Renseignez tout les champs !");
     		} else {
@@ -80,7 +90,7 @@ namespace Madera
     		}
 		}
     	
-		void BtnModificationFournisseurClick(object sender, EventArgs e) {
+		void BtnModifier_Click(object sender, EventArgs e) {
     		if (Fournisseur.listFournisseur.Count <= 0) {
     			MessageBox.Show("Il n'y a pas de fournisseurs !");
     		} else {
@@ -90,7 +100,7 @@ namespace Madera
     		}
 		}
     	
-		void BtnSupprimerFournisseurClick(object sender, EventArgs e) {
+		void BtnSupprimer_Click(object sender, EventArgs e) {
 			if (Fournisseur.listFournisseur.Count <= 0) {
     			MessageBox.Show("Il n'y a pas de fournisseurs !");
     		} else {
@@ -101,14 +111,6 @@ namespace Madera
 	            	ReloadFourn();
     			}
     		}
-		}
-		
-		void BtnRetourClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.GoBack(this);
-		}
-    	
-		void BtnExitClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.Deconnexion();
 		}
     }
 }

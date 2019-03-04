@@ -31,15 +31,11 @@
         	this.panel1 = new System.Windows.Forms.Panel();
         	this.BtnFourn = new System.Windows.Forms.Button();
         	this.BtnGamme = new System.Windows.Forms.Button();
-        	this.panel2 = new System.Windows.Forms.Panel();
-        	this.label1 = new System.Windows.Forms.Label();
-        	this.label2 = new System.Windows.Forms.Label();
         	this.panel3 = new System.Windows.Forms.Panel();
         	this.ImgLogo = new System.Windows.Forms.PictureBox();
         	this.BtnRetour = new System.Windows.Forms.Button();
         	this.panel4 = new System.Windows.Forms.Panel();
         	this.panel1.SuspendLayout();
-        	this.panel2.SuspendLayout();
         	this.panel3.SuspendLayout();
         	((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).BeginInit();
         	this.panel4.SuspendLayout();
@@ -81,38 +77,6 @@
         	this.BtnGamme.UseVisualStyleBackColor = true;
         	this.BtnGamme.Click += new System.EventHandler(this.BtnGamme_Click);
         	// 
-        	// panel2
-        	// 
-        	this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-        	this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        	this.panel2.Controls.Add(this.label1);
-        	this.panel2.Controls.Add(this.label2);
-        	this.panel2.Location = new System.Drawing.Point(0, 0);
-        	this.panel2.Margin = new System.Windows.Forms.Padding(0);
-        	this.panel2.Name = "panel2";
-        	this.panel2.Size = new System.Drawing.Size(640, 50);
-        	this.panel2.TabIndex = 14;
-        	// 
-        	// label1
-        	// 
-        	this.label1.AutoSize = true;
-        	this.label1.Location = new System.Drawing.Point(10, 25);
-        	this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-        	this.label1.Name = "label1";
-        	this.label1.Size = new System.Drawing.Size(92, 13);
-        	this.label1.TabIndex = 1;
-        	this.label1.Text = "Date de création :";
-        	// 
-        	// label2
-        	// 
-        	this.label2.AutoSize = true;
-        	this.label2.Location = new System.Drawing.Point(10, 12);
-        	this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-        	this.label2.Name = "label2";
-        	this.label2.Size = new System.Drawing.Size(78, 13);
-        	this.label2.TabIndex = 0;
-        	this.label2.Text = "Nom du client :";
-        	// 
         	// panel3
         	// 
         	this.panel3.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -152,7 +116,6 @@
         	this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
         	this.panel4.Controls.Add(this.BtnRetour);
-        	this.panel4.Controls.Add(this.panel2);
         	this.panel4.Location = new System.Drawing.Point(9, 499);
         	this.panel4.Name = "panel4";
         	this.panel4.Size = new System.Drawing.Size(766, 50);
@@ -174,8 +137,6 @@
         	this.Text = "Gestion Configuration";
         	this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Deconnexion);
         	this.panel1.ResumeLayout(false);
-        	this.panel2.ResumeLayout(false);
-        	this.panel2.PerformLayout();
         	this.panel3.ResumeLayout(false);
         	((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).EndInit();
         	this.panel4.ResumeLayout(false);
@@ -186,9 +147,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox ImgLogo;
         private System.Windows.Forms.Button BtnRetour;

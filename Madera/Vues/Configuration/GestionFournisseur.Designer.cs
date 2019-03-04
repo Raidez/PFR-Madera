@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-        	this.panel1 = new System.Windows.Forms.Panel();
-        	this.BtnModificationFournisseur = new System.Windows.Forms.Button();
-        	this.panel3 = new System.Windows.Forms.Panel();
-        	this.BtnSupprimerFournisseur = new System.Windows.Forms.Button();
+        	this.BtnModifier = new System.Windows.Forms.Button();
+        	this.BtnSupprimer = new System.Windows.Forms.Button();
         	this.ComboBoxSupprimerFournisseur = new System.Windows.Forms.ComboBox();
         	this.label8 = new System.Windows.Forms.Label();
         	this.ComboBoxModifierFournisseur = new System.Windows.Forms.ComboBox();
@@ -45,7 +43,7 @@
         	this.label10 = new System.Windows.Forms.Label();
         	this.ComboBoxPays = new System.Windows.Forms.ComboBox();
         	this.label9 = new System.Windows.Forms.Label();
-        	this.BtnAjoutFournisseur = new System.Windows.Forms.Button();
+        	this.BtnAjouter = new System.Windows.Forms.Button();
         	this.TextBoxCodePostal = new System.Windows.Forms.TextBox();
         	this.label6 = new System.Windows.Forms.Label();
         	this.TextBoxRue = new System.Windows.Forms.TextBox();
@@ -56,87 +54,65 @@
         	this.label1 = new System.Windows.Forms.Label();
         	this.panel5 = new System.Windows.Forms.Panel();
         	this.ImgLogo = new System.Windows.Forms.PictureBox();
-        	this.BtnRetour = new System.Windows.Forms.Button();
         	this.panel4 = new System.Windows.Forms.Panel();
-        	this.label4 = new System.Windows.Forms.Label();
-        	this.label5 = new System.Windows.Forms.Label();
-        	this.panel1.SuspendLayout();
-        	this.panel3.SuspendLayout();
+        	this.BtnRetour = new System.Windows.Forms.Button();
+        	this.panel7 = new System.Windows.Forms.Panel();
+        	this.panel8 = new System.Windows.Forms.Panel();
+        	this.panel6 = new System.Windows.Forms.Panel();
+        	this.panel3 = new System.Windows.Forms.Panel();
+        	this.panel1 = new System.Windows.Forms.Panel();
         	this.panel2.SuspendLayout();
         	this.panel5.SuspendLayout();
         	((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).BeginInit();
         	this.panel4.SuspendLayout();
+        	this.panel7.SuspendLayout();
+        	this.panel3.SuspendLayout();
+        	this.panel1.SuspendLayout();
         	this.SuspendLayout();
         	// 
-        	// panel1
+        	// BtnModifier
         	// 
-        	this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        	this.panel1.Controls.Add(this.BtnModificationFournisseur);
-        	this.panel1.Controls.Add(this.panel3);
-        	this.panel1.Controls.Add(this.ComboBoxModifierFournisseur);
-        	this.panel1.Controls.Add(this.label7);
-        	this.panel1.Controls.Add(this.panel2);
-        	this.panel1.Location = new System.Drawing.Point(9, 166);
-        	this.panel1.Margin = new System.Windows.Forms.Padding(2);
-        	this.panel1.Name = "panel1";
-        	this.panel1.Size = new System.Drawing.Size(766, 334);
-        	this.panel1.TabIndex = 18;
+        	this.BtnModifier.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+        	this.BtnModifier.FlatAppearance.BorderSize = 0;
+        	this.BtnModifier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        	this.BtnModifier.ForeColor = System.Drawing.Color.White;
+        	this.BtnModifier.Location = new System.Drawing.Point(692, 7);
+        	this.BtnModifier.Margin = new System.Windows.Forms.Padding(2);
+        	this.BtnModifier.Name = "BtnModifier";
+        	this.BtnModifier.Size = new System.Drawing.Size(65, 24);
+        	this.BtnModifier.TabIndex = 11;
+        	this.BtnModifier.Text = "Modifier";
+        	this.BtnModifier.UseVisualStyleBackColor = false;
+        	this.BtnModifier.Click += new System.EventHandler(this.BtnModifier_Click);
         	// 
-        	// BtnModificationFournisseur
+        	// BtnSupprimer
         	// 
-        	this.BtnModificationFournisseur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-        	this.BtnModificationFournisseur.FlatAppearance.BorderSize = 0;
-        	this.BtnModificationFournisseur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        	this.BtnModificationFournisseur.ForeColor = System.Drawing.Color.White;
-        	this.BtnModificationFournisseur.Location = new System.Drawing.Point(238, 206);
-        	this.BtnModificationFournisseur.Margin = new System.Windows.Forms.Padding(2);
-        	this.BtnModificationFournisseur.Name = "BtnModificationFournisseur";
-        	this.BtnModificationFournisseur.Size = new System.Drawing.Size(65, 24);
-        	this.BtnModificationFournisseur.TabIndex = 11;
-        	this.BtnModificationFournisseur.Text = "Valider";
-        	this.BtnModificationFournisseur.UseVisualStyleBackColor = false;
-        	this.BtnModificationFournisseur.Click += new System.EventHandler(this.BtnModificationFournisseurClick);
-        	// 
-        	// panel3
-        	// 
-        	this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        	this.panel3.Controls.Add(this.BtnSupprimerFournisseur);
-        	this.panel3.Controls.Add(this.ComboBoxSupprimerFournisseur);
-        	this.panel3.Controls.Add(this.label8);
-        	this.panel3.Location = new System.Drawing.Point(0, 260);
-        	this.panel3.Margin = new System.Windows.Forms.Padding(2);
-        	this.panel3.Name = "panel3";
-        	this.panel3.Size = new System.Drawing.Size(779, 135);
-        	this.panel3.TabIndex = 1;
-        	// 
-        	// BtnSupprimerFournisseur
-        	// 
-        	this.BtnSupprimerFournisseur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-        	this.BtnSupprimerFournisseur.FlatAppearance.BorderSize = 0;
-        	this.BtnSupprimerFournisseur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        	this.BtnSupprimerFournisseur.ForeColor = System.Drawing.Color.White;
-        	this.BtnSupprimerFournisseur.Location = new System.Drawing.Point(238, 21);
-        	this.BtnSupprimerFournisseur.Margin = new System.Windows.Forms.Padding(2);
-        	this.BtnSupprimerFournisseur.Name = "BtnSupprimerFournisseur";
-        	this.BtnSupprimerFournisseur.Size = new System.Drawing.Size(65, 24);
-        	this.BtnSupprimerFournisseur.TabIndex = 14;
-        	this.BtnSupprimerFournisseur.Text = "Valider";
-        	this.BtnSupprimerFournisseur.UseVisualStyleBackColor = false;
-        	this.BtnSupprimerFournisseur.Click += new System.EventHandler(this.BtnSupprimerFournisseurClick);
+        	this.BtnSupprimer.BackColor = System.Drawing.Color.Red;
+        	this.BtnSupprimer.FlatAppearance.BorderSize = 0;
+        	this.BtnSupprimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        	this.BtnSupprimer.ForeColor = System.Drawing.Color.White;
+        	this.BtnSupprimer.Location = new System.Drawing.Point(691, 9);
+        	this.BtnSupprimer.Margin = new System.Windows.Forms.Padding(2);
+        	this.BtnSupprimer.Name = "BtnSupprimer";
+        	this.BtnSupprimer.Size = new System.Drawing.Size(65, 24);
+        	this.BtnSupprimer.TabIndex = 14;
+        	this.BtnSupprimer.Text = "Supprimer";
+        	this.BtnSupprimer.UseVisualStyleBackColor = false;
+        	this.BtnSupprimer.Click += new System.EventHandler(this.BtnSupprimer_Click);
         	// 
         	// ComboBoxSupprimerFournisseur
         	// 
         	this.ComboBoxSupprimerFournisseur.FormattingEnabled = true;
-        	this.ComboBoxSupprimerFournisseur.Location = new System.Drawing.Point(134, 21);
+        	this.ComboBoxSupprimerFournisseur.Location = new System.Drawing.Point(152, 12);
         	this.ComboBoxSupprimerFournisseur.Margin = new System.Windows.Forms.Padding(2);
         	this.ComboBoxSupprimerFournisseur.Name = "ComboBoxSupprimerFournisseur";
-        	this.ComboBoxSupprimerFournisseur.Size = new System.Drawing.Size(92, 21);
+        	this.ComboBoxSupprimerFournisseur.Size = new System.Drawing.Size(126, 21);
         	this.ComboBoxSupprimerFournisseur.TabIndex = 13;
         	// 
         	// label8
         	// 
         	this.label8.AutoSize = true;
-        	this.label8.Location = new System.Drawing.Point(9, 21);
+        	this.label8.Location = new System.Drawing.Point(16, 15);
         	this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label8.Name = "label8";
         	this.label8.Size = new System.Drawing.Size(132, 13);
@@ -146,16 +122,16 @@
         	// ComboBoxModifierFournisseur
         	// 
         	this.ComboBoxModifierFournisseur.FormattingEnabled = true;
-        	this.ComboBoxModifierFournisseur.Location = new System.Drawing.Point(134, 206);
+        	this.ComboBoxModifierFournisseur.Location = new System.Drawing.Point(140, 10);
         	this.ComboBoxModifierFournisseur.Margin = new System.Windows.Forms.Padding(2);
         	this.ComboBoxModifierFournisseur.Name = "ComboBoxModifierFournisseur";
-        	this.ComboBoxModifierFournisseur.Size = new System.Drawing.Size(92, 21);
+        	this.ComboBoxModifierFournisseur.Size = new System.Drawing.Size(139, 21);
         	this.ComboBoxModifierFournisseur.TabIndex = 9;
         	// 
         	// label7
         	// 
         	this.label7.AutoSize = true;
-        	this.label7.Location = new System.Drawing.Point(9, 206);
+        	this.label7.Location = new System.Drawing.Point(17, 13);
         	this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label7.Name = "label7";
         	this.label7.Size = new System.Drawing.Size(119, 13);
@@ -164,7 +140,6 @@
         	// 
         	// panel2
         	// 
-        	this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
         	this.panel2.Controls.Add(this.TextBoxVille);
         	this.panel2.Controls.Add(this.label12);
         	this.panel2.Controls.Add(this.TextBoxNumRue);
@@ -173,7 +148,7 @@
         	this.panel2.Controls.Add(this.label10);
         	this.panel2.Controls.Add(this.ComboBoxPays);
         	this.panel2.Controls.Add(this.label9);
-        	this.panel2.Controls.Add(this.BtnAjoutFournisseur);
+        	this.panel2.Controls.Add(this.BtnAjouter);
         	this.panel2.Controls.Add(this.TextBoxCodePostal);
         	this.panel2.Controls.Add(this.label6);
         	this.panel2.Controls.Add(this.TextBoxRue);
@@ -182,15 +157,15 @@
         	this.panel2.Controls.Add(this.label2);
         	this.panel2.Controls.Add(this.TextBoxNom);
         	this.panel2.Controls.Add(this.label1);
-        	this.panel2.Location = new System.Drawing.Point(0, 32);
+        	this.panel2.Location = new System.Drawing.Point(2, 2);
         	this.panel2.Margin = new System.Windows.Forms.Padding(2);
         	this.panel2.Name = "panel2";
-        	this.panel2.Size = new System.Drawing.Size(779, 153);
+        	this.panel2.Size = new System.Drawing.Size(760, 136);
         	this.panel2.TabIndex = 0;
         	// 
         	// TextBoxVille
         	// 
-        	this.TextBoxVille.Location = new System.Drawing.Point(193, 76);
+        	this.TextBoxVille.Location = new System.Drawing.Point(199, 102);
         	this.TextBoxVille.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxVille.Name = "TextBoxVille";
         	this.TextBoxVille.Size = new System.Drawing.Size(181, 20);
@@ -199,7 +174,7 @@
         	// label12
         	// 
         	this.label12.AutoSize = true;
-        	this.label12.Location = new System.Drawing.Point(157, 79);
+        	this.label12.Location = new System.Drawing.Point(160, 105);
         	this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label12.Name = "label12";
         	this.label12.Size = new System.Drawing.Size(35, 13);
@@ -208,7 +183,7 @@
         	// 
         	// TextBoxNumRue
         	// 
-        	this.TextBoxNumRue.Location = new System.Drawing.Point(82, 74);
+        	this.TextBoxNumRue.Location = new System.Drawing.Point(89, 74);
         	this.TextBoxNumRue.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxNumRue.Name = "TextBoxNumRue";
         	this.TextBoxNumRue.Size = new System.Drawing.Size(63, 20);
@@ -217,7 +192,7 @@
         	// label11
         	// 
         	this.label11.AutoSize = true;
-        	this.label11.Location = new System.Drawing.Point(9, 76);
+        	this.label11.Location = new System.Drawing.Point(17, 77);
         	this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label11.Name = "label11";
         	this.label11.Size = new System.Drawing.Size(68, 13);
@@ -226,7 +201,7 @@
         	// 
         	// TextBoxEmail
         	// 
-        	this.TextBoxEmail.Location = new System.Drawing.Point(308, 17);
+        	this.TextBoxEmail.Location = new System.Drawing.Point(56, 46);
         	this.TextBoxEmail.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxEmail.Name = "TextBoxEmail";
         	this.TextBoxEmail.Size = new System.Drawing.Size(120, 20);
@@ -235,12 +210,12 @@
         	// label10
         	// 
         	this.label10.AutoSize = true;
-        	this.label10.Location = new System.Drawing.Point(264, 17);
+        	this.label10.Location = new System.Drawing.Point(17, 49);
         	this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label10.Name = "label10";
-        	this.label10.Size = new System.Drawing.Size(40, 13);
+        	this.label10.Size = new System.Drawing.Size(35, 13);
         	this.label10.TabIndex = 13;
-        	this.label10.Text = "email  :";
+        	this.label10.Text = "Mail  :";
         	// 
         	// ComboBoxPays
         	// 
@@ -275,7 +250,7 @@
 			"Slovénie",
 			"Suède",
 			"Tchéquie"});
-        	this.ComboBoxPays.Location = new System.Drawing.Point(514, 50);
+        	this.ComboBoxPays.Location = new System.Drawing.Point(442, 102);
         	this.ComboBoxPays.Margin = new System.Windows.Forms.Padding(2);
         	this.ComboBoxPays.Name = "ComboBoxPays";
         	this.ComboBoxPays.Size = new System.Drawing.Size(92, 21);
@@ -284,41 +259,39 @@
         	// label9
         	// 
         	this.label9.AutoSize = true;
-        	this.label9.Location = new System.Drawing.Point(471, 54);
+        	this.label9.Location = new System.Drawing.Point(399, 105);
         	this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label9.Name = "label9";
         	this.label9.Size = new System.Drawing.Size(39, 13);
         	this.label9.TabIndex = 11;
         	this.label9.Text = "Pays  :";
         	// 
-        	// BtnAjoutFournisseur
+        	// BtnAjouter
         	// 
-        	this.BtnAjoutFournisseur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
-        	this.BtnAjoutFournisseur.FlatAppearance.BorderSize = 0;
-        	this.BtnAjoutFournisseur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-        	this.BtnAjoutFournisseur.ForeColor = System.Drawing.Color.White;
-        	this.BtnAjoutFournisseur.Location = new System.Drawing.Point(617, 47);
-        	this.BtnAjoutFournisseur.Margin = new System.Windows.Forms.Padding(2);
-        	this.BtnAjoutFournisseur.Name = "BtnAjoutFournisseur";
-        	this.BtnAjoutFournisseur.Size = new System.Drawing.Size(65, 24);
-        	this.BtnAjoutFournisseur.TabIndex = 10;
-        	this.BtnAjoutFournisseur.Text = "Valider";
-        	this.BtnAjoutFournisseur.UseVisualStyleBackColor = false;
-        	this.BtnAjoutFournisseur.Click += new System.EventHandler(this.BtnAjoutFournisseurClick);
+        	this.BtnAjouter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+        	this.BtnAjouter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+        	this.BtnAjouter.ForeColor = System.Drawing.Color.White;
+        	this.BtnAjouter.Location = new System.Drawing.Point(693, 66);
+        	this.BtnAjouter.Margin = new System.Windows.Forms.Padding(2);
+        	this.BtnAjouter.Name = "BtnAjouter";
+        	this.BtnAjouter.Size = new System.Drawing.Size(65, 24);
+        	this.BtnAjouter.TabIndex = 10;
+        	this.BtnAjouter.Text = "Ajouter";
+        	this.BtnAjouter.UseVisualStyleBackColor = false;
+        	this.BtnAjouter.Click += new System.EventHandler(this.BtnAjouter_Click);
         	// 
         	// TextBoxCodePostal
         	// 
-        	this.TextBoxCodePostal.Location = new System.Drawing.Point(424, 52);
+        	this.TextBoxCodePostal.Location = new System.Drawing.Point(90, 102);
         	this.TextBoxCodePostal.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxCodePostal.Name = "TextBoxCodePostal";
-        	this.TextBoxCodePostal.Size = new System.Drawing.Size(43, 20);
+        	this.TextBoxCodePostal.Size = new System.Drawing.Size(62, 20);
         	this.TextBoxCodePostal.TabIndex = 7;
-        	this.TextBoxCodePostal.Text = "53960";
         	// 
         	// label6
         	// 
         	this.label6.AutoSize = true;
-        	this.label6.Location = new System.Drawing.Point(352, 54);
+        	this.label6.Location = new System.Drawing.Point(17, 105);
         	this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label6.Name = "label6";
         	this.label6.Size = new System.Drawing.Size(69, 13);
@@ -327,16 +300,16 @@
         	// 
         	// TextBoxRue
         	// 
-        	this.TextBoxRue.Location = new System.Drawing.Point(229, 51);
+        	this.TextBoxRue.Location = new System.Drawing.Point(206, 74);
         	this.TextBoxRue.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxRue.Name = "TextBoxRue";
-        	this.TextBoxRue.Size = new System.Drawing.Size(120, 20);
+        	this.TextBoxRue.Size = new System.Drawing.Size(174, 20);
         	this.TextBoxRue.TabIndex = 5;
         	// 
         	// label3
         	// 
         	this.label3.AutoSize = true;
-        	this.label3.Location = new System.Drawing.Point(193, 51);
+        	this.label3.Location = new System.Drawing.Point(169, 77);
         	this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label3.Name = "label3";
         	this.label3.Size = new System.Drawing.Size(33, 13);
@@ -345,7 +318,7 @@
         	// 
         	// TextBoxTelephone
         	// 
-        	this.TextBoxTelephone.Location = new System.Drawing.Point(70, 51);
+        	this.TextBoxTelephone.Location = new System.Drawing.Point(260, 46);
         	this.TextBoxTelephone.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxTelephone.Name = "TextBoxTelephone";
         	this.TextBoxTelephone.Size = new System.Drawing.Size(120, 20);
@@ -354,16 +327,16 @@
         	// label2
         	// 
         	this.label2.AutoSize = true;
-        	this.label2.Location = new System.Drawing.Point(6, 51);
+        	this.label2.Location = new System.Drawing.Point(192, 49);
         	this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label2.Name = "label2";
-        	this.label2.Size = new System.Drawing.Size(60, 13);
+        	this.label2.Size = new System.Drawing.Size(64, 13);
         	this.label2.TabIndex = 2;
-        	this.label2.Text = "téléphone :";
+        	this.label2.Text = "Téléphone :";
         	// 
         	// TextBoxNom
         	// 
-        	this.TextBoxNom.Location = new System.Drawing.Point(127, 15);
+        	this.TextBoxNom.Location = new System.Drawing.Point(136, 6);
         	this.TextBoxNom.Margin = new System.Windows.Forms.Padding(2);
         	this.TextBoxNom.Name = "TextBoxNom";
         	this.TextBoxNom.Size = new System.Drawing.Size(120, 20);
@@ -372,7 +345,7 @@
         	// label1
         	// 
         	this.label1.AutoSize = true;
-        	this.label1.Location = new System.Drawing.Point(5, 15);
+        	this.label1.Location = new System.Drawing.Point(17, 9);
         	this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
         	this.label1.Name = "label1";
         	this.label1.Size = new System.Drawing.Size(115, 13);
@@ -401,48 +374,82 @@
         	this.ImgLogo.TabIndex = 0;
         	this.ImgLogo.TabStop = false;
         	// 
+        	// panel4
+        	// 
+        	this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+			| System.Windows.Forms.AnchorStyles.Right)));
+        	this.panel4.Controls.Add(this.BtnRetour);
+        	this.panel4.Location = new System.Drawing.Point(9, 499);
+        	this.panel4.Name = "panel4";
+        	this.panel4.Size = new System.Drawing.Size(766, 50);
+        	this.panel4.TabIndex = 23;
+        	// 
         	// BtnRetour
         	// 
         	this.BtnRetour.Anchor = System.Windows.Forms.AnchorStyles.Right;
-        	this.BtnRetour.Location = new System.Drawing.Point(655, 502);
+        	this.BtnRetour.Location = new System.Drawing.Point(646, 0);
         	this.BtnRetour.Margin = new System.Windows.Forms.Padding(0);
         	this.BtnRetour.Name = "BtnRetour";
         	this.BtnRetour.Size = new System.Drawing.Size(120, 50);
-        	this.BtnRetour.TabIndex = 23;
+        	this.BtnRetour.TabIndex = 13;
         	this.BtnRetour.Text = "Retour";
         	this.BtnRetour.UseVisualStyleBackColor = true;
+        	this.BtnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
         	// 
-        	// panel4
+        	// panel7
         	// 
-        	this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-        	this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        	this.panel4.Controls.Add(this.label4);
-        	this.panel4.Controls.Add(this.label5);
-        	this.panel4.Location = new System.Drawing.Point(9, 502);
-        	this.panel4.Margin = new System.Windows.Forms.Padding(0);
-        	this.panel4.Name = "panel4";
-        	this.panel4.Size = new System.Drawing.Size(640, 50);
-        	this.panel4.TabIndex = 24;
+        	this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			| System.Windows.Forms.AnchorStyles.Left) 
+			| System.Windows.Forms.AnchorStyles.Right)));
+        	this.panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        	this.panel7.Controls.Add(this.panel8);
+        	this.panel7.Controls.Add(this.panel6);
+        	this.panel7.Controls.Add(this.panel3);
+        	this.panel7.Controls.Add(this.panel1);
+        	this.panel7.Controls.Add(this.panel2);
+        	this.panel7.Location = new System.Drawing.Point(9, 114);
+        	this.panel7.Margin = new System.Windows.Forms.Padding(2);
+        	this.panel7.Name = "panel7";
+        	this.panel7.Size = new System.Drawing.Size(766, 383);
+        	this.panel7.TabIndex = 24;
         	// 
-        	// label4
+        	// panel8
         	// 
-        	this.label4.AutoSize = true;
-        	this.label4.Location = new System.Drawing.Point(10, 25);
-        	this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-        	this.label4.Name = "label4";
-        	this.label4.Size = new System.Drawing.Size(92, 13);
-        	this.label4.TabIndex = 1;
-        	this.label4.Text = "Date de création :";
+        	this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        	this.panel8.Location = new System.Drawing.Point(0, 189);
+        	this.panel8.Margin = new System.Windows.Forms.Padding(0);
+        	this.panel8.Name = "panel8";
+        	this.panel8.Size = new System.Drawing.Size(765, 1);
+        	this.panel8.TabIndex = 18;
         	// 
-        	// label5
+        	// panel6
         	// 
-        	this.label5.AutoSize = true;
-        	this.label5.Location = new System.Drawing.Point(10, 12);
-        	this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-        	this.label5.Name = "label5";
-        	this.label5.Size = new System.Drawing.Size(78, 13);
-        	this.label5.TabIndex = 0;
-        	this.label5.Text = "Nom du client :";
+        	this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        	this.panel6.Location = new System.Drawing.Point(0, 139);
+        	this.panel6.Margin = new System.Windows.Forms.Padding(0);
+        	this.panel6.Name = "panel6";
+        	this.panel6.Size = new System.Drawing.Size(765, 1);
+        	this.panel6.TabIndex = 17;
+        	// 
+        	// panel3
+        	// 
+        	this.panel3.Controls.Add(this.ComboBoxSupprimerFournisseur);
+        	this.panel3.Controls.Add(this.label8);
+        	this.panel3.Controls.Add(this.BtnSupprimer);
+        	this.panel3.Location = new System.Drawing.Point(3, 192);
+        	this.panel3.Name = "panel3";
+        	this.panel3.Size = new System.Drawing.Size(758, 45);
+        	this.panel3.TabIndex = 16;
+        	// 
+        	// panel1
+        	// 
+        	this.panel1.Controls.Add(this.BtnModifier);
+        	this.panel1.Controls.Add(this.ComboBoxModifierFournisseur);
+        	this.panel1.Controls.Add(this.label7);
+        	this.panel1.Location = new System.Drawing.Point(2, 143);
+        	this.panel1.Name = "panel1";
+        	this.panel1.Size = new System.Drawing.Size(759, 43);
+        	this.panel1.TabIndex = 15;
         	// 
         	// GestionFournisseur
         	// 
@@ -450,32 +457,30 @@
         	this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         	this.BackColor = System.Drawing.Color.White;
         	this.ClientSize = new System.Drawing.Size(784, 561);
-        	this.Controls.Add(this.BtnRetour);
+        	this.Controls.Add(this.panel7);
         	this.Controls.Add(this.panel4);
         	this.Controls.Add(this.panel5);
-        	this.Controls.Add(this.panel1);
         	this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
         	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "GestionFournisseur";
         	this.Text = "GestionFournisseur";
-        	this.panel1.ResumeLayout(false);
-        	this.panel1.PerformLayout();
-        	this.panel3.ResumeLayout(false);
-        	this.panel3.PerformLayout();
+        	this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Deconnexion);
         	this.panel2.ResumeLayout(false);
         	this.panel2.PerformLayout();
         	this.panel5.ResumeLayout(false);
         	((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).EndInit();
         	this.panel4.ResumeLayout(false);
-        	this.panel4.PerformLayout();
+        	this.panel7.ResumeLayout(false);
+        	this.panel3.ResumeLayout(false);
+        	this.panel3.PerformLayout();
+        	this.panel1.ResumeLayout(false);
+        	this.panel1.PerformLayout();
         	this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox ComboBoxModifierFournisseur;
         private System.Windows.Forms.Label label7;
@@ -487,13 +492,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TextBoxNom;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnModificationFournisseur;
-        private System.Windows.Forms.Button BtnSupprimerFournisseur;
+        private System.Windows.Forms.Button BtnModifier;
+        private System.Windows.Forms.Button BtnSupprimer;
         private System.Windows.Forms.ComboBox ComboBoxSupprimerFournisseur;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox ComboBoxPays;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button BtnAjoutFournisseur;
+        private System.Windows.Forms.Button BtnAjouter;
         private System.Windows.Forms.TextBox TextBoxNumRue;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TextBoxEmail;
@@ -502,9 +507,12 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox ImgLogo;
-        private System.Windows.Forms.Button BtnRetour;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button BtnRetour;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel8;
     }
 }

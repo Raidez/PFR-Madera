@@ -27,6 +27,16 @@ namespace Madera
     		ReloadForm();
     	}
     	
+		void Deconnexion(object sender, FormClosedEventArgs e)
+		{
+    		ActionButtonGeneric.Deconnexion();
+		}
+    	
+    	void BtnRetour_Click(object sender, EventArgs e)
+    	{
+    		ActionButtonGeneric.GoBack(this);
+		}
+    	
     	public void ReloadForm() {
     		TextBoxFournisseur.Text = fournisseur.fouNom;
     		TextBoxNumRue.Text = fournisseur.fouAdrNumero.ToString();
@@ -38,7 +48,7 @@ namespace Madera
     		ComboBoxPays.Text = fournisseur.fouPays;
     	}
     	
-		void BtnModificationFournisseurClick(object sender, EventArgs e) {
+		void BtnModifier_Click(object sender, EventArgs e) {
     		fournisseur.fouNom = TextBoxFournisseur.Text;
     		fournisseur.fouAdrNumero = Int32.Parse(TextBoxNumRue.Text);
     		fournisseur.fouAdrRue = TextBoxRue.Text;
@@ -51,17 +61,9 @@ namespace Madera
 		}
     	
     	
-		void BtnResetClick(object sender, EventArgs e) {
+		void BtnReset_Click(object sender, EventArgs e) {
     		fournisseur = (Fournisseur) fournisseurBak.Clone();
     		ReloadForm();
-		}
-    	
-		void BtnRetourClick(object sender, EventArgs e) {
-			ActionButtonGeneric.GoBack(this);
-		}
-    	
-		void BtnExitClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.Deconnexion();
 		}
     }
 }
