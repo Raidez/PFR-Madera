@@ -192,14 +192,5 @@
     <Folder Include="Vues\Popup" />
     <Folder Include="Vues\Util" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_home_black_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_contact_phone_black_18dp.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\baseline_delete_black_48dp.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
