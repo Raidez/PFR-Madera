@@ -68,7 +68,7 @@ namespace Madera
 			listFournisseur.Add(this);
 		}
 		
-		public static Fournisseur afficher(Guid id) {
+		public static Fournisseur afficherFourni(Guid id) {
 			return listFournisseur.Find(x => x.fouId == id);
 		}
 		

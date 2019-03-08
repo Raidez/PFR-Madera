@@ -32,6 +32,12 @@ namespace Madera
 			listMatiere.Add(new Matiere("Papier", fou));
 		}
 
+		public static Matiere _initOne()
+		{
+			Fournisseur fou = new Fournisseur("YoloLand1", "0123456789", 5, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
+			return new Matiere("Bois", fou);
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -44,6 +50,11 @@ namespace Madera
 			}
 
 			listMatiere.Add(this);
+		}
+
+		public static Matiere afficherMatiere(Guid id)
+		{
+			return listMatiere.Find(x => x.matId == id);
 		}
 
 		/// <summary>
@@ -76,5 +87,9 @@ namespace Madera
 			return true;
 		}
 
+		public object Clone()
+		{
+			return this.MemberwiseClone();
+		}
 	}
 }
