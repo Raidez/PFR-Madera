@@ -16,7 +16,7 @@ namespace Madera
         public string cliVille;
         public string cliTel;
         public string cliEmail;
-        public static List<Client> listeClient = new List<Client>;
+        public static List<Client> listeClient = new List<Client>();
 
         public Client(string cliNom, string cliPrenom, string cliRue, string cliCp, string cliVille, string cliTel, string cliEmail)
         {
