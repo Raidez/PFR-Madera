@@ -49,15 +49,19 @@ namespace Madera
     	}
     	
 		void BtnModifier_Click(object sender, EventArgs e) {
-    		fournisseur.fouNom = TextBoxFournisseur.Text;
-    		fournisseur.fouAdrNumero = Int32.Parse(TextBoxNumRue.Text);
-    		fournisseur.fouAdrRue = TextBoxRue.Text;
-    		fournisseur.fouVille = TextBoxVille.Text;
-    		fournisseur.fouAdrCodePostal = TextBoxCodePostal.Text;
-    		fournisseur.fouTel = TextBoxTelephone.Text;
-    		fournisseur.fouMail = TextBoxEmail.Text;
-    		fournisseur.fouPays = ComboBoxPays.Text;
-			ActionButtonGeneric.GoBack(this);
+    		try {
+	    		fournisseur.fouNom = TextBoxFournisseur.Text;
+	    		fournisseur.fouAdrNumero = Int32.Parse(TextBoxNumRue.Text);
+	    		fournisseur.fouAdrRue = TextBoxRue.Text;
+	    		fournisseur.fouVille = TextBoxVille.Text;
+	    		fournisseur.fouAdrCodePostal = TextBoxCodePostal.Text;
+	    		fournisseur.fouTel = TextBoxTelephone.Text;
+	    		fournisseur.fouMail = TextBoxEmail.Text;
+	    		fournisseur.fouPays = ComboBoxPays.Text;
+				ActionButtonGeneric.GoBack(this);
+			} catch (FormatException ex) {
+				MessageBox.Show("Le champ numéro de rue n'est pas correctement rempli !");
+			}
 		}
     	
     	
