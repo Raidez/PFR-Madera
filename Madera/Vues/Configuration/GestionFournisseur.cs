@@ -111,7 +111,7 @@ namespace Madera
     		} else {
     			ComboxItem item = (ComboxItem) ComboBoxSupprimerFournisseur.SelectedItem;
     			Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
-    			if (Fournisseur.supprimer(fournisseur)) {
+    			if (Fournisseur.supprimerFourni(fournisseur.fouId)) {
 	            	MessageBox.Show("Le fournisseur a été supprimé !");
 	            	ReloadFourn();
     			}
