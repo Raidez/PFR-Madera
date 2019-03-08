@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Madera {
+namespace Madera.Vues {
 	using System;
 	
 	
@@ -22,14 +22,14 @@ namespace Madera {
 	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
 	[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
 	[global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-	internal class Resources {
+	internal class Projet {
 		
 		private static global::System.Resources.ResourceManager resourceMan;
 		
 		private static global::System.Globalization.CultureInfo resourceCulture;
 		
 		[global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-		internal Resources() {
+		internal Projet() {
 		}
 		
 		/// <summary>
@@ -39,7 +39,7 @@ namespace Madera {
 		internal static global::System.Resources.ResourceManager ResourceManager {
 			get {
 				if (object.ReferenceEquals(resourceMan, null)) {
-					global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Madera.Resources", typeof(Resources).Assembly);
+					global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Madera.Vues.Projet", typeof(Projet).Assembly);
 					resourceMan = temp;
 				}
 				return resourceMan;
@@ -57,76 +57,6 @@ namespace Madera {
 			}
 			set {
 				resourceCulture = value;
-			}
-		}
-		
-		/// <summary>
-		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-		/// </summary>
-		internal static System.Drawing.Bitmap baseline_home_black_48dp {
-			get {
-				object obj = ResourceManager.GetObject("baseline_home_black_48dp", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		/// <summary>
-		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-		/// </summary>
-		internal static System.Drawing.Bitmap BtnPlus {
-			get {
-				object obj = ResourceManager.GetObject("BtnPlus", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		/// <summary>
-		///   Recherche une ressource localisée de type System.Drawing.Icon semblable à (Icône).
-		/// </summary>
-		internal static System.Drawing.Icon icône {
-			get {
-				object obj = ResourceManager.GetObject("icône", resourceCulture);
-				return ((System.Drawing.Icon)(obj));
-			}
-		}
-		
-		/// <summary>
-		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-		/// </summary>
-		internal static System.Drawing.Bitmap logo {
-			get {
-				object obj = ResourceManager.GetObject("logo", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		/// <summary>
-		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-		/// </summary>
-		internal static System.Drawing.Bitmap logoMadera {
-			get {
-				object obj = ResourceManager.GetObject("logoMadera", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		/// <summary>
-		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-		/// </summary>
-		internal static System.Drawing.Bitmap Maison {
-			get {
-				object obj = ResourceManager.GetObject("Maison", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
-			}
-		}
-		
-		/// <summary>
-		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-		/// </summary>
-		internal static System.Drawing.Bitmap retour {
-			get {
-				object obj = ResourceManager.GetObject("retour", resourceCulture);
-				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
 	}

@@ -107,11 +107,17 @@
     <Compile Include="Vues\CreerProjet.Designer.cs">
       <DependentUpon>CreerProjet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\EtatDevis.cs">
+    <Compile Include="Vues\Popup\EtatDevis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vues\EtatDevis.Designer.cs">
+    <Compile Include="Vues\Popup\EtatDevis.Designer.cs">
       <DependentUpon>EtatDevis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Popup\ValidationCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Popup\ValidationCreation.Designer.cs">
+      <DependentUpon>ValidationCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Vues\Projet.cs">
       <SubType>Form</SubType>
@@ -119,14 +125,12 @@
     <Compile Include="Vues\Projet.Designer.cs">
       <DependentUpon>Projet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\Projet.Designer1.cs">
+      <DependentUpon>Projet.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Vues\Util\ActionBoutonGeneric.cs" />
     <Compile Include="Vues\Util\ComboxItem.cs" />
-    <Compile Include="Vues\ValidationCreation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vues\ValidationCreation.Designer.cs">
-      <DependentUpon>ValidationCreation.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -154,14 +158,16 @@
     <EmbeddedResource Include="Vues\CreerProjet.resx">
       <DependentUpon>CreerProjet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vues\EtatDevis.resx">
+    <EmbeddedResource Include="Vues\Popup\EtatDevis.resx">
       <DependentUpon>EtatDevis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Popup\ValidationCreation.resx">
+      <DependentUpon>ValidationCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Projet.resx">
       <DependentUpon>Projet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vues\ValidationCreation.resx">
-      <DependentUpon>ValidationCreation.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Projet.Designer1.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +186,7 @@
     <Folder Include="Classes" />
     <Folder Include="Vues" />
     <Folder Include="Vues\Configuration" />
+    <Folder Include="Vues\Popup" />
     <Folder Include="Vues\Util" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,18 +10,21 @@ using System.Windows.Forms;
 
 namespace Madera
 {
-    public partial class Projet : Form
+    public partial class FormProjet : Form
     {
-        public Projet() {
+        public FormProjet()
+        {
             InitializeComponent();
         }
     	
-		void BtnGestionConfigurationClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.GoNextForm(this, new GestionConfiguration());
+		void Deconnexion(object sender, FormClosedEventArgs e)
+		{
+    		ActionButtonGeneric.Deconnexion();
 		}
     	
-		void BtnExitClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.Deconnexion();
+		void BtnConfig_Click(object sender, EventArgs e)
+		{
+			ActionButtonGeneric.GoNextForm(this, new GestionConfiguration());
 		}
     }
 }

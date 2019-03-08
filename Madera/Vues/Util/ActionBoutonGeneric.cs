@@ -21,12 +21,15 @@ namespace Madera
 		
 		public static void GoBack(Form frm) {
 			if (pile.Count > 0) {
-	    		pile.Pop().Show();
+				Form next = pile.Pop();
+	    		next.Show();
+	    		next.WindowState = frm.WindowState;
 	    		frm.Hide();
 			}
 		}
 		
 		public static void GoNextForm(Form current, Form next) {
+			next.WindowState = current.WindowState;
 			pile.Push(current);
 			next.Show();
 			current.Hide();
