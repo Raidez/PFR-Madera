@@ -69,7 +69,7 @@ namespace Madera
         /// <param name="c">Le client</param>
         public static void modifierClient(Client c)
         {
-            int i = listeClient.FindIndex(x => x.cliId == f.cliId);
+            int i = listeClient.FindIndex(x => x.cliId == c.cliId);
             listeClient.RemoveAt(i);
             listeClient.Insert(i, c);
         }
