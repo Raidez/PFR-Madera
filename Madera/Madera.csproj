@@ -101,11 +101,29 @@
     <Compile Include="Vues\Configuration\ModificationFournisseur.Designer.cs">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\CreerClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\CreerClient.Designer.cs">
+      <DependentUpon>CreerClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vues\CreerProjet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vues\CreerProjet.Designer.cs">
       <DependentUpon>CreerProjet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ModificationClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\ModificationClient.Designer.cs">
+      <DependentUpon>ModificationClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\OuvrirProjet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\OuvrirProjet.Designer.cs">
+      <DependentUpon>OuvrirProjet.cs</DependentUpon>
     </Compile>
     <Compile Include="Vues\Popup\EtatDevis.cs">
       <SubType>Form</SubType>
@@ -125,9 +143,10 @@
     <Compile Include="Vues\Projet.Designer.cs">
       <DependentUpon>Projet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\Projet.Designer1.cs">
-      <DependentUpon>Projet.resx</DependentUpon>
+    <Compile Include="Vues\Projet1.Designer.cs">
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Projet.resx</DependentUpon>
     </Compile>
     <Compile Include="Vues\Util\ActionBoutonGeneric.cs" />
     <Compile Include="Vues\Util\ComboxItem.cs" />
@@ -155,8 +174,17 @@
     <EmbeddedResource Include="Vues\Configuration\ModificationFournisseur.resx">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vues\CreerClient.resx">
+      <DependentUpon>CreerClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vues\CreerProjet.resx">
       <DependentUpon>CreerProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\ModificationClient.resx">
+      <DependentUpon>ModificationClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\OuvrirProjet.resx">
+      <DependentUpon>OuvrirProjet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Popup\EtatDevis.resx">
       <DependentUpon>EtatDevis.cs</DependentUpon>
@@ -167,7 +195,7 @@
     <EmbeddedResource Include="Vues\Projet.resx">
       <DependentUpon>Projet.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Projet.Designer1.cs</LastGenOutput>
+      <LastGenOutput>Projet1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -183,11 +211,16 @@
     <None Include="Resources\BtnPlus1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Classes" />
-    <Folder Include="Vues" />
-    <Folder Include="Vues\Configuration" />
-    <Folder Include="Vues\Popup" />
-    <Folder Include="Vues\Util" />
+    <None Include="Resources\baseline_insert_emoticon_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_home_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_contact_phone_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_delete_black_48dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

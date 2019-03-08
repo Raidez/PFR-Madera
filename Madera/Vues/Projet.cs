@@ -26,5 +26,6 @@ namespace Madera
 		{
 			ActionButtonGeneric.GoNextForm(this, new GestionConfiguration());
 		}
+
     }
 }
