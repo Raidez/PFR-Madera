@@ -101,11 +101,19 @@
     <Compile Include="Vues\Configuration\ModificationFournisseur.Designer.cs">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\CreerClient.cs" />
+    <Compile Include="Vues\CreerClient.Designer.cs">
+      <DependentUpon>CreerClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vues\CreerProjet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vues\CreerProjet.Designer.cs">
       <DependentUpon>CreerProjet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ModificationClient.cs" />
+    <Compile Include="Vues\ModificationClient.Designer.cs">
+      <DependentUpon>ModificationClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Vues\Popup\EtatDevis.cs">
       <SubType>Form</SubType>
@@ -155,8 +163,14 @@
     <EmbeddedResource Include="Vues\Configuration\ModificationFournisseur.resx">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vues\CreerClient.resx">
+      <DependentUpon>CreerClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vues\CreerProjet.resx">
       <DependentUpon>CreerProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\ModificationClient.resx">
+      <DependentUpon>ModificationClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Popup\EtatDevis.resx">
       <DependentUpon>EtatDevis.cs</DependentUpon>
@@ -169,18 +183,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Projet.Designer1.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logoMadera.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BtnPlus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logoMadera1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BtnPlus1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes" />

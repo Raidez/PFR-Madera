@@ -63,9 +63,69 @@ namespace Madera {
 		/// <summary>
 		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
 		/// </summary>
+		internal static System.Drawing.Bitmap baseline_contact_phone_black_18dp {
+			get {
+				object obj = ResourceManager.GetObject("baseline_contact_phone_black_18dp", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		/// <summary>
+		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+		/// </summary>
+		internal static System.Drawing.Bitmap baseline_contact_phone_black_18dp_1 {
+			get {
+				object obj = ResourceManager.GetObject("baseline_contact_phone_black_18dp_1", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		/// <summary>
+		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+		/// </summary>
+		internal static System.Drawing.Bitmap baseline_delete_black_48dp {
+			get {
+				object obj = ResourceManager.GetObject("baseline_delete_black_48dp", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		/// <summary>
+		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+		/// </summary>
+		internal static System.Drawing.Bitmap baseline_home_black_18dp {
+			get {
+				object obj = ResourceManager.GetObject("baseline_home_black_18dp", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		/// <summary>
+		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+		/// </summary>
 		internal static System.Drawing.Bitmap baseline_home_black_48dp {
 			get {
 				object obj = ResourceManager.GetObject("baseline_home_black_48dp", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		/// <summary>
+		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+		/// </summary>
+		internal static System.Drawing.Bitmap baseline_home_black_48dp_1 {
+			get {
+				object obj = ResourceManager.GetObject("baseline_home_black_48dp_1", resourceCulture);
+				return ((System.Drawing.Bitmap)(obj));
+			}
+		}
+		
+		/// <summary>
+		///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+		/// </summary>
+		internal static System.Drawing.Bitmap baseline_insert_emoticon_black_18dp {
+			get {
+				object obj = ResourceManager.GetObject("baseline_insert_emoticon_black_18dp", resourceCulture);
 				return ((System.Drawing.Bitmap)(obj));
 			}
 		}
