@@ -30,7 +30,7 @@ namespace Madera
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Projet());
+			Application.Run(new FormProjet());
 		}
 	}
 }

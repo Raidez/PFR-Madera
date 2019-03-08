@@ -101,17 +101,31 @@
     <Compile Include="Vues\Configuration\ModificationFournisseur.Designer.cs">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\CreerClient.cs" />
+    <Compile Include="Vues\CreerClient.Designer.cs">
+      <DependentUpon>CreerClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vues\CreerProjet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vues\CreerProjet.Designer.cs">
       <DependentUpon>CreerProjet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\EtatDevis.cs">
+    <Compile Include="Vues\ModificationClient.cs" />
+    <Compile Include="Vues\ModificationClient.Designer.cs">
+      <DependentUpon>ModificationClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Popup\EtatDevis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vues\EtatDevis.Designer.cs">
+    <Compile Include="Vues\Popup\EtatDevis.Designer.cs">
       <DependentUpon>EtatDevis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Popup\ValidationCreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Popup\ValidationCreation.Designer.cs">
+      <DependentUpon>ValidationCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Vues\Projet.cs">
       <SubType>Form</SubType>
@@ -119,14 +133,13 @@
     <Compile Include="Vues\Projet.Designer.cs">
       <DependentUpon>Projet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\Projet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Projet.resx</DependentUpon>
+    </Compile>
     <Compile Include="Vues\Util\ActionBoutonGeneric.cs" />
     <Compile Include="Vues\Util\ComboxItem.cs" />
-    <Compile Include="Vues\ValidationCreation.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vues\ValidationCreation.Designer.cs">
-      <DependentUpon>ValidationCreation.cs</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -151,36 +164,42 @@
     <EmbeddedResource Include="Vues\Configuration\ModificationFournisseur.resx">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vues\CreerClient.resx">
+      <DependentUpon>CreerClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vues\CreerProjet.resx">
       <DependentUpon>CreerProjet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vues\EtatDevis.resx">
+    <EmbeddedResource Include="Vues\ModificationClient.resx">
+      <DependentUpon>ModificationClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Popup\EtatDevis.resx">
       <DependentUpon>EtatDevis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Popup\ValidationCreation.resx">
+      <DependentUpon>ValidationCreation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Projet.resx">
       <DependentUpon>Projet.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Projet1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vues\ValidationCreation.resx">
-      <DependentUpon>ValidationCreation.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logoMadera.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BtnPlus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logoMadera1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\BtnPlus1.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes" />
     <Folder Include="Vues" />
     <Folder Include="Vues\Configuration" />
+    <Folder Include="Vues\Popup" />
     <Folder Include="Vues\Util" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_home_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_contact_phone_black_18dp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_delete_black_48dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

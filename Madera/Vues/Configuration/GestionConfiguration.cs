@@ -12,24 +12,29 @@ namespace Madera
 {
     public partial class GestionConfiguration : Form
     {
-        public GestionConfiguration() {
+        public GestionConfiguration()
+        {
             InitializeComponent();
         }
     	
-		void BtnGestionGammesClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.GoNextForm(this, new GestionGamme());
+		void Deconnexion(object sender, FormClosedEventArgs e)
+		{
+    		ActionButtonGeneric.Deconnexion();
 		}
     	
-    	void BtnGestionFournisseurClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.GoNextForm(this, new GestionFournisseur());
-		}
-    	
-    	void BtnRetourClick(object sender, EventArgs e) {
+    	void BtnRetour_Click(object sender, EventArgs e)
+    	{
     		ActionButtonGeneric.GoBack(this);
 		}
     	
-		void BtnExitClick(object sender, EventArgs e) {
-			ActionButtonGeneric.Deconnexion();
+		void BtnGamme_Click(object sender, EventArgs e)
+		{
+    		ActionButtonGeneric.GoNextForm(this, new GestionGamme());
+		}
+    	
+    	void BtnFourn_Click(object sender, EventArgs e)
+    	{
+    		ActionButtonGeneric.GoNextForm(this, new GestionFournisseur());
 		}
     }
 }

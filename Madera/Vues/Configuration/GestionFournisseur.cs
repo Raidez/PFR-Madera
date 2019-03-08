@@ -18,6 +18,16 @@ namespace Madera
             ReloadFourn();
         }
     	
+		void Deconnexion(object sender, FormClosedEventArgs e)
+		{
+    		ActionButtonGeneric.Deconnexion();
+		}
+    	
+    	void BtnRetour_Click(object sender, EventArgs e)
+    	{
+    		ActionButtonGeneric.GoBack(this);
+		}
+    	
     	public void ReloadFourn() {
     		// vidage des combox
     		ComboBoxModifierFournisseur.Items.Clear();
@@ -70,17 +80,22 @@ namespace Madera
     		return isOK;
     	}
 		
-		void BtnAjoutFournisseurClick(object sender, EventArgs e) {
+		void BtnAjouter_Click(object sender, EventArgs e) {
     		if (!CheckControls()) {
     			MessageBox.Show("Renseignez tout les champs !");
     		} else {
-    			new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, (string) ComboBoxPays.SelectedItem, TextBoxEmail.Text).ajouterFourni();
+    			try {
+    				new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, (string) ComboBoxPays.SelectedItem, TextBoxEmail.Text).ajouterFourni();
+    			} catch (FormatException ex) {
+    				MessageBox.Show("Le champ numéro de rue n'est pas correctement rempli !");
+    			}
     			ResetControls();
     			ReloadFourn();
+    			
     		}
 		}
     	
-		void BtnModificationFournisseurClick(object sender, EventArgs e) {
+		void BtnModifier_Click(object sender, EventArgs e) {
     		if (Fournisseur.listFournisseur.Count <= 0) {
     			MessageBox.Show("Il n'y a pas de fournisseurs !");
     		} else {
@@ -90,7 +105,7 @@ namespace Madera
     		}
 		}
     	
-		void BtnSupprimerFournisseurClick(object sender, EventArgs e) {
+		void BtnSupprimer_Click(object sender, EventArgs e) {
 			if (Fournisseur.listFournisseur.Count <= 0) {
     			MessageBox.Show("Il n'y a pas de fournisseurs !");
     		} else {
@@ -101,14 +116,6 @@ namespace Madera
 	            	ReloadFourn();
     			}
     		}
-		}
-		
-		void BtnRetourClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.GoBack(this);
-		}
-    	
-		void BtnExitClick(object sender, EventArgs e) {
-    		ActionButtonGeneric.Deconnexion();
 		}
     }
 }
