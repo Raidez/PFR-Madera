@@ -25,8 +25,7 @@ namespace Madera
 		private static void Main(string[] args)
 		{
 			// instancie des données vides
-			Gamme._init();
-			Fournisseur._init();
+			Client._initOne();
 
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);

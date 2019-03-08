@@ -38,9 +38,9 @@ namespace Madera
             new Client("YoloLand1", "MonPrenom", "Rue de Miquaël Jacques Son", "72000", "Wonderland", "0123456789", "wallah@salam.us").ajouterClient();
         }
 
-        public static Client _initOne()
+        public static void _initOne()
         {
-            return new Client("YoloLand1", "MonPrenom", "Rue de Miquaël Jacques Son", "72000", "Wonderland", "0123456789", "wallah@salam.us");
+        	new Client("YoloLand1", "MonPrenom", "Rue de Miquaël Jacques Son", "72000", "Wonderland", "0123456789", "wallah@salam.us").ajouterClient();
         }
 
 		/// <summary>
