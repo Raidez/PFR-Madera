@@ -68,7 +68,7 @@ namespace Madera
 			listFournisseur.Add(this);
 		}
 		
-		public static Fournisseur afficherFourni(Guid id) {
+		public static Fournisseur afficher(Guid id) {
 			return listFournisseur.Find(x => x.fouId == id);
 		}
 		
@@ -77,7 +77,7 @@ namespace Madera
 		/// Modification d'un fournisseur
 		/// </summary>
 		/// <param name="f">Le fournisseur</param>
-		public static void modifierFourni(Fournisseur f)
+		public static void modifier(Fournisseur f)
 		{
 			int i = listFournisseur.FindIndex(x => x.fouId == f.fouId);
 			listFournisseur.RemoveAt(i);
@@ -89,7 +89,7 @@ namespace Madera
 		/// </summary>
 		/// <param name="fouId">GUID du fournisseur à supprimer</param>
 		/// <returns>Vrai si réussi | Faux en cas d'erreur</returns>
-		public static bool supprimerFourni(Guid fouId)
+		public static bool supprimer(Guid fouId)
 		{
 			try
 			{
