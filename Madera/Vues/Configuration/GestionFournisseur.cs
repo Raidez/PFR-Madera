@@ -35,19 +35,15 @@ namespace Madera
     		ComboBoxModifierFournisseur.Text = "";
     		ComboBoxSupprimerFournisseur.Text = "";
     		
-    		if (Fournisseur.listFournisseur.Count > 0) {
+    		
     			// ajout des valeurs
     			ComboxItem item;
-    			foreach (Fournisseur f in Fournisseur.listFournisseur) {
+    			foreach (Fournisseur f in BDDExterne.GetAllFournisseur()) {
     				item = new ComboxItem(f.fouNom, f.fouId);
     				ComboBoxModifierFournisseur.Items.Add(item);
     				ComboBoxSupprimerFournisseur.Items.Add(item);
     			}
-    			
-    			// sélection du 1er élement
-				ComboBoxModifierFournisseur.SelectedIndex = 0;
-				ComboBoxSupprimerFournisseur.SelectedIndex = 0;
-    		}
+    		
     		
     	}
     	
@@ -85,7 +81,8 @@ namespace Madera
     			MessageBox.Show("Renseignez tout les champs !");
     		} else {
     			try {
-    				new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, (string) ComboBoxPays.SelectedItem, TextBoxEmail.Text).ajouterFourni();
+                    BDDExterne.AjouterFounisseur(new Fournisseur(Guid.NewGuid(), TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, (string)ComboBoxPays.SelectedItem, TextBoxEmail.Text));
+
     			} catch (FormatException ex) {
     				MessageBox.Show("Le champ numéro de rue n'est pas correctement rempli !");
     			}
@@ -96,26 +93,20 @@ namespace Madera
 		}
     	
 		void BtnModifier_Click(object sender, EventArgs e) {
-    		if (Fournisseur.listFournisseur.Count <= 0) {
-    			MessageBox.Show("Il n'y a pas de fournisseurs !");
-    		} else {
-    			ComboxItem item = (ComboxItem) ComboBoxModifierFournisseur.SelectedItem;
-    			Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
-    			ActionButtonGeneric.GoNextForm(this, new ModificationFournisseur(fournisseur));
-    		}
+    		//if (Fournisseur.listFournisseur.Count <= 0) {
+    		//	MessageBox.Show("Il n'y a pas de fournisseurs !");
+    		//} else {
+    		//	ComboxItem item = (ComboxItem) ComboBoxModifierFournisseur.SelectedItem;
+    		//	Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
+    		//	ActionButtonGeneric.GoNextForm(this, new ModificationFournisseur(fournisseur));
+    		//}
 		}
     	
 		void BtnSupprimer_Click(object sender, EventArgs e) {
-			if (Fournisseur.listFournisseur.Count <= 0) {
-    			MessageBox.Show("Il n'y a pas de fournisseurs !");
-    		} else {
-    			ComboxItem item = (ComboxItem) ComboBoxSupprimerFournisseur.SelectedItem;
-    			Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
-    			if (Fournisseur.supprimerFourni(fournisseur.fouId)) {
-	            	MessageBox.Show("Le fournisseur a été supprimé !");
-	            	ReloadFourn();
-    			}
-    		}
+
+                ComboxItem item = (ComboxItem) ComboBoxSupprimerFournisseur.SelectedItem;
+       // Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
+
 		}
     }
 }

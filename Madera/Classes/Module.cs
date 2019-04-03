@@ -60,11 +60,6 @@ namespace Madera
 			modParametres.Insert(i, p);
 		}
 		
-		public static void _init() {
-			Gamme g = new Gamme("Yolo");
-			Matiere m = new Matiere("Ouaiche", Fournisseur._initOne());
-			listModule.Add(new Module("Home Sweet Home", g, m, 11.5, Parametre.listParametre));
-		}
 
 		/// <summary>
 		/// Ajout d'un module dans la liste LazyLoad

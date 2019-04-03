@@ -16,6 +16,7 @@ namespace Madera
         public FormProjet()
         {
             InitializeComponent();
+            BDDExterne.Open();
         }
     	
 		void Deconnexion(object sender, FormClosedEventArgs e)

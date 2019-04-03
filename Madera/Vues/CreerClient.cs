@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Madera.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,16 @@ namespace Madera.Vues
 		public CreerClient()
 		{
 			InitializeComponent();
-		}
+
+            // ajout des valeurs
+            ComboxItem item;
+            foreach (Client f in BDDExterne.GetAllClients())
+            {
+                item = new ComboxItem(f.cliNom + " " + f.cliPrenom, f.cliId);
+                comboBox1.Items.Add(item);
+            }
+
+        }
     	
 		void Deconnexion(object sender, FormClosedEventArgs e)
 		{
@@ -92,7 +102,12 @@ namespace Madera.Vues
 		
 		void BtnAjouter_Click(object sender, EventArgs e)
 		{
-			new Client(textBoxNom.Text, textBoxPrenom.Text, textBoxRue.Text, textBoxCodePostal.Text, textBoxVille.Text, textBoxTelephone.Text, textBoxEmail.Text).ajouterClient();
+            Client monClient = new Client(Guid.NewGuid(), textBoxNom.Text, textBoxPrenom.Text, textBoxNumRue.Text, textBoxRue.Text, textBoxCodePostal.Text, textBoxVille.Text, textBoxTelephone.Text, textBoxEmail.Text);
+            
+            if (BDDExterne.AjouterClient(monClient) == false)
+            {
+                MessageBox.Show("Echec de l'ajout du client");
+            }
 		}
 	}
 }

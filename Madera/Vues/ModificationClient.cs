@@ -18,7 +18,6 @@ namespace Madera.Vues
 		public ModificationClient()
 		{
 			InitializeComponent();
-			client = Client.listeClient.First();
 			clientBak = (Client)client.Clone();
 			ReloadForm();
 		}
@@ -46,7 +45,7 @@ namespace Madera.Vues
     	
 		void BtnSupprimer_Click(object sender, EventArgs e)
 		{
-			Client.supprimerClient(client.cliId);
+            BDDExterne.SupprimerClient(client.cliId.ToString());
 			BtnRetour_Click(sender, e);
 		}
 		

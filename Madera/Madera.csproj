@@ -74,6 +74,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BDDExterne.cs" />
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\Devis.cs" />
     <Compile Include="Classes\Fournisseur.cs" />

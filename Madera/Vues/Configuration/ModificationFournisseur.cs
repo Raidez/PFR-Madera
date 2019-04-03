@@ -24,7 +24,7 @@ namespace Madera
 		public ModificationFournisseur(object f)
 		{
 			InitializeComponent();
-			fournisseur = Fournisseur.afficher(((Fournisseur)f).fouId);
+			//fournisseur = Fournisseur.afficher(((Fournisseur)f).fouId);
 			fournisseurBak = (Fournisseur)fournisseur.Clone();
 			ReloadForm();
 		}

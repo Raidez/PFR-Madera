@@ -25,12 +25,6 @@ namespace Madera
 			this.matId = Guid.NewGuid();
 		}
 		
-		public static void _init() {
-			Fournisseur fou = new Fournisseur("YoloLand1", "0123456789", 5, "Rue de Miquaël Jacques Son", "72000", "Wonderland", "Pays de la Morphine", "wallah@salam.us");
-			listMatiere.Add(new Matiere("Bois", fou));
-			listMatiere.Add(new Matiere("Acier", fou));
-			listMatiere.Add(new Matiere("Papier", fou));
-		}
 
 		/// <summary>
 		/// 
