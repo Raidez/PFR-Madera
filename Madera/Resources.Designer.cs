@@ -10,21 +10,21 @@
 
 namespace Madera {
     using System;
+	using System.Drawing;
 
 
-    /// <summary>
-    ///   Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
-    /// </summary>
-    // Cette classe a été générée automatiquement par la classe StronglyTypedResourceBuilder
-    // à l'aide d'un outil, tel que ResGen ou Visual Studio.
-    // Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
-    // avec l'option /str ou régénérez votre projet VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+	/// <summary>
+	///   Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+	/// </summary>
+	// Cette classe a été générée automatiquement par la classe StronglyTypedResourceBuilder
+	// à l'aide d'un outil, tel que ResGen ou Visual Studio.
+	// Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
+	// avec l'option /str ou régénérez votre projet VS.
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
 		internal static Image logo;
-		internal static Image logoMadera;
 		private static global::System.Resources.ResourceManager resourceMan;
 
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -138,16 +138,6 @@ namespace Madera {
             get {
                 object obj = ResourceManager.GetObject("icône", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
-            }
-        }
-
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap logo {
-            get {
-                object obj = ResourceManager.GetObject("logo", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

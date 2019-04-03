@@ -86,7 +86,7 @@ namespace Madera
     		} else {
     			try {
     				new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, (string) ComboBoxPays.SelectedItem, TextBoxEmail.Text).ajouterFourni();
-    			} catch (FormatException ex) {
+    			} catch (FormatException) {
     				MessageBox.Show("Le champ numéro de rue n'est pas correctement rempli !");
     			}
     			ResetControls();
