@@ -17,24 +17,24 @@ namespace Madera
             InitializeComponent();
             ReloadFourn();
         }
-    	
+
 		void Deconnexion(object sender, FormClosedEventArgs e)
 		{
     		ActionButtonGeneric.Deconnexion();
 		}
-    	
+
     	void BtnRetour_Click(object sender, EventArgs e)
     	{
     		ActionButtonGeneric.GoBack(this);
 		}
-    	
+
     	public void ReloadFourn() {
     		// vidage des combox
     		ComboBoxModifierFournisseur.Items.Clear();
     		ComboBoxSupprimerFournisseur.Items.Clear();
     		ComboBoxModifierFournisseur.Text = "";
     		ComboBoxSupprimerFournisseur.Text = "";
-    		
+
     		if (Fournisseur.listFournisseur.Count > 0) {
     			// ajout des valeurs
     			ComboxItem item;
@@ -43,18 +43,18 @@ namespace Madera
     				ComboBoxModifierFournisseur.Items.Add(item);
     				ComboBoxSupprimerFournisseur.Items.Add(item);
     			}
-    			
+
     			// sélection du 1er élement
 				ComboBoxModifierFournisseur.SelectedIndex = 0;
 				ComboBoxSupprimerFournisseur.SelectedIndex = 0;
     		}
-    		
+
     	}
-    	
+
     	void GestionFournisseurPaint(object sender, PaintEventArgs e) {
     		ReloadFourn();
 		}
-    	
+
     	public void ResetControls() {
     		TextBoxNom.Text = "";
 			TextBoxNumRue.Text = "";
@@ -66,7 +66,7 @@ namespace Madera
 			ComboBoxPays.Text = "";
 			ComboBoxPays.SelectedIndex = -1;
     	}
-    	
+
     	public bool CheckControls() {
     		bool isOK = TextBoxNom.Text.Any();
     		isOK &= TextBoxNumRue.Text.Any();
@@ -76,25 +76,25 @@ namespace Madera
     		isOK &= TextBoxTelephone.Text.Any();
     		isOK &= TextBoxEmail.Text.Any();
     		isOK &= ComboBoxPays.SelectedIndex >= 0;
-    		
+
     		return isOK;
     	}
-		
+
 		void BtnAjouter_Click(object sender, EventArgs e) {
     		if (!CheckControls()) {
     			MessageBox.Show("Renseignez tout les champs !");
     		} else {
     			try {
     				new Fournisseur(TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, (string) ComboBoxPays.SelectedItem, TextBoxEmail.Text).ajouterFourni();
-    			} catch (FormatException ex) {
+    			} catch (FormatException) {
     				MessageBox.Show("Le champ numéro de rue n'est pas correctement rempli !");
     			}
     			ResetControls();
     			ReloadFourn();
-    			
+
     		}
 		}
-    	
+
 		void BtnModifier_Click(object sender, EventArgs e) {
     		if (Fournisseur.listFournisseur.Count <= 0) {
     			MessageBox.Show("Il n'y a pas de fournisseurs !");

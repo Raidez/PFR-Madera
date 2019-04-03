@@ -51,6 +51,7 @@
         	this.BtnNouveauProjet.TabIndex = 9;
         	this.BtnNouveauProjet.Text = "Créer un nouveau projet";
         	this.BtnNouveauProjet.UseVisualStyleBackColor = false;
+        	this.BtnNouveauProjet.Click += new System.EventHandler(this.BtnNouveauProjetClick);
         	// 
         	// BtnOuvrirProjet
         	// 
@@ -64,6 +65,7 @@
         	this.BtnOuvrirProjet.TabIndex = 10;
         	this.BtnOuvrirProjet.Text = "Ouvrir un projet existant";
         	this.BtnOuvrirProjet.UseVisualStyleBackColor = false;
+        	this.BtnOuvrirProjet.Click += new System.EventHandler(this.BtnOuvrirProjetClick);
         	// 
         	// BtnConfig
         	// 

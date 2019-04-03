@@ -67,17 +67,17 @@ namespace Madera
 
 			listFournisseur.Add(this);
 		}
-		
+
 		public static Fournisseur afficher(Guid id) {
 			return listFournisseur.Find(x => x.fouId == id);
 		}
-		
+
 
         /// <summary>
 		/// Modification d'un fournisseur
 		/// </summary>
 		/// <param name="f">Le fournisseur</param>
-		public static void modifierFourni(Fournisseur f)
+		public static void modifier(Fournisseur f)
 		{
 			int i = listFournisseur.FindIndex(x => x.fouId == f.fouId);
 			listFournisseur.RemoveAt(i);
@@ -102,7 +102,7 @@ namespace Madera
 
 			return true;
 		}
-		
+
 		public object Clone() {
 			return this.MemberwiseClone();
 		}
