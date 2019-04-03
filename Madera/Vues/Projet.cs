@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Madera.Vues;
 
 namespace Madera
 {
@@ -25,6 +26,16 @@ namespace Madera
 		void BtnConfig_Click(object sender, EventArgs e)
 		{
 			ActionButtonGeneric.GoNextForm(this, new GestionConfiguration());
+		}
+		
+		void BtnOuvrirProjetClick(object sender, EventArgs e)
+		{
+			ActionButtonGeneric.GoNextForm(this, new ModificationClient());
+		}
+		
+		void BtnNouveauProjetClick(object sender, EventArgs e)
+		{
+			ActionButtonGeneric.GoNextForm(this, new CreerClient());
 		}
 
     }

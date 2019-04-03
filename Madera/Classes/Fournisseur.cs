@@ -67,11 +67,11 @@ namespace Madera
 
 			listFournisseur.Add(this);
 		}
-		
+
 		public static Fournisseur afficher(Guid id) {
 			return listFournisseur.Find(x => x.fouId == id);
 		}
-		
+
 
         /// <summary>
 		/// Modification d'un fournisseur
@@ -89,7 +89,7 @@ namespace Madera
 		/// </summary>
 		/// <param name="fouId">GUID du fournisseur à supprimer</param>
 		/// <returns>Vrai si réussi | Faux en cas d'erreur</returns>
-		public static bool supprimer(Guid fouId)
+		public static bool supprimerFourni(Guid fouId)
 		{
 			try
 			{
@@ -102,7 +102,7 @@ namespace Madera
 
 			return true;
 		}
-		
+
 		public object Clone() {
 			return this.MemberwiseClone();
 		}

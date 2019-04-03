@@ -35,20 +35,6 @@ namespace Madera
 			current.Hide();
 		}
 		
-		public static void GoHome() {
-			while(pile.Count > 1) {
-				pile.Pop();
-			}
-			pile.Pop().Show();
-			
-			//Application.Run();
-			
-			/*
-			pile.Clear();
-			new Projet();
-			*/
-		}
-		
 		public static void Deconnexion() {
 			Application.Exit();
 		}
