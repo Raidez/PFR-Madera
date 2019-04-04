@@ -18,7 +18,7 @@ namespace Madera.Vues
 		public ModificationClient()
 		{
 			InitializeComponent();
-			clientBak = (Client)client.Clone();
+		clientBak = (Client)client.Clone();
 			ReloadForm();
 		}
     	

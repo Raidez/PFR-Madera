@@ -85,6 +85,22 @@ namespace Madera
         #endregion
 
         #region devis 
+        public static Boolean AjouterDevis(Devis monDevis)
+        {
+            return true;
+        }
+
+        public static List<Devis> GetAllDevis()
+        {
+            List<Devis> listeDevis = new List<Devis>();
+            return listeDevis;
+            
+        }
+
+        public static Boolean SupprimerDevis(string id)
+        {
+            return true;
+        }
         #endregion
 
         #region fournisseur
@@ -223,21 +239,110 @@ namespace Madera
 
         }
 
+        public static Boolean SupprimerGamme(string id)
+        {
+            return true;
+        }
         #endregion
 
         #region Matiere
+        public static Boolean AjouterMatiere(Matiere maMatiere)
+        {
+            try
+            {
+                if (conn.State.ToString() == "Closed")
+                {
+                    conn.Open();
+                }
+                NpgsqlCommand MyCmd = null;
+                // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
+                string query = @"INSERT INTO ""Gamme"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  ")";
+                Debug.WriteLine(query);
+                MyCmd = new NpgsqlCommand(query, conn);
+                MyCmd.ExecuteNonQuery(); //Exécution
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conn.State.ToString() == "Open")
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        public static List<Matiere> GetAllMatiere()
+        {
+            List<Matiere> ListeMatiere = new List<Matiere>();
+            return ListeMatiere;
+        }
+
+        public static Boolean SupprimerMatiere(string id)
+        {
+            return true;
+        }
 
         #endregion
 
         #region Module
+        public static Boolean AjouterModule(Module monModule)
+        {
+            return true;
+        }
+
+        public static List<Module> GetAllModules()
+        {
+            List<Module> listeModules = new List<Module>();
+            return listeModules;
+        }
+
+        public static Boolean SupprimerModule(string id)
+        {
+            return true;
+        }
 
         #endregion
 
         #region Parametre
+        public static Boolean AjouterParametre(Parametre monParametre)
+        {
+            return true;
+        }
 
+        public static List<Parametre> GetAllParametre()
+        {
+            List<Parametre> ListeParametre = new List<Parametre>();
+            return ListeParametre;
+        }
+
+        public static Boolean SupprimerParametre(string id)
+        {
+            return true;
+        }
         #endregion
 
         #region Salarie
+        public static Boolean AjouterSalerie(Salarie monSalerie)
+        {
+            return true;
+        }
+
+        public static List<Salarie> GetAllSalarie()
+        {
+            List<Salarie> ListeSalerie = new List<Salarie>();
+            return ListeSalerie;
+
+        }
+
+        public static Boolean SupprimerSalarie(string id)
+        {
+            return true;
+        }
 
         #endregion
     }
