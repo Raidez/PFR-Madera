@@ -114,11 +114,19 @@
     <Compile Include="Vues\Configuration\GestionGamme.Designer.cs">
       <DependentUpon>GestionGamme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\Configuration\GestionModule.cs" />
+    <Compile Include="Vues\Configuration\GestionModule.Designer.cs">
+      <DependentUpon>GestionModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vues\Configuration\ModificationFournisseur.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vues\Configuration\ModificationFournisseur.Designer.cs">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Configuration\ModificationModule.cs" />
+    <Compile Include="Vues\Configuration\ModificationModule.Designer.cs">
+      <DependentUpon>ModificationModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Vues\CreerClient.cs">
       <SubType>Form</SubType>
@@ -189,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Configuration\GestionGamme.resx">
       <DependentUpon>GestionGamme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Configuration\GestionModule.resx">
+      <DependentUpon>GestionModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Configuration\ModificationFournisseur.resx">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>

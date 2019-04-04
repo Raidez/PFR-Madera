@@ -35,6 +35,7 @@
         	this.ImgLogo = new System.Windows.Forms.PictureBox();
         	this.BtnRetour = new System.Windows.Forms.Button();
         	this.panel4 = new System.Windows.Forms.Panel();
+        	this.BtnModule = new System.Windows.Forms.Button();
         	this.panel1.SuspendLayout();
         	this.panel3.SuspendLayout();
         	((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).BeginInit();
@@ -47,6 +48,7 @@
 			| System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
         	this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+        	this.panel1.Controls.Add(this.BtnModule);
         	this.panel1.Controls.Add(this.BtnFourn);
         	this.panel1.Controls.Add(this.BtnGamme);
         	this.panel1.Location = new System.Drawing.Point(9, 111);
@@ -121,6 +123,17 @@
         	this.panel4.Size = new System.Drawing.Size(766, 50);
         	this.panel4.TabIndex = 18;
         	// 
+        	// BtnModule
+        	// 
+        	this.BtnModule.Anchor = System.Windows.Forms.AnchorStyles.None;
+        	this.BtnModule.Location = new System.Drawing.Point(271, 242);
+        	this.BtnModule.Name = "BtnModule";
+        	this.BtnModule.Size = new System.Drawing.Size(233, 62);
+        	this.BtnModule.TabIndex = 15;
+        	this.BtnModule.Text = "Gestion des modules";
+        	this.BtnModule.UseVisualStyleBackColor = true;
+        	this.BtnModule.Click += new System.EventHandler(this.BtnModuleClick);
+        	// 
         	// GestionConfiguration
         	// 
         	this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -153,5 +166,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button BtnGamme;
         private System.Windows.Forms.Button BtnFourn;
+        private System.Windows.Forms.Button BtnModule;
     }
 }
