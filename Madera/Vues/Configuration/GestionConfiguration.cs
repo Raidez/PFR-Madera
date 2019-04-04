@@ -42,5 +42,10 @@ namespace Madera
 		{
 			ActionButtonGeneric.GoNextForm(this, new GestionModule());
 		}
+		
+		void BtnGoMatièreClick(object sender, EventArgs e)
+		{
+			ActionButtonGeneric.GoNextForm(this, new GestionMatière());
+		}
     }
 }

@@ -114,6 +114,10 @@
     <Compile Include="Vues\Configuration\GestionGamme.Designer.cs">
       <DependentUpon>GestionGamme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\Configuration\GestionMatière.cs" />
+    <Compile Include="Vues\Configuration\GestionMatière.Designer.cs">
+      <DependentUpon>GestionMatière.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vues\Configuration\GestionModule.cs" />
     <Compile Include="Vues\Configuration\GestionModule.Designer.cs">
       <DependentUpon>GestionModule.cs</DependentUpon>
@@ -197,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Configuration\GestionGamme.resx">
       <DependentUpon>GestionGamme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Configuration\GestionMatière.resx">
+      <DependentUpon>GestionMatière.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Configuration\GestionModule.resx">
       <DependentUpon>GestionModule.cs</DependentUpon>
