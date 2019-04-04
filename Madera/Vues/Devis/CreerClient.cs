@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Madera.Vues
+namespace Madera.Vues.Devis
 {
 	public partial class CreerClient : Form
 	{
@@ -108,6 +108,12 @@ namespace Madera.Vues
             {
                 MessageBox.Show("Echec de l'ajout du client");
             }
+		}
+		
+		void BtnChoisirClientClick(object sender, EventArgs e)
+		{
+			Client client = BDDExterne.GetAllClients().Find(x => x.cliId == (Guid) comboBox1.SelectedValue);
+			ActionButtonGeneric.GoNextForm(this, new DevisModule(client));
 		}
 	}
 }

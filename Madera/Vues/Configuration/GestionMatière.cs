@@ -24,6 +24,16 @@ namespace Madera.Vues.Configuration
 			Reload();
 		}
 		
+		void Deconnexion(object sender, FormClosedEventArgs e)
+		{
+    		ActionButtonGeneric.Deconnexion();
+		}
+    	
+    	void BtnRetour_Click(object sender, EventArgs e)
+    	{
+    		ActionButtonGeneric.GoBack(this);
+		}
+		
 		void Reload()
 		{
 			// ajout des fournisseurs dans les combobox

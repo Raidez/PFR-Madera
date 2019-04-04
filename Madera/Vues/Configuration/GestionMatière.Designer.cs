@@ -230,6 +230,7 @@ namespace Madera.Vues.Configuration
         	this.BtnRetour.TabIndex = 13;
         	this.BtnRetour.Text = "Retour";
         	this.BtnRetour.UseVisualStyleBackColor = true;
+        	this.BtnRetour.Click += new System.EventHandler(this.BtnRetour_Click);
         	// 
         	// panel7
         	// 
@@ -316,6 +317,7 @@ namespace Madera.Vues.Configuration
         	this.Margin = new System.Windows.Forms.Padding(2);
         	this.Name = "GestionMatière";
         	this.Text = "GestionFournisseur";
+        	this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Deconnexion);
         	this.panel2.ResumeLayout(false);
         	this.panel2.PerformLayout();
         	this.panel5.ResumeLayout(false);

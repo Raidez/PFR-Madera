@@ -36,7 +36,7 @@ namespace Madera
 		
 		void BtnNouveauProjetClick(object sender, EventArgs e)
 		{
-			ActionButtonGeneric.GoNextForm(this, new CreerClient());
+			ActionButtonGeneric.GoNextForm(this, new Vues.Devis.CreerClient());
 		}
 
     }

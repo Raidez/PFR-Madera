@@ -132,17 +132,21 @@
     <Compile Include="Vues\Configuration\ModificationModule.Designer.cs">
       <DependentUpon>ModificationModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\CreerClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vues\CreerClient.Designer.cs">
-      <DependentUpon>CreerClient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vues\CreerProjet.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vues\CreerProjet.Designer.cs">
       <DependentUpon>CreerProjet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Devis\CreerClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Devis\CreerClient.Designer.cs">
+      <DependentUpon>CreerClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Devis\DevisModule.cs" />
+    <Compile Include="Vues\Devis\DevisModule.Designer.cs">
+      <DependentUpon>DevisModule.cs</DependentUpon>
     </Compile>
     <Compile Include="Vues\ModificationClient.cs">
       <SubType>Form</SubType>
@@ -211,11 +215,14 @@
     <EmbeddedResource Include="Vues\Configuration\ModificationFournisseur.resx">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vues\CreerClient.resx">
-      <DependentUpon>CreerClient.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vues\CreerProjet.resx">
       <DependentUpon>CreerProjet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Devis\CreerClient.resx">
+      <DependentUpon>CreerClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Devis\DevisModule.resx">
+      <DependentUpon>DevisModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\ModificationClient.resx">
       <DependentUpon>ModificationClient.cs</DependentUpon>
@@ -238,6 +245,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Vues\Devis" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
