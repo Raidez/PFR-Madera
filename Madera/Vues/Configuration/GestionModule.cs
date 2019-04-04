@@ -37,19 +37,27 @@ namespace Madera.Vues.Configuration
     		ActionButtonGeneric.GoBack(this);
 		}
     	
-    	public void reloadModules() {
+    	public void reloadModules()
+    	{
     		// vidage des combobox
     		CbxModuleModifier.Items.Clear();
     		CbxModuleSupprimer.Items.Clear();
     		CbxModuleModifier.Text = "";
     		CbxModuleSupprimer.Text = "";
 			
-			// ajout des valeurs
+			// ajout des modules déjà existant
 			ComboxItem item;
 			foreach (Module m in BDDExterne.GetAllModules()) {
 				item = new ComboxItem(m.modLibele, m.modId);
 				CbxModuleModifier.Items.Add(item);
 				CbxModuleSupprimer.Items.Add(item);
+			}
+			
+			// ajout des paramètres déjà existant
+			foreach (Parametre p in BDDExterne.GetAllParametre())
+			{
+				item = new ComboxItem(p.parNom, p.parId);
+				CbxParamNom.Items.Add(item);
 			}
     	}
     	
@@ -60,7 +68,8 @@ namespace Madera.Vues.Configuration
     		CbxGammeAjout.SelectedIndex = -1;
     		CbxMatièreAjout.Text = "";
     		CbxMatièreAjout.SelectedIndex = -1;
-    		Paramètres.Clear();
+    		LbxParamsAjout.Items.Clear();
+    		LbxParamsAjout.SelectedIndex = -1;
     	}
     	
     	public bool CheckControls() {
@@ -68,11 +77,7 @@ namespace Madera.Vues.Configuration
     		isOK &= !string.IsNullOrWhiteSpace(TbxPrixAjout.Text);
     		isOK &= !string.IsNullOrWhiteSpace(CbxGammeAjout.Text);
     		isOK &= !string.IsNullOrWhiteSpace(CbxMatièreAjout.Text);
-    		isOK &= Paramètres.Count > 0;
-    		foreach (var param in Paramètres) {
-    			isOK &= !string.IsNullOrWhiteSpace(param[0].Text);
-    			isOK &= !string.IsNullOrWhiteSpace(param[1].Text);
-    		}
+    		isOK &= LbxParamsAjout.Items.Count > 0;
     		return isOK;
     	}
     	
@@ -117,9 +122,12 @@ namespace Madera.Vues.Configuration
         }
 
         private void BtnSupprimer_Click(object sender, EventArgs e) {
-    		if (BDDExterne.GetAllModules().Count <= 0) {
+    		if (BDDExterne.GetAllModules().Count <= 0)
+    		{
     			MessageBox.Show("Il n'y a pas de module !");
-    		} else {
+    		} 
+    		else
+    		{
     			 ComboxItem item = (ComboxItem) CbxModuleSupprimer.SelectedItem;
     			 if (BDDExterne.SupprimerModule(Convert.ToString(item.Value))) {
     			 	MessageBox.Show("Le module a été supprimée !");
@@ -130,19 +138,38 @@ namespace Madera.Vues.Configuration
     	
     	void BtnAjoutParamClick(object sender, EventArgs e)
 		{
-    		// paramètrage des textbox à ajouter
-    		TextBox TbxNom = new TextBox();
-    		TbxNom.Top = 0;
-    		TbxNom.Left = TbxNom.Width * Paramètres.Count;
-    		
-    		TextBox TbxValeur = new TextBox();
-    		TbxValeur.Top = TbxNom.Height + 5;
-    		TbxValeur.Left = TbxValeur.Width * Paramètres.Count;
-    		
-    		// ajout des textbox dans la liste
-    		Paramètres.Add(new List<TextBox>() { TbxNom, TbxValeur });
-    		PanParams.Controls.Add(TbxNom);
-    		PanParams.Controls.Add(TbxValeur);
+    		if (CbxParamNom.SelectedIndex == -1 || string.IsNullOrWhiteSpace(TbxParamValeur.Text))
+    		{
+    			MessageBox.Show("Vous devez rentrez un nom et une valeur au paramètre !");
+    		}
+    		else
+    		{
+    			// ajout du paramètre dans la listbox
+    			string param = string.Format("{0} = {1}", CbxParamNom.SelectedText, TbxParamValeur.Text);
+    			LbxParamsAjout.Items.Add(param);
+    			
+    			// vidage des champs
+    			CbxParamNom.Text = "";
+    			CbxParamNom.SelectedIndex = -1;
+    			TbxParamValeur.Clear();
+    		}
+		}
+    	
+		void BtnSupprimerParamClick(object sender, EventArgs e)
+		{
+			if (LbxParamsAjout.SelectedIndex == -1)
+			{
+				MessageBox.Show("Vous devez sélectionner un paramètre !");
+			}
+			else
+			{
+				LbxParamsAjout.Items.RemoveAt(LbxParamsAjout.SelectedIndex);
+			}
+		}
+		
+		void CbxParamNomSelectedIndexChanged(object sender, EventArgs e)
+		{
+			TbxParamValeur.Text = (string) BDDExterne.GetAllParametre().Find(x => x.parId == (Guid) CbxParamNom.SelectedValue).parValeur;
 		}
 	}
 }

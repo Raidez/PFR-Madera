@@ -37,10 +37,13 @@ namespace Madera.Vues.Configuration
         private void InitializeComponent()
         {
         	this.panel1 = new System.Windows.Forms.Panel();
+        	this.CbxParamNom = new System.Windows.Forms.ComboBox();
+        	this.LbxParamsAjout = new System.Windows.Forms.ListBox();
+        	this.TbxParamValeur = new System.Windows.Forms.TextBox();
+        	this.BtnSupprimerParam = new System.Windows.Forms.Button();
+        	this.BtnAjoutParam = new System.Windows.Forms.Button();
         	this.label5 = new System.Windows.Forms.Label();
         	this.label4 = new System.Windows.Forms.Label();
-        	this.PanParams = new System.Windows.Forms.Panel();
-        	this.BtnAjoutParam = new System.Windows.Forms.Button();
         	this.CbxMatièreAjout = new System.Windows.Forms.ComboBox();
         	this.CbxGammeAjout = new System.Windows.Forms.ComboBox();
         	this.TbxPrixAjout = new System.Windows.Forms.TextBox();
@@ -67,7 +70,6 @@ namespace Madera.Vues.Configuration
         	this.panel6 = new System.Windows.Forms.Panel();
         	this.panel8 = new System.Windows.Forms.Panel();
         	this.panel1.SuspendLayout();
-        	this.PanParams.SuspendLayout();
         	this.panel2.SuspendLayout();
         	this.panel3.SuspendLayout();
         	this.panel5.SuspendLayout();
@@ -78,9 +80,13 @@ namespace Madera.Vues.Configuration
         	// 
         	// panel1
         	// 
+        	this.panel1.Controls.Add(this.CbxParamNom);
+        	this.panel1.Controls.Add(this.LbxParamsAjout);
+        	this.panel1.Controls.Add(this.TbxParamValeur);
+        	this.panel1.Controls.Add(this.BtnSupprimerParam);
+        	this.panel1.Controls.Add(this.BtnAjoutParam);
         	this.panel1.Controls.Add(this.label5);
         	this.panel1.Controls.Add(this.label4);
-        	this.panel1.Controls.Add(this.PanParams);
         	this.panel1.Controls.Add(this.CbxMatièreAjout);
         	this.panel1.Controls.Add(this.CbxGammeAjout);
         	this.panel1.Controls.Add(this.TbxPrixAjout);
@@ -97,39 +103,65 @@ namespace Madera.Vues.Configuration
         	this.panel1.Size = new System.Drawing.Size(760, 219);
         	this.panel1.TabIndex = 2;
         	// 
-        	// label5
+        	// CbxParamNom
         	// 
-        	this.label5.Location = new System.Drawing.Point(78, 123);
-        	this.label5.Name = "label5";
-        	this.label5.Size = new System.Drawing.Size(87, 23);
-        	this.label5.TabIndex = 13;
-        	this.label5.Text = "Valeur paramètre";
+        	this.CbxParamNom.FormattingEnabled = true;
+        	this.CbxParamNom.Location = new System.Drawing.Point(119, 82);
+        	this.CbxParamNom.Name = "CbxParamNom";
+        	this.CbxParamNom.Size = new System.Drawing.Size(125, 21);
+        	this.CbxParamNom.TabIndex = 18;
+        	this.CbxParamNom.SelectedIndexChanged += new System.EventHandler(this.CbxParamNomSelectedIndexChanged);
         	// 
-        	// label4
+        	// LbxParamsAjout
         	// 
-        	this.label4.Location = new System.Drawing.Point(78, 97);
-        	this.label4.Name = "label4";
-        	this.label4.Size = new System.Drawing.Size(89, 19);
-        	this.label4.TabIndex = 12;
-        	this.label4.Text = "Nom paramètre";
+        	this.LbxParamsAjout.FormattingEnabled = true;
+        	this.LbxParamsAjout.Location = new System.Drawing.Point(355, 81);
+        	this.LbxParamsAjout.Name = "LbxParamsAjout";
+        	this.LbxParamsAjout.Size = new System.Drawing.Size(147, 134);
+        	this.LbxParamsAjout.TabIndex = 17;
         	// 
-        	// PanParams
+        	// TbxParamValeur
         	// 
-        	this.PanParams.Controls.Add(this.BtnAjoutParam);
-        	this.PanParams.Location = new System.Drawing.Point(171, 94);
-        	this.PanParams.Name = "PanParams";
-        	this.PanParams.Size = new System.Drawing.Size(584, 122);
-        	this.PanParams.TabIndex = 11;
+        	this.TbxParamValeur.Location = new System.Drawing.Point(119, 107);
+        	this.TbxParamValeur.Name = "TbxParamValeur";
+        	this.TbxParamValeur.Size = new System.Drawing.Size(125, 20);
+        	this.TbxParamValeur.TabIndex = 16;
+        	// 
+        	// BtnSupprimerParam
+        	// 
+        	this.BtnSupprimerParam.Location = new System.Drawing.Point(508, 192);
+        	this.BtnSupprimerParam.Name = "BtnSupprimerParam";
+        	this.BtnSupprimerParam.Size = new System.Drawing.Size(139, 23);
+        	this.BtnSupprimerParam.TabIndex = 14;
+        	this.BtnSupprimerParam.Text = "Supprimer le paramètre";
+        	this.BtnSupprimerParam.UseVisualStyleBackColor = true;
+        	this.BtnSupprimerParam.Click += new System.EventHandler(this.BtnSupprimerParamClick);
         	// 
         	// BtnAjoutParam
         	// 
-        	this.BtnAjoutParam.Location = new System.Drawing.Point(3, 96);
+        	this.BtnAjoutParam.Location = new System.Drawing.Point(119, 134);
         	this.BtnAjoutParam.Name = "BtnAjoutParam";
         	this.BtnAjoutParam.Size = new System.Drawing.Size(125, 23);
         	this.BtnAjoutParam.TabIndex = 10;
         	this.BtnAjoutParam.Text = "Ajouter un paramètre";
         	this.BtnAjoutParam.UseVisualStyleBackColor = true;
         	this.BtnAjoutParam.Click += new System.EventHandler(this.BtnAjoutParamClick);
+        	// 
+        	// label5
+        	// 
+        	this.label5.Location = new System.Drawing.Point(21, 107);
+        	this.label5.Name = "label5";
+        	this.label5.Size = new System.Drawing.Size(96, 23);
+        	this.label5.TabIndex = 13;
+        	this.label5.Text = "Valeur paramètre :";
+        	// 
+        	// label4
+        	// 
+        	this.label4.Location = new System.Drawing.Point(28, 85);
+        	this.label4.Name = "label4";
+        	this.label4.Size = new System.Drawing.Size(89, 19);
+        	this.label4.TabIndex = 12;
+        	this.label4.Text = "Nom paramètre :";
         	// 
         	// CbxMatièreAjout
         	// 
@@ -164,7 +196,7 @@ namespace Madera.Vues.Configuration
         	// 
         	// LabParams
         	// 
-        	this.LabParams.Location = new System.Drawing.Point(30, 71);
+        	this.LabParams.Location = new System.Drawing.Point(279, 81);
         	this.LabParams.Name = "LabParams";
         	this.LabParams.Size = new System.Drawing.Size(100, 23);
         	this.LabParams.TabIndex = 5;
@@ -373,7 +405,7 @@ namespace Madera.Vues.Configuration
         	// panel6
         	// 
         	this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-        	this.panel6.Location = new System.Drawing.Point(3, 363);
+        	this.panel6.Location = new System.Drawing.Point(0, 222);
         	this.panel6.Margin = new System.Windows.Forms.Padding(0);
         	this.panel6.Name = "panel6";
         	this.panel6.Size = new System.Drawing.Size(765, 1);
@@ -405,7 +437,6 @@ namespace Madera.Vues.Configuration
         	this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Deconnexion);
         	this.panel1.ResumeLayout(false);
         	this.panel1.PerformLayout();
-        	this.PanParams.ResumeLayout(false);
         	this.panel2.ResumeLayout(false);
         	this.panel2.PerformLayout();
         	this.panel3.ResumeLayout(false);
@@ -449,8 +480,11 @@ namespace Madera.Vues.Configuration
         private System.Windows.Forms.TextBox TbxLibelleAjout;
         private System.Windows.Forms.Label LabLibelle;
         private System.Windows.Forms.Button BtnAjoutParam;
-        private System.Windows.Forms.Panel PanParams;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox LbxParamsAjout;
+        private System.Windows.Forms.TextBox TbxParamValeur;
+        private System.Windows.Forms.Button BtnSupprimerParam;
+        private System.Windows.Forms.ComboBox CbxParamNom;
     }
 }
