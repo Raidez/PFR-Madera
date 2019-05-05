@@ -19,9 +19,14 @@ namespace Madera
         public Salarie salarie;
         public List<Module> modules = new List<Module>();
 
-        public void CreerDevis()
+        public Devis()
         {
 
+        }
+
+        public void CreerDevis()
+        {
+            
         }
 
         public bool signerDevis()
