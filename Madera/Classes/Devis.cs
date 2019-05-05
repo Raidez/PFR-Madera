@@ -17,6 +17,40 @@ namespace Madera
         public double devMontantFacture;
         public Client client;
         public Salarie salarie;
+        public List<Module> modules = new List<Module>();
+
+        public void CreerDevis()
+        {
+
+        }
+
+        public bool signerDevis()
+        {
+
+            return true;
+        }
+
+        public bool ajouterModule(Module module)
+        {
+
+            return true;
+        }
+
+        public bool retirerModule(Module module)
+        {
+
+            return true;
+        }
+
+        public void associerClient(Client client)
+        {
+
+        }
+
+        public void associerSalarie(Salarie salarie)
+        {
+
+        }
         
 	}
 }
