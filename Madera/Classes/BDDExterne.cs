@@ -11,24 +11,26 @@ namespace Madera
 {
     static class BDDExterne
     {
-        public static string connString;
-        public static NpgsqlConnection conn;
+        
         public static void Open()
         {
-            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
-            conn.Open();
+
         }
         #region client
         public static Boolean AjouterClient(Client monClient)
         {
             try
             {
+                NpgsqlConnection conn;
+                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
                 string query = @"INSERT INTO ""Client"" VALUES ('" + monClient.cliId.ToString() + "','" + monClient.cliNom + "','" + monClient.cliPrenom + "','" + monClient.cliRue + "','" + monClient.cliCp + "','" + monClient.cliVille + "','" + monClient.cliTel + "','" + monClient.cliEmail + "','" + monClient.cliNumRue + "')";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
+                conn.Close();
                 return true;
             }
             catch (Exception ex)
@@ -40,31 +42,14 @@ namespace Madera
 
         public static Boolean SupprimerClient(string id)
         {
-            try
-            {
-                string query = "DELETE FROM Client WHERE id = '" + id + "'";
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-                return false;
-            }
-            finally
-            {
-                if (conn.State.ToString() == "Open")
-                {
-                    conn.Close();
-                }
-            }
+            return true;
         }
 
         public static List<Client> GetAllClients()
         {
-            if (conn.State.ToString() == "Closed")
-            {
-                conn.Open();
-            }
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn.Open();
             List<Client> ListeClients = new List<Client>();
             string query = @"select id,nom,prenom,""nomRue"",""codePostal"",ville,tel, email,""numRue"" FROM ""Client""";
             Debug.WriteLine(query);
@@ -83,6 +68,17 @@ namespace Madera
 
         }
         #endregion
+        public static Client GetClient(string id)
+        {
+            foreach (Client item in BDDExterne.GetAllClients())
+            {
+                if (item.cliId == Guid.Parse(id))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
 
         #region devis 
         public static Boolean AjouterDevis(Devis monDevis)
@@ -92,9 +88,23 @@ namespace Madera
 
         public static List<Devis> GetAllDevis()
         {
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn.Open();
             List<Devis> listeDevis = new List<Devis>();
+            string query = @"SELECT id,status,date_creation,date_signature,date_facture,montant_facture,""id_Client"",""id_Salarie"" FROM ""devis""";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                listeDevis.Add(new Devis(new Guid(dr[0].ToString()), Int32.Parse(dr[1].ToString()), DateTime.Parse(dr[2].ToString()), DateTime.Parse(dr[3].ToString()), DateTime.Parse(dr[4].ToString()), double.Parse(dr[5].ToString()), BDDExterne.GetClient(dr[6].ToString()),BDDExterne.GetSalarie(dr[7].ToString())));
+            }
+            conn.Close();
             return listeDevis;
-            
         }
 
         public static Boolean SupprimerDevis(string id)
@@ -106,12 +116,12 @@ namespace Madera
         #region fournisseur
         public static Boolean AjouterFounisseur(Fournisseur monFournisseur)
         {
-            if (conn.State.ToString() == "Closed")
-            {
-                conn.Open();
-            }
+
             try
             {
+                NpgsqlConnection conn;
+                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
                 // id,fouNom fouTel, fouAdrNumero,  fouAdrRue, fouAdrCodePostal,fouVille, fouPays, fouMail
@@ -119,6 +129,7 @@ namespace Madera
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
+                conn.Close();
                 return true;
             }
             catch (Exception ex)
@@ -126,21 +137,13 @@ namespace Madera
                 Debug.WriteLine(ex.Message);
                 return false;
             }
-            finally
-            {
-                if (conn.State.ToString() == "Open")
-                {
-                    conn.Close();
-                }
-            }
         }
 
         public static List<Fournisseur> GetAllFournisseur()
         {
-            if (conn.State.ToString() == "Closed")
-            {
-                conn.Open();
-            }
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn.Open();
             List<Fournisseur> ListeFournisseur = new List<Fournisseur>();
             string query = @"SELECT id,nom,tel,""NUMRUE"",rue,""CODEPOSTAL"",ville,pays,mail FROM ""Fournisseur""";
             Debug.WriteLine(query);
@@ -160,28 +163,7 @@ namespace Madera
 
         public static Boolean SupprimerFournisseur(string id)
         {
-            if (conn.State.ToString() == "Closed")
-            {
-                conn.Open();
-            }
-            try
-            {
-                string query = @"DELETE FROM ""Fournisseur"" WHERE id = '" + id + "'";
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Echec supression fournisseur");
-                Debug.WriteLine(ex);
-                return false;
-            }
-            finally
-            {
-                if (conn.State.ToString() == "Open")
-                {
-                    conn.Close();
-                }
-            }
+            return true;
         }
             #endregion
 
@@ -190,16 +172,16 @@ namespace Madera
         {
             try
             {
-                if (conn.State.ToString() == "Closed")
-                {
-                    conn.Open();
-                }
+                NpgsqlConnection conn;
+                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
                 string query = @"INSERT INTO ""Gamme"" VALUES ('" + maGamme.gamId.ToString() + "','" + maGamme.gamLibelle + "')";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
+                conn.Close();
                 return true;
             }
             catch (Exception ex)
@@ -207,21 +189,14 @@ namespace Madera
                 Debug.WriteLine(ex.Message);
                 return false;
             }
-            finally
-            {
-                if (conn.State.ToString() == "Open")
-                {
-                    conn.Close();
-                }
-            }
+
         }
 
         public static List<Gamme> GetAllGammes()
         {
-            if (conn.State.ToString() == "Closed")
-            {
-                conn.Open();
-            }
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn.Open();
             List<Gamme> ListeGamme = new List<Gamme>();
             string query = @"SELECT id,nom FROM ""Gamme""";
             Debug.WriteLine(query);
@@ -250,29 +225,22 @@ namespace Madera
         {
             try
             {
-                if (conn.State.ToString() == "Closed")
-                {
-                    conn.Open();
-                }
+                NpgsqlConnection conn;
+                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
                 string query = @"INSERT INTO ""Gamme"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  ")";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
+                conn.Close();
                 return true;
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
                 return false;
-            }
-            finally
-            {
-                if (conn.State.ToString() == "Open")
-                {
-                    conn.Close();
-                }
             }
         }
 
@@ -337,6 +305,17 @@ namespace Madera
             List<Salarie> ListeSalerie = new List<Salarie>();
             return ListeSalerie;
 
+        }
+        public static Salarie GetSalarie(string id)
+        {
+            foreach (Salarie item in BDDExterne.GetAllSalarie())
+            {
+                if (item.salId.ToString() == id)
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public static Boolean SupprimerSalarie(string id)

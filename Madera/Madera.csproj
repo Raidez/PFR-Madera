@@ -144,10 +144,6 @@
     <Compile Include="Vues\Devis\CreerClient.Designer.cs">
       <DependentUpon>CreerClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\Devis\DevisModule.cs" />
-    <Compile Include="Vues\Devis\DevisModule.Designer.cs">
-      <DependentUpon>DevisModule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vues\ModificationClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,9 +217,6 @@
     <EmbeddedResource Include="Vues\Devis\CreerClient.resx">
       <DependentUpon>CreerClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vues\Devis\DevisModule.resx">
-      <DependentUpon>DevisModule.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vues\ModificationClient.resx">
       <DependentUpon>ModificationClient.cs</DependentUpon>
     </EmbeddedResource>
@@ -246,8 +239,6 @@
     <None Include="packages.config" />
     <None Include="Resources\logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vues\Devis" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
