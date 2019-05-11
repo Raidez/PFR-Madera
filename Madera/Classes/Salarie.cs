@@ -15,7 +15,7 @@ namespace Madera
 		public string salTel { get; set; }
 		public bool salCommercial { get; set; }
 
-		public Salarie(string salNom, string salPrenom, string salMail, string salTel, bool salCommercial) {
+		public Salarie(Guid salId, string salNom, string salPrenom, string salMail, string salTel, bool salCommercial) {
 			this.salNom = salNom;
 			this.salPrenom = salPrenom;
 			this.salMail = salMail;

@@ -67,7 +67,7 @@ namespace Madera
             return ListeClients;
 
         }
-        #endregion
+        
         public static Client GetClient(string id)
         {
             foreach (Client item in BDDExterne.GetAllClients())
@@ -79,6 +79,7 @@ namespace Madera
             }
             return null;
         }
+        #endregion
 
         #region devis 
         public static Boolean AjouterDevis(Devis monDevis)
@@ -163,7 +164,24 @@ namespace Madera
 
         public static Boolean SupprimerFournisseur(string id)
         {
-            return true;
+            foreach (Fournisseur item in BDDExterne.GetAllFournisseur())
+            {
+                if (item.fouId.ToString() == id)
+                {
+                    NpgsqlConnection conn;
+                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn.Open();
+                    NpgsqlCommand MyCmd = null;
+                    // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                    string query = @"DELETE FROM ""Fournisseur"" WHERE id == '" + id;
+                    Debug.WriteLine(query);
+                    MyCmd = new NpgsqlCommand(query, conn);
+                    MyCmd.ExecuteNonQuery(); //Exécution
+                    conn.Close();
+                    return true;
+                }
+            }
+            return false;
         }
             #endregion
 
@@ -297,13 +315,48 @@ namespace Madera
         #region Salarie
         public static Boolean AjouterSalerie(Salarie monSalerie)
         {
-            return true;
+            try
+            {
+                NpgsqlConnection conn;
+                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn.Open();
+                NpgsqlCommand MyCmd = null;
+                // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                string query = @"INSERT INTO ""Salarie"" VALUES ('" + monSalerie.salId.ToString() + "','" + monSalerie.salNom + "','" + monSalerie.salPrenom + "','" + monSalerie.salMail + "','" + monSalerie.salTel + "','" + monSalerie.salCommercial.ToString() + "')";
+                Debug.WriteLine(query);
+                MyCmd = new NpgsqlCommand(query, conn);
+                MyCmd.ExecuteNonQuery(); //Exécution
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         public static List<Salarie> GetAllSalarie()
         {
-            List<Salarie> ListeSalerie = new List<Salarie>();
-            return ListeSalerie;
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn.Open();
+            List<Salarie> ListeSalarie = new List<Salarie>();
+            string query = @"SELECT id,nom,prenom,mail,tel,fonction FROM ""Salarie""";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ListeSalarie.Add(new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),  dr[3].ToString(), Boolean.Parse(dr[4].ToString())));
+            }
+            conn.Close();
+            return ListeSalarie;
+
+
 
         }
         public static Salarie GetSalarie(string id)
@@ -320,7 +373,24 @@ namespace Madera
 
         public static Boolean SupprimerSalarie(string id)
         {
-            return true;
+            foreach (Salarie item in BDDExterne.GetAllSalarie())
+            {
+                if (item.salId.ToString() == id)
+                {
+                    NpgsqlConnection conn;
+                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn.Open();
+                    NpgsqlCommand MyCmd = null;
+                    // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                    string query = @"DELETE FROM ""Salarie"" WHERE id == '" + id;
+                    Debug.WriteLine(query);
+                    MyCmd = new NpgsqlCommand(query, conn);
+                    MyCmd.ExecuteNonQuery(); //Exécution
+                    conn.Close();
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion
