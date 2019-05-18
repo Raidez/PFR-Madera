@@ -24,12 +24,24 @@ namespace Madera
 			this.matFournisseur = matFournisseur;
 			this.matId = Guid.NewGuid();
 		}
-		
 
-		/// <summary>
-		/// 
-		/// </summary>
-		public void ajouterMatiere()
+        public Matiere(Guid id, string matLibelle, Fournisseur matFournisseur)
+        {
+            this.matLibelle = matLibelle;
+            this.matFournisseur = matFournisseur;
+            this.matId = id;
+        }
+
+        public Matiere(Guid id)
+        {
+            this.matId = id;
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void ajouterMatiere()
 		{
 			try {
 				listMatiere.FindIndex(x => x.matId == this.matId);

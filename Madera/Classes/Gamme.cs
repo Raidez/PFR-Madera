@@ -22,6 +22,11 @@ namespace Madera
             this.gamId = id;
 		}
 
-        
-	}
+        public Gamme(Guid id)
+        {
+            this.gamId = id;
+        }
+
+
+    }
 }

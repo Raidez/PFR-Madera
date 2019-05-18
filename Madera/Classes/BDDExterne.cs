@@ -173,7 +173,7 @@ namespace Madera
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
-                    string query = @"DELETE FROM ""Fournisseur"" WHERE id == '" + id;
+                    string query = @"DELETE FROM ""Fournisseur"" CASCADE WHERE id = '" + id + "'";
                     Debug.WriteLine(query);
                     MyCmd = new NpgsqlCommand(query, conn);
                     MyCmd.ExecuteNonQuery(); //Exécution
@@ -234,7 +234,24 @@ namespace Madera
 
         public static Boolean SupprimerGamme(string id)
         {
-            return true;
+            foreach (Gamme item in BDDExterne.GetAllGammes())
+            {
+                if (item.gamId.ToString() == id)
+                {
+                    NpgsqlConnection conn;
+                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn.Open();
+                    NpgsqlCommand MyCmd = null;
+                    // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                    string query = @"DELETE FROM ""Gamme"" CASCADE WHERE id = '" + id + "'";
+                    Debug.WriteLine(query);
+                    MyCmd = new NpgsqlCommand(query, conn);
+                    MyCmd.ExecuteNonQuery(); //Exécution
+                    conn.Close();
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
 
@@ -248,7 +265,7 @@ namespace Madera
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
-                string query = @"INSERT INTO ""Gamme"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  ")";
+                string query = @"INSERT INTO ""Matiere"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  ")";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
@@ -264,13 +281,45 @@ namespace Madera
 
         public static List<Matiere> GetAllMatiere()
         {
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn.Open();
             List<Matiere> ListeMatiere = new List<Matiere>();
+            string query = @"SELECT id, nom, ""Fournisseur"" FROM ""Matiere""";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ListeMatiere.Add(new Matiere(new Guid(dr[0].ToString()), dr[1].ToString(), new Fournisseur(new Guid(dr[2].ToString()))));
+            }
+            conn.Close();
             return ListeMatiere;
         }
 
         public static Boolean SupprimerMatiere(string id)
         {
-            return true;
+            foreach (Matiere item in BDDExterne.GetAllMatiere())
+            {
+                if (item.matId.ToString() == id)
+                {
+                    NpgsqlConnection conn;
+                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn.Open();
+                    NpgsqlCommand MyCmd = null;
+                    // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                    string query = @"DELETE FROM ""Matiere"" CASCADE WHERE id = '" + id + "'";
+                    Debug.WriteLine(query);
+                    MyCmd = new NpgsqlCommand(query, conn);
+                    MyCmd.ExecuteNonQuery(); //Exécution
+                    conn.Close();
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion
@@ -283,13 +332,45 @@ namespace Madera
 
         public static List<Module> GetAllModules()
         {
-            List<Module> listeModules = new List<Module>();
-            return listeModules;
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn.Open();
+            List<Module> ListeModule = new List<Module>();
+            string query = @"SELECT mod_id, mod_libelle, mod_prix_base, ""uniteUsage"", matiere, gamme FROM module";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ListeModule.Add(new Module(new Guid(dr[0].ToString()), dr[1].ToString(), new Gamme(new Guid(dr[5].ToString())), new Matiere(new Guid(dr[4].ToString())), Double.Parse(dr[2].ToString())));
+            }
+            conn.Close();
+            return ListeModule;
         }
 
         public static Boolean SupprimerModule(string id)
         {
-            return true;
+            foreach (Module item in BDDExterne.GetAllModules())
+            {
+                if (item.modId.ToString() == id)
+                {
+                    NpgsqlConnection conn;
+                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn.Open();
+                    NpgsqlCommand MyCmd = null;
+                    // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                    string query = @"DELETE FROM module CASCADE WHERE id == '" + id;
+                    Debug.WriteLine(query);
+                    MyCmd = new NpgsqlCommand(query, conn);
+                    MyCmd.ExecuteNonQuery(); //Exécution
+                    conn.Close();
+                    return true;
+                }
+            }
+            return false;
         }
 
         #endregion

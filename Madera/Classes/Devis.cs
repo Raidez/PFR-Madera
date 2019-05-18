@@ -31,13 +31,31 @@ namespace Madera
             devSalarie = salarie;
         }
 
-        public void CreerDevis()
+        public bool CreerDevis()
         {
-            
+            try
+            {
+                this.devDateCreation = DateTime.Now;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
+
+            return true;
         }
 
         public bool signerDevis()
         {
+            try
+            {
+                this.devDateSignature = DateTime.Now;
+            } catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
 
             return true;
         }
@@ -58,18 +76,25 @@ namespace Madera
 
         public bool retirerModule(Module module)
         {
-
+            try
+            {
+                modules.Remove(module);
+            } catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                return false;
+            }
             return true;
         }
 
         public void associerClient(Client client)
         {
-
+            this.devClient = client;
         }
 
         public void associerSalarie(Salarie salarie)
         {
-
+            this.devSalarie = salarie;
         }
         
 	}

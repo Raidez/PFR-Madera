@@ -34,11 +34,20 @@ namespace Madera
 			this.modId = Guid.NewGuid();
 		}
 
-		/// <summary>
-		/// Changer la gamme d'un module
-		/// </summary>
-		/// <param name="g">La gamme</param>
-		public void changerGamme(Gamme g) {
+        public Module(Guid id, string modLibele, Gamme modGamme, Matiere modMatiere, double prixBase)
+        {
+            this.modLibele = modLibele;
+            this.modGamme = modGamme;
+            this.modMatiere = modMatiere;
+            this.prixBase = prixBase;
+            this.modId = id;
+        }
+
+        /// <summary>
+        /// Changer la gamme d'un module
+        /// </summary>
+        /// <param name="g">La gamme</param>
+        public void changerGamme(Gamme g) {
 			this.modGamme = g;
 		}
 

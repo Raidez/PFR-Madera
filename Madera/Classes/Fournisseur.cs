@@ -40,10 +40,19 @@ namespace Madera
 			this.fouMail = fouMail;
             this.fouId = id;
 		}
+        public Fournisseur(Guid id)
+        {
+            this.fouId = id;
+        }
 
-		
-		public object Clone() {
+
+        public object Clone() {
 			return this.MemberwiseClone();
 		}
-	}
+
+        public Fournisseur afficher(Guid value)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

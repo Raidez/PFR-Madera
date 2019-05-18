@@ -104,9 +104,12 @@ namespace Madera
     	
 		void BtnSupprimer_Click(object sender, EventArgs e) {
 
-                ComboxItem item = (ComboxItem) ComboBoxSupprimerFournisseur.SelectedItem;
-       // Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
+            ComboxItem item = (ComboxItem) ComboBoxSupprimerFournisseur.SelectedItem;
+            //Fournisseur fou = (Fournisseur) item.Value;
+            BDDExterne.SupprimerFournisseur(item.Value.ToString());
+            //Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
+            ReloadFourn();
 
-		}
+        }
     }
 }
