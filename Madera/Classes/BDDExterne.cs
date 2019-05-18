@@ -42,7 +42,24 @@ namespace Madera
 
         public static Boolean SupprimerClient(string id)
         {
-            return true;
+            foreach (Client item in BDDExterne.GetAllClients())
+            {
+                if (item.cliId.ToString() == id)
+                {
+                    NpgsqlConnection conn;
+                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn.Open();
+                    NpgsqlCommand MyCmd = null;
+                    // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                    string query = @"DELETE FROM ""Client"" CASCADE WHERE id = '" + id + "'";
+                    Debug.WriteLine(query);
+                    MyCmd = new NpgsqlCommand(query, conn);
+                    MyCmd.ExecuteNonQuery(); //Exécution
+                    conn.Close();
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static List<Client> GetAllClients()
@@ -110,7 +127,24 @@ namespace Madera
 
         public static Boolean SupprimerDevis(string id)
         {
-            return true;
+            foreach (Devis item in BDDExterne.GetAllDevis())
+            {
+                if (item.devId.ToString() == id)
+                {
+                    NpgsqlConnection conn;
+                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn.Open();
+                    NpgsqlCommand MyCmd = null;
+                    // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                    string query = @"DELETE FROM devis CASCADE WHERE id = '" + id + "'";
+                    Debug.WriteLine(query);
+                    MyCmd = new NpgsqlCommand(query, conn);
+                    MyCmd.ExecuteNonQuery(); //Exécution
+                    conn.Close();
+                    return true;
+                }
+            }
+            return false;
         }
         #endregion
 
