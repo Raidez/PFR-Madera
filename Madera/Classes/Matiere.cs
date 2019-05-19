@@ -24,13 +24,6 @@ namespace Madera
             this.matId = id;
 		}
 
-        public Matiere(Guid id, string matLibelle, Fournisseur matFournisseur)
-        {
-            this.matLibelle = matLibelle;
-            this.matFournisseur = matFournisseur;
-            this.matId = id;
-        }
-
         public Matiere(Guid id)
         {
             this.matId = id;
