@@ -56,23 +56,23 @@ namespace Madera.Vues.Configuration
 		
 		void BtnAjouterClick(object sender, EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(TbxMatièreAjouter.Text) || CbxFournisseurAjouter.SelectedIndex == -1)
-			{
-				MessageBox.Show("Vous devez écrire le nom de la matière et choisir un fournisseur !");
-			}
-			else
-			{
-				Fournisseur f = BDDExterne.GetAllFournisseur().Find(x => x.fouId == (Guid) CbxFournisseurAjouter.SelectedValue);
-				Matiere m = new Matiere(TbxMatièreAjouter.Text, f);
-				if (BDDExterne.AjouterMatiere(m))
-				{
-					MessageBox.Show("La matière a bien été ajoutée !");
-				}
-				else
-				{
-					MessageBox.Show("La matière n'a pas été ajoutée correctement !");
-				}
-			}
+			//if (string.IsNullOrWhiteSpace(TbxMatièreAjouter.Text) || CbxFournisseurAjouter.SelectedIndex == -1)
+			//{
+			//	MessageBox.Show("Vous devez écrire le nom de la matière et choisir un fournisseur !");
+			//}
+			//else
+			//{
+			//	Fournisseur f = BDDExterne.GetAllFournisseur().Find(x => x.fouId == (Guid) CbxFournisseurAjouter.SelectedValue);
+			//	Matiere m = new Matiere(TbxMatièreAjouter.Text, f);
+			//	if (BDDExterne.AjouterMatiere(m))
+			//	{
+			//		MessageBox.Show("La matière a bien été ajoutée !");
+			//	}
+			//	else
+			//	{
+			//		MessageBox.Show("La matière n'a pas été ajoutée correctement !");
+			//	}
+			//}
 		}
 		
 		void BtnSupprimerClick(object sender, EventArgs e)

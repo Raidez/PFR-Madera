@@ -17,7 +17,6 @@ namespace Madera
         public string cliVille;
         public string cliTel;
         public string cliEmail;
-        public string cliPays;
 
         public Client(Guid cliId, string cliNom, string cliPrenom,string cliNumRue, string cliRue, string cliCp, string cliVille, string cliTel, string cliEmail)
         {

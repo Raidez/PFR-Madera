@@ -82,6 +82,7 @@
     <Compile Include="Classes\Matiere.cs" />
     <Compile Include="Classes\Module.cs" />
     <Compile Include="Classes\Parametre.cs" />
+    <Compile Include="Classes\Precise.cs" />
     <Compile Include="Classes\Salarie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,11 +115,15 @@
     <Compile Include="Vues\Configuration\GestionGamme.Designer.cs">
       <DependentUpon>GestionGamme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\Configuration\GestionMatière.cs" />
+    <Compile Include="Vues\Configuration\GestionMatière.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vues\Configuration\GestionMatière.Designer.cs">
       <DependentUpon>GestionMatière.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\Configuration\GestionModule.cs" />
+    <Compile Include="Vues\Configuration\GestionModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vues\Configuration\GestionModule.Designer.cs">
       <DependentUpon>GestionModule.cs</DependentUpon>
     </Compile>
@@ -128,15 +133,17 @@
     <Compile Include="Vues\Configuration\ModificationFournisseur.Designer.cs">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\Configuration\ModificationModule.cs" />
+    <Compile Include="Vues\Configuration\ModificationModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Vues\Configuration\ModificationModule.Designer.cs">
       <DependentUpon>ModificationModule.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\CreerProjet.cs">
+    <Compile Include="Vues\ListeModuleParDevis.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vues\CreerProjet.Designer.cs">
-      <DependentUpon>CreerProjet.cs</DependentUpon>
+    <Compile Include="Vues\ListeModuleParDevis.Designer.cs">
+      <DependentUpon>ListeModuleParDevis.cs</DependentUpon>
     </Compile>
     <Compile Include="Vues\Devis\CreerClient.cs">
       <SubType>Form</SubType>
@@ -211,8 +218,8 @@
     <EmbeddedResource Include="Vues\Configuration\ModificationFournisseur.resx">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vues\CreerProjet.resx">
-      <DependentUpon>CreerProjet.cs</DependentUpon>
+    <EmbeddedResource Include="Vues\ListeModuleParDevis.resx">
+      <DependentUpon>ListeModuleParDevis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Devis\CreerClient.resx">
       <DependentUpon>CreerClient.cs</DependentUpon>

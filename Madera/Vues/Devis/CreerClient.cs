@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,11 +19,25 @@ namespace Madera.Vues
 			InitializeComponent();
 
             // ajout des valeurs
-            ComboxItem item;
-            foreach (Client f in BDDExterne.GetAllClients())
+
+            try
             {
-                item = new ComboxItem(f.cliNom + " " + f.cliPrenom, f.cliId);
-                comboBox1.Items.Add(item);
+
+                List<ComboxItem> data = new List<ComboxItem>();
+
+                foreach (Client unClient in BDDExterne.GetAllClients())
+                {
+                        data.Add(new ComboxItem() { Value = unClient.cliId, Text = unClient.cliNom + " " + unClient.cliPrenom});                    
+                }
+                
+                comboBoxListeClient.DisplayMember = "Text";
+                comboBoxListeClient.DataSource = data;
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+
             }
 
         }
@@ -112,8 +127,9 @@ namespace Madera.Vues
 		
 		void BtnChoisirClientClick(object sender, EventArgs e)
 		{
-			Client client = BDDExterne.GetAllClients().Find(x => x.cliId == (Guid) comboBox1.SelectedValue);
-			//ActionButtonGeneric.GoNextForm(this, new DevisModule(client));
+            Devis monDevis = new Devis(Guid.NewGuid(),0,DateTime.Now,BDDExterne.GetClient(comboBoxListeClient.SelectedValue.ToString()),BDDExterne.GetSalarie("b807c385-2737-413a-b9b2-c076638275bd"));
+            BDDExterne.AjouterDevis(monDevis);
+			ActionButtonGeneric.GoNextForm(this, new ListeModuleParDevis(comboBoxListeClient.SelectedValue.ToString()));
 		}
 	}
 }

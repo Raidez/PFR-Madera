@@ -37,7 +37,6 @@ namespace Madera.Vues
             try
             {
 
-
             List<ComboxItem> data = new List<ComboxItem>();
             
             foreach (Devis item in BDDExterne.GetAllDevis())
@@ -63,11 +62,15 @@ namespace Madera.Vues
             if (listBoxClient.SelectedValue == null)
             {
                 MessageBox.Show("Veuillez choisir un Client");
+                return;
             }
             if (listBoxDevis.SelectedValue == null)
             {
                 MessageBox.Show("Veuillez choisir un devis");
+                return;
             }
+            ActionButtonGeneric.GoNextForm(this, new ListeModuleParDevis(listBoxDevis.SelectedValue.ToString()));
+
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Madera
 {
     static class BDDExterne
     {
-        
+        public static string chaineConnection = "Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001";
         public static void Open()
         {
 
@@ -22,7 +22,7 @@ namespace Madera
             try
             {
                 NpgsqlConnection conn;
-                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
@@ -65,7 +65,7 @@ namespace Madera
         public static List<Client> GetAllClients()
         {
             NpgsqlConnection conn;
-            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
             List<Client> ListeClients = new List<Client>();
             string query = @"select id,nom,prenom,""nomRue"",""codePostal"",ville,tel, email,""numRue"" FROM ""Client""";
@@ -101,13 +101,32 @@ namespace Madera
         #region devis 
         public static Boolean AjouterDevis(Devis monDevis)
         {
-            return true;
+            try
+            {
+                NpgsqlConnection conn;
+                conn = new NpgsqlConnection(chaineConnection);
+                conn.Open();
+                NpgsqlCommand MyCmd = null;
+                // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
+                // id,fouNom fouTel, fouAdrNumero,  fouAdrRue, fouAdrCodePostal,fouVille, fouPays, fouMail
+                string query = @"INSERT INTO public.devis(id, status, date_creation, ""id_Client"", ""id_Salarie"")VALUES ('" + monDevis.devId.ToString() + "'," + monDevis.devStatut + ", '"+ DateTime.Now.Year + "-" + DateTime.Now.Month + "-"+ DateTime.Now.Day + "',  '" + monDevis.devClient.cliId.ToString() + "','"+monDevis.devSalarie.salId.ToString() + "');";
+                Debug.WriteLine(query);
+                MyCmd = new NpgsqlCommand(query, conn);
+                MyCmd.ExecuteNonQuery(); //Exécution
+                conn.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return false;
+            }
         }
 
         public static List<Devis> GetAllDevis()
         {
             NpgsqlConnection conn;
-            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
             List<Devis> listeDevis = new List<Devis>();
             string query = @"SELECT id,status,date_creation,date_signature,date_facture,montant_facture,""id_Client"",""id_Salarie"" FROM ""devis""";
@@ -155,7 +174,7 @@ namespace Madera
             try
             {
                 NpgsqlConnection conn;
-                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
@@ -177,7 +196,7 @@ namespace Madera
         public static List<Fournisseur> GetAllFournisseur()
         {
             NpgsqlConnection conn;
-            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
             List<Fournisseur> ListeFournisseur = new List<Fournisseur>();
             string query = @"SELECT id,nom,tel,""NUMRUE"",rue,""CODEPOSTAL"",ville,pays,mail FROM ""Fournisseur""";
@@ -203,7 +222,7 @@ namespace Madera
                 if (item.fouId.ToString() == id)
                 {
                     NpgsqlConnection conn;
-                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn = new NpgsqlConnection(chaineConnection);
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
@@ -217,6 +236,17 @@ namespace Madera
             }
             return false;
         }
+        public static Fournisseur GetFournisseur(string id)
+        {
+            foreach (Fournisseur item in BDDExterne.GetAllFournisseur())
+            {
+                if (item.fouId == Guid.Parse(id))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
             #endregion
 
         #region Gamme
@@ -225,7 +255,7 @@ namespace Madera
             try
             {
                 NpgsqlConnection conn;
-                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
@@ -247,7 +277,7 @@ namespace Madera
         public static List<Gamme> GetAllGammes()
         {
             NpgsqlConnection conn;
-            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
             List<Gamme> ListeGamme = new List<Gamme>();
             string query = @"SELECT id,nom FROM ""Gamme""";
@@ -263,7 +293,18 @@ namespace Madera
             }
             conn.Close();
             return ListeGamme;
+        }
 
+        public static Gamme GetGamme(Guid id)
+        {
+            foreach (Gamme uneGamme in BDDExterne.GetAllGammes())
+            {
+                if (uneGamme.gamId == id)
+                {
+                    return uneGamme;
+                }
+            }
+            return null;
         }
 
         public static Boolean SupprimerGamme(string id)
@@ -295,7 +336,7 @@ namespace Madera
             try
             {
                 NpgsqlConnection conn;
-                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
@@ -316,10 +357,10 @@ namespace Madera
         public static List<Matiere> GetAllMatiere()
         {
             NpgsqlConnection conn;
-            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
             List<Matiere> ListeMatiere = new List<Matiere>();
-            string query = @"SELECT id, nom, ""Fournisseur"" FROM ""Matiere""";
+            string query = @"SELECT id, nom, ""Fournisseur""FROM ""Matiere""";
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
@@ -328,10 +369,21 @@ namespace Madera
 
             while (dr.Read())
             {
-                ListeMatiere.Add(new Matiere(new Guid(dr[0].ToString()), dr[1].ToString(), new Fournisseur(new Guid(dr[2].ToString()))));
+                ListeMatiere.Add(new Matiere(new Guid(dr[0].ToString()), dr[1].ToString(),BDDExterne.GetFournisseur(dr[2].ToString())));
             }
             conn.Close();
             return ListeMatiere;
+        }
+        public static Matiere GetMatiere(string id)
+        {
+            foreach (var item in BDDExterne.GetAllMatiere())
+            {
+                if (item.matId == Guid.Parse(id))
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public static Boolean SupprimerMatiere(string id)
@@ -367,10 +419,10 @@ namespace Madera
         public static List<Module> GetAllModules()
         {
             NpgsqlConnection conn;
-            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
-            List<Module> ListeModule = new List<Module>();
-            string query = @"SELECT mod_id, mod_libelle, mod_prix_base, ""uniteUsage"", matiere, gamme FROM module";
+            List<Module> ListeModules = new List<Module>();
+            string query = @"SELECT id, ""nom "", prix_base, ""uniteUsage"",""matiere"",""gamme"",""uniteUsage"" FROM ""Module """;
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
@@ -379,10 +431,27 @@ namespace Madera
 
             while (dr.Read())
             {
-                ListeModule.Add(new Module(new Guid(dr[0].ToString()), dr[1].ToString(), new Gamme(new Guid(dr[5].ToString())), new Matiere(new Guid(dr[4].ToString())), Double.Parse(dr[2].ToString())));
+                Debug.WriteLine("id : " + dr[0].ToString());
+                Debug.WriteLine("nom : " + dr[1].ToString());
+                Debug.WriteLine("prix_base : " + dr[2].ToString());
+                Debug.WriteLine("unite usage : " + dr[3].ToString());
+                Debug.WriteLine("matiere : " + dr[4].ToString());
+
+                ListeModules.Add(new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(),BDDExterne.GetGamme(Guid.Parse(dr[5].ToString())),BDDExterne.GetMatiere(dr[4].ToString()),double.Parse(dr[2].ToString()),BDDExterne.GetAllParametreByModule(dr[0].ToString()),dr[6].ToString()));
             }
             conn.Close();
-            return ListeModule;
+            return ListeModules;
+        }
+        public static Module GetModule(string id)
+        {
+            foreach (Module item in GetAllModules())
+            {
+                if (item.modId == Guid.Parse(id))
+                {
+                    return item;
+                }
+            }
+            return null;
         }
 
         public static Boolean SupprimerModule(string id)
@@ -415,9 +484,25 @@ namespace Madera
             return true;
         }
 
-        public static List<Parametre> GetAllParametre()
+        public static List<Parametre> GetAllParametreByModule(string moduleID)
         {
             List<Parametre> ListeParametre = new List<Parametre>();
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+            string query = @"SELECT par_id, par_nom, mod_id FROM parametre where mod_id ='" + moduleID + "'";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                ListeParametre.Add(new Parametre(new Guid(dr[0].ToString()), dr[1].ToString(), 0 ));
+            }
+            conn.Close();
+
             return ListeParametre;
         }
 
@@ -433,7 +518,7 @@ namespace Madera
             try
             {
                 NpgsqlConnection conn;
-                conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
@@ -454,7 +539,7 @@ namespace Madera
         public static List<Salarie> GetAllSalarie()
         {
             NpgsqlConnection conn;
-            conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+            conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
             List<Salarie> ListeSalarie = new List<Salarie>();
             string query = @"SELECT id,nom,prenom,mail,tel,fonction FROM ""Salarie""";
@@ -466,7 +551,7 @@ namespace Madera
 
             while (dr.Read())
             {
-                ListeSalarie.Add(new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),  dr[3].ToString(), Boolean.Parse(dr[4].ToString())));
+                ListeSalarie.Add(new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(),  dr[3].ToString(), Int32.Parse(dr[4].ToString())));
             }
             conn.Close();
             return ListeSalarie;
@@ -478,7 +563,7 @@ namespace Madera
         {
             foreach (Salarie item in BDDExterne.GetAllSalarie())
             {
-                if (item.salId.ToString() == id)
+                if (item.salId == Guid.Parse(id))
                 {
                     return item;
                 }
@@ -493,7 +578,7 @@ namespace Madera
                 if (item.salId.ToString() == id)
                 {
                     NpgsqlConnection conn;
-                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn = new NpgsqlConnection(chaineConnection);
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue

@@ -54,11 +54,11 @@ namespace Madera.Vues.Configuration
 			}
 			
 			// ajout des paramètres déjà existant
-			foreach (Parametre p in BDDExterne.GetAllParametre())
-			{
-				item = new ComboxItem(p.parNom, p.parId);
-				CbxParamNom.Items.Add(item);
-			}
+			//foreach (Parametre p in BDDExterne.GetAllParametre())
+			//{
+			//	item = new ComboxItem(p.parNom, p.parId);
+			//	CbxParamNom.Items.Add(item);
+			//}
     	}
     	
     	public void ResetControls() {
@@ -82,33 +82,33 @@ namespace Madera.Vues.Configuration
     	}
     	
     	private void BtnAjouter_Click(object sender, EventArgs e) {
-    		if (!CheckControls()) {
-    			MessageBox.Show("Renseignez tout les champs !");
-    		} else {
-    			try {
-    				// récupération de la gamme
-    				Gamme gam = BDDExterne.GetAllGammes().Find(x => x.gamId == (Guid) (CbxGammeAjout.SelectedItem as ComboxItem).Value);
+    		//if (!CheckControls()) {
+    		//	MessageBox.Show("Renseignez tout les champs !");
+    		//} else {
+    		//	try {
+    		//		// récupération de la gamme
+    		//		Gamme gam = BDDExterne.GetAllGammes().Find(x => x.gamId == (Guid) (CbxGammeAjout.SelectedItem as ComboxItem).Value);
     				
-    				// récupération de la matière
-    				Matiere mat = BDDExterne.GetAllMatiere().Find(x => x.matId == (Guid) (CbxMatièreAjout.SelectedItem as ComboxItem).Value);
+    		//		// récupération de la matière
+    		//		Matiere mat = BDDExterne.GetAllMatiere().Find(x => x.matId == (Guid) (CbxMatièreAjout.SelectedItem as ComboxItem).Value);
     				
-    				// conversion du prix en double
-    				double prix = Convert.ToDouble(TbxPrixAjout.Text);
+    		//		// conversion du prix en double
+    		//		double prix = Convert.ToDouble(TbxPrixAjout.Text);
     				
-    				// récupération des paramètres
-    				List<Parametre> paramètres = new List<Parametre>();
-    				foreach  (var param in Paramètres) {
-    					paramètres.Add(new Parametre(param[0].Text, param[1].Text));
-    				}
+    		//		// récupération des paramètres
+    		//		List<Parametre> paramètres = new List<Parametre>();
+    		//		foreach  (var param in Paramètres) {
+    		//			paramètres.Add(new Parametre(param[0].Text, param[1].Text));
+    		//		}
     				
-    				// enregistrement dans la BDD
-    				BDDExterne.AjouterModule(new Module(TbxLibelleAjout.Text, gam, mat, prix, paramètres));
-    			} catch (FormatException ex) {
-    				MessageBox.Show("Le champ prix n'est pas correctement rempli !");
-    			}
-    			ResetControls();
+    		//		// enregistrement dans la BDD
+    		//		BDDExterne.AjouterModule(new Module(Guid.NewGuid(),TbxLibelleAjout.Text, gam, mat, prix, paramètres));
+    		//	} catch (FormatException ex) {
+    		//		MessageBox.Show("Le champ prix n'est pas correctement rempli !");
+    		//	}
+    		//	ResetControls();
     			
-    		}
+    		//}
         }
     	
     	private void BtnModifier_Click(object sender, EventArgs e) {
@@ -169,7 +169,7 @@ namespace Madera.Vues.Configuration
 		
 		void CbxParamNomSelectedIndexChanged(object sender, EventArgs e)
 		{
-			TbxParamValeur.Text = (string) BDDExterne.GetAllParametre().Find(x => x.parId == (Guid) CbxParamNom.SelectedValue).parValeur;
+			//TbxParamValeur.Text = (string) BDDExterne.GetAllParametre().Find(x => x.parId == (Guid) CbxParamNom.SelectedValue).parValeur;
 		}
 	}
 }

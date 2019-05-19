@@ -13,15 +13,15 @@ namespace Madera
 		public string salPrenom { get; set; }
 		public string salMail { get; set; }
 		public string salTel { get; set; }
-		public bool salCommercial { get; set; }
+		public int salCommercial { get; set; }
 
-		public Salarie(Guid salId, string salNom, string salPrenom, string salMail, string salTel, bool salCommercial) {
+		public Salarie(Guid salId, string salNom, string salPrenom, string salMail, string salTel, int salCommercial) {
 			this.salNom = salNom;
 			this.salPrenom = salPrenom;
 			this.salMail = salMail;
 			this.salTel = salTel;
 			this.salCommercial = salCommercial;
-			this.salId = Guid.NewGuid();
+			this.salId = salId;
 		}
 	}
 }

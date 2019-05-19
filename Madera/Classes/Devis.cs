@@ -30,6 +30,14 @@ namespace Madera
             devClient = client;
             devSalarie = salarie;
         }
+        public Devis(Guid id, int statut, DateTime dateCreation, Client client, Salarie salarie)
+        {
+            devId = id;
+            devStatut = statut;
+            devDateCreation = dateCreation;
+            devClient = client;
+            devSalarie = salarie;
+        }
 
         public bool CreerDevis()
         {
