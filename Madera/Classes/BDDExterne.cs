@@ -227,6 +227,28 @@ namespace Madera
 
         }
 
+        public static Fournisseur GetFournisseur(string id)
+        {
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id,nom,tel,""NUMRUE"",rue,""CODEPOSTAL"",ville,pays,mail FROM ""Fournisseur where id =" + id + "";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Fournisseur OneFournisseur = new Fournisseur(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), Int32.Parse(dr[3].ToString()), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                return OneFournisseur;
+            }
+            conn.Close();
+            return null;
+
+        }
+
         public static Boolean SupprimerFournisseur(string id)
         {
             foreach (Fournisseur item in BDDExterne.GetAllFournisseur())
@@ -247,17 +269,6 @@ namespace Madera
                 }
             }
             return false;
-        }
-        public static Fournisseur GetFournisseur(string id)
-        {
-            foreach (Fournisseur item in BDDExterne.GetAllFournisseur())
-            {
-                if (item.fouId == Guid.Parse(id))
-                {
-                    return item;
-                }
-            }
-            return null;
         }
             #endregion
 
@@ -610,9 +621,7 @@ namespace Madera
             }
             conn.Close();
             return ListeSalarie;
-
-
-
+            
         }
 
         public static Salarie GetSalarie(string id)
@@ -625,11 +634,8 @@ namespace Madera
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
-
             NpgsqlDataReader dr = command.ExecuteReader();
-
             
-
             while (dr.Read())
             {
                 Salarie OneSalarie = new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[3].ToString(), Int32.Parse(dr[4].ToString()));
