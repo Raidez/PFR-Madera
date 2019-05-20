@@ -307,16 +307,26 @@ namespace Madera
             return ListeGamme;
         }
 
-        public static Gamme GetGamme(Guid id)
+        public static Gamme GetGamme(string id)
         {
-            foreach (Gamme uneGamme in BDDExterne.GetAllGammes())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id,nom FROM ""Gamme where id ="+ id + "";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
             {
-                if (uneGamme.gamId == id)
-                {
-                    return uneGamme;
-                }
+                Gamme OneGamme = new Gamme(new Guid(dr[0].ToString()), dr[1].ToString());
+                return OneGamme;
             }
+            conn.Close();
             return null;
+
         }
 
         public static Boolean SupprimerGamme(string id)
@@ -594,9 +604,7 @@ namespace Madera
             }
             conn.Close();
             return null;
-
-
-
+            
         }
         
 
