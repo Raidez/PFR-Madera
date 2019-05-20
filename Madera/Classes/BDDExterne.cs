@@ -84,18 +84,30 @@ namespace Madera
             return ListeClients;
 
         }
-        
+
         public static Client GetClient(string id)
         {
-            foreach (Client item in BDDExterne.GetAllClients())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+            
+            string query = @"select id,nom,prenom,""nomRue"",""codePostal"",ville,tel, email,""numRue"" FROM ""Client where id = "+id+"";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
             {
-                if (item.cliId == Guid.Parse(id))
-                {
-                    return item;
-                }
+                Client OneClient = new Client(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                return OneClient;
             }
+            conn.Close();
             return null;
+
         }
+        
+        
         #endregion
 
         #region devis 
@@ -577,7 +589,7 @@ namespace Madera
 
             while (dr.Read())
             {
-                Salarie OneSalarie = new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[3].ToString(), Int32.Parse(dr[4].ToString())));
+                Salarie OneSalarie = new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[3].ToString(), Int32.Parse(dr[4].ToString()));
                 return OneSalarie;
             }
             conn.Close();
