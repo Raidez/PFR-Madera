@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Madera.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,7 +17,30 @@ namespace Madera.Vues
 		public CreerClient()
 		{
 			InitializeComponent();
-		}
+
+            // ajout des valeurs
+
+            try
+            {
+
+                List<ComboxItem> data = new List<ComboxItem>();
+
+                foreach (Client unClient in BDDExterne.GetAllClients())
+                {
+                        data.Add(new ComboxItem() { Value = unClient.cliId, Text = unClient.cliNom + " " + unClient.cliPrenom});                    
+                }
+                
+                comboBoxListeClient.DisplayMember = "Text";
+                comboBoxListeClient.DataSource = data;
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+
+            }
+
+        }
     	
 		void Deconnexion(object sender, FormClosedEventArgs e)
 		{
@@ -92,7 +117,19 @@ namespace Madera.Vues
 		
 		void BtnAjouter_Click(object sender, EventArgs e)
 		{
-			new Client(textBoxNom.Text, textBoxPrenom.Text, textBoxRue.Text, textBoxCodePostal.Text, textBoxVille.Text, textBoxTelephone.Text, textBoxEmail.Text).ajouterClient();
+            Client monClient = new Client(Guid.NewGuid(), textBoxNom.Text, textBoxPrenom.Text, textBoxNumRue.Text, textBoxRue.Text, textBoxCodePostal.Text, textBoxVille.Text, textBoxTelephone.Text, textBoxEmail.Text);
+            
+            if (BDDExterne.AjouterClient(monClient) == false)
+            {
+                MessageBox.Show("Echec de l'ajout du client");
+            }
+		}
+		
+		void BtnChoisirClientClick(object sender, EventArgs e)
+		{
+            Devis monDevis = new Devis(Guid.NewGuid(),0,DateTime.Now,BDDExterne.GetClient(comboBoxListeClient.SelectedValue.ToString()),BDDExterne.GetSalarie("b807c385-2737-413a-b9b2-c076638275bd"));
+            BDDExterne.AjouterDevis(monDevis);
+			ActionButtonGeneric.GoNextForm(this, new ListeModuleParDevis(comboBoxListeClient.SelectedValue.ToString()));
 		}
 	}
 }
