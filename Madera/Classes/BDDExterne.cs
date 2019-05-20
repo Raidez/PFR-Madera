@@ -459,23 +459,34 @@ namespace Madera
                 Debug.WriteLine("unite usage : " + dr[3].ToString());
                 Debug.WriteLine("matiere : " + dr[4].ToString());
 
-                ListeModules.Add(new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(),BDDExterne.GetGamme(Guid.Parse(dr[5].ToString())),BDDExterne.GetMatiere(dr[4].ToString()),double.Parse(dr[2].ToString()),BDDExterne.GetAllParametreByModule(dr[0].ToString()),dr[6].ToString()));
+                ListeModules.Add(new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(),BDDExterne.GetGamme(dr[5].ToString()),BDDExterne.GetMatiere(dr[4].ToString()),double.Parse(dr[2].ToString()),BDDExterne.GetAllParametreByModule(dr[0].ToString()),dr[6].ToString()));
             }
             conn.Close();
             return ListeModules;
         }
+
         public static Module GetModule(string id)
         {
-            foreach (Module item in GetAllModules())
-            {
-                if (item.modId == Guid.Parse(id))
-                {
-                    return item;
-                }
-            }
-            return null;
-        }
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
 
+            string query = @"SELECT id, ""nom "", prix_base, ""uniteUsage"",""matiere"",""gamme"",""uniteUsage"" FROM ""Module where id= =" + id + "";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Module OneModule = new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(), BDDExterne.GetGamme(dr[5].ToString()), BDDExterne.GetMatiere(dr[4].ToString()), double.Parse(dr[2].ToString()), BDDExterne.GetAllParametreByModule(dr[0].ToString()), dr[6].ToString());
+                return OneModule;
+            }
+            conn.Close();
+            return null;
+
+        }
+        
         public static Boolean SupprimerModule(string id)
         {
             foreach (Module item in BDDExterne.GetAllModules())
