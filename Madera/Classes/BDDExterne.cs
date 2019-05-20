@@ -407,17 +407,29 @@ namespace Madera
             conn.Close();
             return ListeMatiere;
         }
+
         public static Matiere GetMatiere(string id)
         {
-            foreach (var item in BDDExterne.GetAllMatiere())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id, nom, ""Fournisseur""FROM ""Matiere" + id + "";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
             {
-                if (item.matId == Guid.Parse(id))
-                {
-                    return item;
-                }
+                Matiere OneMatiere = new Matiere(new Guid(dr[0].ToString()), dr[1].ToString(), BDDExterne.GetFournisseur(dr[2].ToString()));
+                return OneMatiere;
             }
+            conn.Close();
             return null;
+
         }
+
 
         public static Boolean SupprimerMatiere(string id)
         {
