@@ -559,17 +559,34 @@ namespace Madera
 
 
         }
+
         public static Salarie GetSalarie(string id)
         {
-            foreach (Salarie item in BDDExterne.GetAllSalarie())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id,nom,prenom,mail,tel,fonction FROM ""Salarie"" where id ="+id+"";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            
+
+            while (dr.Read())
             {
-                if (item.salId == Guid.Parse(id))
-                {
-                    return item;
-                }
+                Salarie OneSalarie = new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[3].ToString(), Int32.Parse(dr[4].ToString())));
+                return OneSalarie;
             }
+            conn.Close();
             return null;
+
+
+
         }
+        
 
         public static Boolean SupprimerSalarie(string id)
         {
