@@ -539,6 +539,28 @@ namespace Madera
             return ListeParametre;
         }
 
+        public static Parametre GetParametre(string id)
+        {
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT par_id, par_nom, mod_id FROM parametre where mod_id ='" + id + "'";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Parametre OneParametre = new Parametre(new Guid(dr[0].ToString()), dr[1].ToString(), 0);
+                return OneParametre;
+            }
+            conn.Close();
+            return null;
+
+        }
+
         public static Boolean SupprimerParametre(string id)
         {
             return true;
