@@ -100,6 +100,7 @@ namespace Madera
             while (dr.Read())
             {
                 Client OneClient = new Client(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                conn.Close();
                 return OneClient;
             }
             conn.Close();
@@ -131,6 +132,7 @@ namespace Madera
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
+
                 return false;
             }
         }
@@ -250,6 +252,7 @@ namespace Madera
             while (dr.Read())
             {
                 Fournisseur OneFournisseur = new Fournisseur(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), Int32.Parse(dr[3].ToString()), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                conn.Close();
                 return OneFournisseur;
             }
             conn.Close();
@@ -333,7 +336,7 @@ namespace Madera
             conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
 
-            string query = @"SELECT id, nom FROM ""Gamme"" where id = '"+ id + "'";
+            string query = @"SELECT id,nom FROM ""Gamme"" where id ='"+ id + "'";
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
@@ -342,6 +345,7 @@ namespace Madera
             while (dr.Read())
             {
                 Gamme OneGamme = new Gamme(new Guid(dr[0].ToString()), dr[1].ToString());
+                conn.Close();
                 return OneGamme;
             }
             conn.Close();
@@ -423,7 +427,7 @@ namespace Madera
             conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
 
-            string query = @"SELECT id, nom, ""Fournisseur"" FROM ""Matiere"" WHERE id = '"+ id + "'";
+            string query = @"SELECT id, nom, ""Fournisseur"" FROM ""Matiere"" where id = '" + id + "'";
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
@@ -432,6 +436,7 @@ namespace Madera
             while (dr.Read())
             {
                 Matiere OneMatiere = new Matiere(new Guid(dr[0].ToString()), dr[1].ToString(), BDDExterne.GetFournisseur(dr[2].ToString()));
+                conn.Close();
                 return OneMatiere;
             }
             conn.Close();
@@ -548,7 +553,7 @@ namespace Madera
             conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
 
-            string query = @"SELECT id, ""nom "", prix_base, ""uniteUsage"",""matiere"",""gamme"",""uniteUsage"" FROM ""Module where id= =" + id + "";
+            string query = @"SELECT mod_id, mod_libelle, mod_prix_base, ""uniteUsage"",""matiere"",""gamme"",""uniteUsage"" FROM module where mod_id = '" + id + "'";
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
@@ -557,6 +562,7 @@ namespace Madera
             while (dr.Read())
             {
                 Module OneModule = new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(), BDDExterne.GetGamme(dr[5].ToString()), BDDExterne.GetMatiere(dr[4].ToString()), double.Parse(dr[2].ToString()), BDDExterne.GetAllParametreByModule(dr[0].ToString()), dr[6].ToString());
+                conn.Close();
                 return OneModule;
             }
             conn.Close();
@@ -734,6 +740,7 @@ namespace Madera
             while (dr.Read())
             {
                 Parametre OneParametre = new Parametre(new Guid(dr[0].ToString()), dr[1].ToString(), 0);
+                conn.Close();
                 return OneParametre;
             }
             conn.Close();
@@ -824,7 +831,7 @@ namespace Madera
             conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
 
-            string query = @"SELECT id,nom,prenom,mail,tel,fonction FROM ""Salarie"" where id = '"+id+"'";
+            string query = @"SELECT id,nom,prenom,mail,tel,fonction FROM ""Salarie"" where id ='"+id+"'";
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
