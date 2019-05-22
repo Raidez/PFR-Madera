@@ -1,23 +1,26 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
+using IronPdf;
 
 namespace Madera
 {
 	class Devis
 	{
-        public Guid devId;
-        public int devStatut;
-        public DateTime devDateCreation;
-        public DateTime devDateSignature;
-        public DateTime devDateFacture;
-        public double devMontantFacture;
-        public Client devClient;
-        public Salarie devSalarie;
-        public List<Module> modules = new List<Module>();
+		public Guid devId;
+		public int devStatut;
+		public DateTime devDateCreation;
+		public DateTime devDateSignature;
+		public DateTime devDateFacture;
+		public double devMontantFacture;
+		public Client devClient;
+		public Salarie devSalarie;
+		public List<Module> modules = new List<Module>();
 
         public Devis(Guid id, int statut, DateTime dateCreation, DateTime dateSignature, DateTime dateFacture, double montantFacture, Client client, Salarie salarie)
         {
@@ -51,71 +54,88 @@ namespace Madera
             devSalarie = salarie;
         }
 
-        public bool CreerDevis()
-        {
-            try
-            {
-                this.devDateCreation = DateTime.Now;
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                return false;
-            }
+		public bool CreerDevis()
+		{
+			try
+			{
+				this.devDateCreation = DateTime.Now;
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e.Message);
+				return false;
+			}
 
-            return true;
-        }
+			return true;
+		}
 
-        public bool signerDevis()
-        {
-            try
-            {
-                this.devDateSignature = DateTime.Now;
-            } catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                return false;
-            }
+		public bool signerDevis()
+		{
+			try
+			{
+				this.devDateSignature = DateTime.Now;
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e.Message);
+				return false;
+			}
 
-            return true;
-        }
+			return true;
+		}
 
-        public bool ajouterModule(Module module)
-        {
-            try
-            {
-                modules.Add(module);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Ajouter module erreur : " + ex);
-                return false;
-            }
-        }
+		public bool ajouterModule(Module module)
+		{
+			try
+			{
+				modules.Add(module);
+				return true;
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Ajouter module erreur : " + ex);
+				return false;
+			}
+		}
 
-        public bool retirerModule(Module module)
-        {
-            try
-            {
-                modules.Remove(module);
-            } catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                return false;
-            }
-            return true;
-        }
+		public bool retirerModule(Module module)
+		{
+			try
+			{
+				modules.Remove(module);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e.Message);
+				return false;
+			}
+			return true;
+		}
 
-        public void associerClient(Client client)
-        {
-            this.devClient = client;
-        }
+		public void associerClient(Client client)
+		{
+			this.devClient = client;
+		}
 
-        public void associerSalarie(Salarie salarie)
-        {
-            this.devSalarie = salarie;
-        }
-        
+		public void associerSalarie(Salarie salarie)
+		{
+			this.devSalarie = salarie;
+		}
+
+		public void generePDF()
+		{
+			StringWriter stringWriter = new StringWriter();
+
+			using (HtmlTextWriter writer = new HtmlTextWriter(stringWriter))
+			{
+				writer.Write(this.devClient.cliNom + "<br>" + this.devDateCreation.ToString());
+			}
+
+			System.IO.File.WriteAllText(@"C:\Users\Public\TestFolder\WriteText.html", stringWriter.ToString());
+
+			var Renderer = new IronPdf.HtmlToPdf();
+			var PDF = Renderer.RenderHTMLFileAsPdf(@"C:\Users\Public\TestFolder\WriteText.html");
+			PDF.SaveAs(@"C:\Users\Public\TestFolder\WriteText.pdf");
+		}
 	}
 }
