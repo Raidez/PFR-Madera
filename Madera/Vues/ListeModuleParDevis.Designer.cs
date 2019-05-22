@@ -43,8 +43,8 @@
             this.BtnRetour = new System.Windows.Forms.Button();
             this.BtnDeconnection = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelDevisDateCreation = new System.Windows.Forms.Label();
+            this.labelNomClient = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -103,6 +103,7 @@
             this.listBoxParam.Name = "listBoxParam";
             this.listBoxParam.Size = new System.Drawing.Size(131, 238);
             this.listBoxParam.TabIndex = 20;
+            this.listBoxParam.SelectedIndexChanged += new System.EventHandler(this.listBoxParam_SelectedIndexChanged);
             this.listBoxParam.DoubleClick += new System.EventHandler(this.listBoxParam_DoubleClick);
             // 
             // BtnSupprimer
@@ -118,6 +119,7 @@
             this.BtnSupprimer.TabIndex = 19;
             this.BtnSupprimer.Text = "Retirer le module";
             this.BtnSupprimer.UseVisualStyleBackColor = false;
+            this.BtnSupprimer.Click += new System.EventHandler(this.BtnSupprimer_Click);
             // 
             // button1
             // 
@@ -229,8 +231,8 @@
             // panel4
             // 
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.label6);
+            this.panel4.Controls.Add(this.labelDevisDateCreation);
+            this.panel4.Controls.Add(this.labelNomClient);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Location = new System.Drawing.Point(136, 513);
@@ -239,23 +241,23 @@
             this.panel4.Size = new System.Drawing.Size(524, 63);
             this.panel4.TabIndex = 14;
             // 
-            // label7
+            // labelDevisDateCreation
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(108, 37);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 13);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "labelDevisDateCreation";
+            this.labelDevisDateCreation.AutoSize = true;
+            this.labelDevisDateCreation.Location = new System.Drawing.Point(108, 37);
+            this.labelDevisDateCreation.Name = "labelDevisDateCreation";
+            this.labelDevisDateCreation.Size = new System.Drawing.Size(118, 13);
+            this.labelDevisDateCreation.TabIndex = 3;
+            this.labelDevisDateCreation.Text = "labelDevisDateCreation";
             // 
-            // label6
+            // labelNomClient
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(94, 13);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(77, 13);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "labelNomClient";
+            this.labelNomClient.AutoSize = true;
+            this.labelNomClient.Location = new System.Drawing.Point(94, 13);
+            this.labelNomClient.Name = "labelNomClient";
+            this.labelNomClient.Size = new System.Drawing.Size(77, 13);
+            this.labelNomClient.TabIndex = 2;
+            this.labelNomClient.Text = "labelNomClient";
             // 
             // label5
             // 
@@ -370,7 +372,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListBox listBoxParam;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelDevisDateCreation;
+        private System.Windows.Forms.Label labelNomClient;
     }
 }

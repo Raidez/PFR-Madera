@@ -11,6 +11,7 @@ namespace Madera
 		public Guid parId { get; set; }
 		public string parNom { get; set; }
 		public Object parValeur { get; set; }
+        public Guid parIdValeur { get; set; }
 
 		/// <summary>
 		/// Constructeur d'un paramètre

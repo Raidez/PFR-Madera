@@ -30,6 +30,18 @@ namespace Madera
             devClient = client;
             devSalarie = salarie;
         }
+        public Devis(Guid id, int statut, DateTime dateCreation, DateTime dateSignature, DateTime dateFacture, double montantFacture, Client client, Salarie salarie, List<Module> LesModules)
+        {
+            devId = id;
+            devStatut = statut;
+            devDateCreation = dateCreation;
+            devDateSignature = dateSignature;
+            devDateFacture = dateFacture;
+            devMontantFacture = montantFacture;
+            devClient = client;
+            devSalarie = salarie;
+            modules = LesModules;
+        }
         public Devis(Guid id, int statut, DateTime dateCreation, Client client, Salarie salarie)
         {
             devId = id;
