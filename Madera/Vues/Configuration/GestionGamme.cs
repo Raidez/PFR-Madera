@@ -57,7 +57,7 @@ namespace Madera
     		} else {
                 // ajout de la gamme
                 BDDExterne.AjouterGamme(new Gamme(Guid.NewGuid(), textBox1.Text));
-    			MessageBox.Show("La gamme a été créer !");
+    			MessageBox.Show("La gamme a été créée !");
     			this.textBox1.Text = "";
     			reloadGammes();
     		}
@@ -77,15 +77,20 @@ namespace Madera
         }
 
         private void BtnSupprimer_Click(object sender, EventArgs e) {
-    		//if (Gamme.listGamme.Count <= 0) {
-    		//	MessageBox.Show("Il n'y a pas de gammes !");
-    		//} else {
-	     //       ComboxItem item = (ComboxItem) comboBox2.SelectedItem;
-	     //       if (Gamme.supprimeGamme((Guid) item.Value)) {
-	     //       	MessageBox.Show("La gamme a été supprimée !");
-	    	//		reloadGammes();
-	     //       }
-    		//}
+            //if (Gamme.listGamme.Count <= 0) {
+            //	MessageBox.Show("Il n'y a pas de gammes !");
+            //} else {
+            //       ComboxItem item = (ComboxItem) comboBox2.SelectedItem;
+            //       if (Gamme.supprimeGamme((Guid) item.Value)) {
+            //       	MessageBox.Show("La gamme a été supprimée !");
+            //		reloadGammes();
+            //       }
+            //}
+            ComboxItem item = (ComboxItem)comboBox2.SelectedItem;
+            //Fournisseur fou = (Fournisseur) item.Value;
+            BDDExterne.SupprimerGamme(item.Value.ToString());
+            //Fournisseur fournisseur = Fournisseur.afficher((Guid) item.Value);
+            reloadGammes();
         }
     }
 }
