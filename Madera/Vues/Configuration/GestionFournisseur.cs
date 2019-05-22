@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,23 +36,20 @@ namespace Madera
     		ComboBoxModifierFournisseur.Text = "";
     		ComboBoxSupprimerFournisseur.Text = "";
 
-    		if (Fournisseur.listFournisseur.Count > 0) {
-    			// ajout des valeurs
-    			ComboxItem item;
-    			foreach (Fournisseur f in BDDExterne.GetAllFournisseur()) {
-    				item = new ComboxItem(f.fouNom, f.fouId);
-    				ComboBoxModifierFournisseur.Items.Add(item);
-    				ComboBoxSupprimerFournisseur.Items.Add(item);
-    			}
-
-
+    		// ajout des valeurs
+    		ComboxItem item;
+    		foreach (Fournisseur f in BDDExterne.GetAllFournisseur()) {
+    			item = new ComboxItem(f.fouNom, f.fouId);
+    			ComboBoxModifierFournisseur.Items.Add(item);
+    			ComboBoxSupprimerFournisseur.Items.Add(item);
+    		}
     	}
 
     	void GestionFournisseurPaint(object sender, PaintEventArgs e) {
     		ReloadFourn();
 		}
 
-    	public void ResetControls() {
+    	void ResetControls() {
     		TextBoxNom.Text = "";
 			TextBoxNumRue.Text = "";
 			TextBoxRue.Text = "";
@@ -84,6 +82,7 @@ namespace Madera
                     BDDExterne.AjouterFounisseur(new Fournisseur(Guid.NewGuid(), TextBoxNom.Text, TextBoxTelephone.Text, Int32.Parse(TextBoxNumRue.Text), TextBoxRue.Text, TextBoxCodePostal.Text, TextBoxVille.Text, (string)ComboBoxPays.SelectedItem, TextBoxEmail.Text));
 
     			} catch (FormatException ex) {
+					Debug.WriteLine(ex.Message);
     				MessageBox.Show("Le champ numéro de rue n'est pas correctement rempli !");
     			}
     			ResetControls();

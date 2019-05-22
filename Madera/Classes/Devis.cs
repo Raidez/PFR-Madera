@@ -1,59 +1,130 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
+using IronPdf;
 
 namespace Madera
 {
 	class Devis
 	{
-        public Guid devId { get; set; }
-        public int devStatut { get; set; }
-        public DateTime devDateCreation { get; set; }
-        public bool devAccord { get; set; }
-        public DateTime devDateSignature { get; set; }
-        public DateTime devDateFacture { get; set; }
-        public double devMontantFacture { get; set; }
-        public Client client { get; set; }
-        public Salarie salarie { get; set; }
-        public List<Module> listeModules { get; set; }
+		public Guid devId;
+		public int devStatut;
+		public DateTime devDateCreation;
+		public DateTime devDateSignature;
+		public DateTime devDateFacture;
+		public double devMontantFacture;
+		public Client devClient;
+		public Salarie devSalarie;
+		public List<Module> modules = new List<Module>();
 
-        public void ajouterModule(Module aAjouter)
-        {
-			this.listeModules.Add(aAjouter);
-        }
+		public Devis(Guid id, int statut, DateTime dateCreation, DateTime dateSignature, DateTime dateFacture, double montantFacture, Client client, Salarie salarie)
+		{
+			devId = id;
+			devStatut = statut;
+			devDateCreation = dateCreation;
+			devDateSignature = dateSignature;
+			devDateFacture = dateFacture;
+			devMontantFacture = montantFacture;
+			devClient = client;
+			devSalarie = salarie;
+		}
+		public Devis(Guid id, int statut, DateTime dateCreation, Client client, Salarie salarie)
+		{
+			devId = id;
+			devStatut = statut;
+			devDateCreation = dateCreation;
+			devClient = client;
+			devSalarie = salarie;
+		}
 
-        public void retirerModule(Module aSupprimer)
-        {
-			this.listeModules.Remove(aSupprimer);
-        }
+		public bool CreerDevis()
+		{
+			try
+			{
+				this.devDateCreation = DateTime.Now;
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e.Message);
+				return false;
+			}
 
-        public void associerClient(Client aAssocier)
-        {
-			this.client = aAssocier;
-        }
+			return true;
+		}
 
-        public void associerSalarie(Salarie aAssocier)
-        {
-			this.salarie = aAssocier;
-        }
+		public bool signerDevis()
+		{
+			try
+			{
+				this.devDateSignature = DateTime.Now;
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e.Message);
+				return false;
+			}
 
-        public void creerDevis()
-        {
-			this.devDateCreation = DateTime.Now;
-        }
+			return true;
+		}
 
-        public void signerDevis()
-        {
-			this.devDateSignature = DateTime.Now;
-			this.devAccord = true;
-        }
+		public bool ajouterModule(Module module)
+		{
+			try
+			{
+				modules.Add(module);
+				return true;
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine("Ajouter module erreur : " + ex);
+				return false;
+			}
+		}
 
-        public void facturerDevis()
-        {
-			this.devDateFacture = DateTime.Now;
-        }
+		public bool retirerModule(Module module)
+		{
+			try
+			{
+				modules.Remove(module);
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine(e.Message);
+				return false;
+			}
+			return true;
+		}
+
+		public void associerClient(Client client)
+		{
+			this.devClient = client;
+		}
+
+		public void associerSalarie(Salarie salarie)
+		{
+			this.devSalarie = salarie;
+		}		
+
+		public void generePDF()
+		{
+			StringWriter stringWriter = new StringWriter();
+
+			using (HtmlTextWriter writer = new HtmlTextWriter(stringWriter))
+			{
+				writer.Write(this.ToString());
+			}
+
+			System.IO.File.WriteAllText(@"C:\Users\Public\TestFolder\WriteText.html", stringWriter.ToString());
+
+			var Renderer = new IronPdf.HtmlToPdf();
+			var PDF = Renderer.RenderHTMLFileAsPdf(@"C:\Users\Public\TestFolder\WriteText.html");
+			var OutputPath = "Invoice.pdf";
+			PDF.SaveAs(@"C:\Users\Public\TestFolder\WriteText.pdf");
+		}
 	}
 }
