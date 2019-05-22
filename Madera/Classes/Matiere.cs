@@ -38,10 +38,10 @@ namespace Madera
 
 		}
 
-		public static Matiere afficherMatiere(Guid id)
-		{
-			return listMatiere.Find(x => x.matId == id);
-		}
+		//public static Matiere afficherMatiere(Guid id)
+		//{
+		//	return listMatiere.Find(x => x.matId == id);
+		//}
 
 		/// <summary>
 		///

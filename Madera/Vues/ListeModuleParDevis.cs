@@ -88,5 +88,10 @@ namespace Madera
         {
             Microsoft.VisualBasic.Interaction.InputBox("entrer la nouvelle valeur", "Title", "");
         }
-    }
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

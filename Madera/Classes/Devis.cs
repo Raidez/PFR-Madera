@@ -123,7 +123,6 @@ namespace Madera
 
 			var Renderer = new IronPdf.HtmlToPdf();
 			var PDF = Renderer.RenderHTMLFileAsPdf(@"C:\Users\Public\TestFolder\WriteText.html");
-			var OutputPath = "Invoice.pdf";
 			PDF.SaveAs(@"C:\Users\Public\TestFolder\WriteText.pdf");
 		}
 	}
