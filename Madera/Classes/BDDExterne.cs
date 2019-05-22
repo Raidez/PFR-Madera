@@ -25,7 +25,7 @@ namespace Madera
                 conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
-                // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
+                // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue
                 string query = @"INSERT INTO ""Client"" VALUES ('" + monClient.cliId.ToString() + "','" + monClient.cliNom + "','" + monClient.cliPrenom + "','" + monClient.cliRue + "','" + monClient.cliCp + "','" + monClient.cliVille + "','" + monClient.cliTel + "','" + monClient.cliEmail + "','" + monClient.cliNumRue + "')";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
@@ -90,7 +90,7 @@ namespace Madera
             NpgsqlConnection conn;
             conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
-            
+
             string query = @"select id,nom,prenom,""nomRue"",""codePostal"",ville,tel, email,""numRue"" FROM ""Client"" where id = '"+id+"'";
             Debug.WriteLine(query);
 
@@ -107,11 +107,11 @@ namespace Madera
             return null;
 
         }
-        
-        
+
+
         #endregion
 
-        #region devis 
+        #region devis
         public static Boolean AjouterDevis(Devis monDevis)
         {
             try
@@ -280,7 +280,7 @@ namespace Madera
                 }
             }
             return false;
-            
+
         }
             #endregion
 
@@ -293,7 +293,7 @@ namespace Madera
                 conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
-                // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
+                // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue
                 string query = @"INSERT INTO ""Gamme"" VALUES ('" + maGamme.gamId.ToString() + "','" + maGamme.gamLibelle + "')";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
@@ -385,7 +385,7 @@ namespace Madera
                 conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
-                // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
+                // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue
                 string query = @"INSERT INTO ""Matiere"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  "')";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
@@ -532,7 +532,7 @@ namespace Madera
             conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
             List<Module> ListeModules = new List<Module>();
-            string query = @"SELECT mod_id, mod_libelle,mod_prix_base, ""uniteUsage"",""matiere"",""gamme"",""uniteUsage"" FROM module";
+            string query = @"SELECT mod_id, mod_libelle, mod_prix_base, ""uniteUsage"", matiere, gamme FROM module";
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
@@ -541,7 +541,7 @@ namespace Madera
             while (dr.Read())
             {
 
-                ListeModules.Add(new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(),BDDExterne.GetGamme(dr[5].ToString()),BDDExterne.GetMatiere(dr[4].ToString()),double.Parse(dr[2].ToString()),BDDExterne.GetAllParametreByModule(dr[0].ToString()),dr[6].ToString()));
+                ListeModules.Add(new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(),BDDExterne.GetGamme(dr[5].ToString()),BDDExterne.GetMatiere(dr[4].ToString()),double.Parse(dr[2].ToString()),BDDExterne.GetAllParametreByModule(dr[0].ToString()),dr[3].ToString()));
             }
             conn.Close();
             return ListeModules;
@@ -606,18 +606,18 @@ namespace Madera
             }
             conn.Close();
 
-                                                                        
+
 
 
             foreach (string item in ListeId)
             {
                 //ListeModules[i]
-                
+
                 NpgsqlConnection conn2;
                 conn2 = new NpgsqlConnection(chaineConnection);
                 conn2.Open();
                 List<Module> ListeModules2 = new List<Module>();
-                string query2 = @"SELECT par_id, valeur,num_module,id  FROM precise  inner join parametre on precise.id_parametre = parametre.par_id inner join module on module.mod_id = parametre.mod_id where id_devis = '" + id + "' and num_module = " + item; 
+                string query2 = @"SELECT par_id, valeur,num_module,id  FROM precise  inner join parametre on precise.id_parametre = parametre.par_id inner join module on module.mod_id = parametre.mod_id where id_devis = '" + id + "' and num_module = " + item;
 
                 NpgsqlCommand command2 = new NpgsqlCommand(query2, conn2);
                 NpgsqlDataReader dr2 = command2.ExecuteReader();
@@ -637,17 +637,17 @@ namespace Madera
                                     monParametre.parIdValeur = Guid.Parse(dr2[3].ToString());
                                 }
 
-                                
+
                             }
                         }
                     }
 
-                    
+
                 }
                 conn2.Close();
             }
 
-            
+
                     return ListeModules;
         }
         public static Boolean AjoutModuleToDevis(string idModule,string idDevis)
@@ -668,7 +668,7 @@ namespace Madera
                 string[] myArray = { dr[0].ToString(), dr[1].ToString() };
             }
             conn.Close();
-            
+
             query = @"INSERT INTO public.precise(id, id_parametre, id_devis, valeur, num_module)VALUES (?, ?, ?, ?, ?);";
 
             return true;
@@ -761,7 +761,7 @@ namespace Madera
                 conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
-                
+
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
@@ -775,7 +775,7 @@ namespace Madera
                 Debug.WriteLine(ex);
                 return false;
             }
-           
+
         }
         #endregion
 
@@ -822,7 +822,7 @@ namespace Madera
             }
             conn.Close();
             return ListeSalarie;
-            
+
         }
 
         public static Salarie GetSalarie(string id)
@@ -836,7 +836,7 @@ namespace Madera
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
             NpgsqlDataReader dr = command.ExecuteReader();
-            
+
             while (dr.Read())
             {
                 Salarie OneSalarie = new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[3].ToString(), Int32.Parse(dr[4].ToString()));
@@ -844,9 +844,9 @@ namespace Madera
             }
             conn.Close();
             return null;
-            
+
         }
-        
+
 
         public static Boolean SupprimerSalarie(string id)
         {
@@ -893,7 +893,7 @@ namespace Madera
                 return false;
             }
 
-            
+
         }
 
         #endregion
@@ -906,7 +906,7 @@ namespace Madera
                 conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
-                
+
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
@@ -920,5 +920,5 @@ namespace Madera
             }
         }
     }
-    
+
 }

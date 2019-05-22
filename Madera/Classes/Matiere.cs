@@ -13,7 +13,7 @@ namespace Madera
 		public Fournisseur matFournisseur { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="matLibelle"></param>
         /// <param name="matFournisseur"></param>
@@ -31,15 +31,20 @@ namespace Madera
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void ajouterMatiere()
 		{
 
 		}
 
+		//public static Matiere afficherMatiere(Guid id)
+		//{
+		//	return listMatiere.Find(x => x.matId == id);
+		//}
+
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="m"></param>
 		public static void modifierMatiere(Matiere m)
@@ -48,7 +53,7 @@ namespace Madera
 		}
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="matId"></param>
 		/// <returns>Vrai si réussi | Faux en cas d'erreur</returns>
@@ -57,5 +62,9 @@ namespace Madera
 			return true;
 		}
 
+		public object Clone()
+		{
+			return this.MemberwiseClone();
+		}
 	}
 }

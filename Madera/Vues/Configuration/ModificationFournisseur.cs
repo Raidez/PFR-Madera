@@ -63,7 +63,7 @@ namespace Madera
 				fournisseur.fouMail = TextBoxEmail.Text;
 				fournisseur.fouPays = ComboBoxPays.Text;
 				ActionButtonGeneric.GoBack(this);
-			} catch (FormatException ex) {
+			} catch (FormatException) {
 				MessageBox.Show("Le champ numéro de rue n'est pas correctement rempli !");
 			}
 		}

@@ -192,5 +192,10 @@ namespace Madera
             listBoxModuleDevis.ValueMember = "Value";
             listBoxModuleDevis.DataSource = dataModuleDevis;
         }
-    }
+
+		private void button2_Click_1(object sender, EventArgs e)
+		{
+			monDevis.generePDF();
+		}
+	}
 }
