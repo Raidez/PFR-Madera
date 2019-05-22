@@ -84,18 +84,30 @@ namespace Madera
             return ListeClients;
 
         }
-        
+
         public static Client GetClient(string id)
         {
-            foreach (Client item in BDDExterne.GetAllClients())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+            
+            string query = @"select id,nom,prenom,""nomRue"",""codePostal"",ville,tel, email,""numRue"" FROM ""Client where id = "+id+"";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
             {
-                if (item.cliId == Guid.Parse(id))
-                {
-                    return item;
-                }
+                Client OneClient = new Client(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                return OneClient;
             }
+            conn.Close();
             return null;
+
         }
+        
+        
         #endregion
 
         #region devis 
@@ -223,6 +235,28 @@ namespace Madera
 
         }
 
+        public static Fournisseur GetFournisseur(string id)
+        {
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id,nom,tel,""NUMRUE"",rue,""CODEPOSTAL"",ville,pays,mail FROM ""Fournisseur"" where id = '" + id + "'";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Fournisseur OneFournisseur = new Fournisseur(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), Int32.Parse(dr[3].ToString()), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString());
+                return OneFournisseur;
+            }
+            conn.Close();
+            return null;
+
+        }
+
         public static Boolean SupprimerFournisseur(string id)
         {
             foreach (Fournisseur item in BDDExterne.GetAllFournisseur())
@@ -243,17 +277,7 @@ namespace Madera
                 }
             }
             return false;
-        }
-        public static Fournisseur GetFournisseur(string id)
-        {
-            foreach (Fournisseur item in BDDExterne.GetAllFournisseur())
-            {
-                if (item.fouId == Guid.Parse(id))
-                {
-                    return item;
-                }
-            }
-            return null;
+            
         }
             #endregion
 
@@ -303,16 +327,26 @@ namespace Madera
             return ListeGamme;
         }
 
-        public static Gamme GetGamme(Guid id)
+        public static Gamme GetGamme(string id)
         {
-            foreach (Gamme uneGamme in BDDExterne.GetAllGammes())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id,nom FROM ""Gamme where id ="+ id + "";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
             {
-                if (uneGamme.gamId == id)
-                {
-                    return uneGamme;
-                }
+                Gamme OneGamme = new Gamme(new Guid(dr[0].ToString()), dr[1].ToString());
+                return OneGamme;
             }
+            conn.Close();
             return null;
+
         }
 
         public static Boolean SupprimerGamme(string id)
@@ -322,7 +356,7 @@ namespace Madera
                 if (item.gamId.ToString() == id)
                 {
                     NpgsqlConnection conn;
-                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn = new NpgsqlConnection(chaineConnection);
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
@@ -348,7 +382,7 @@ namespace Madera
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
-                string query = @"INSERT INTO ""Matiere"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  ")";
+                string query = @"INSERT INTO ""Matiere"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  "')";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
@@ -382,17 +416,29 @@ namespace Madera
             conn.Close();
             return ListeMatiere;
         }
+
         public static Matiere GetMatiere(string id)
         {
-            foreach (var item in BDDExterne.GetAllMatiere())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id, nom, ""Fournisseur""FROM ""Matiere" + id + "";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
             {
-                if (item.matId == Guid.Parse(id))
-                {
-                    return item;
-                }
+                Matiere OneMatiere = new Matiere(new Guid(dr[0].ToString()), dr[1].ToString(), BDDExterne.GetFournisseur(dr[2].ToString()));
+                return OneMatiere;
             }
+            conn.Close();
             return null;
+
         }
+
 
         public static Boolean SupprimerMatiere(string id)
         {
@@ -400,8 +446,9 @@ namespace Madera
             {
                 if (item.matId.ToString() == id)
                 {
+                    Debug.WriteLine("on passe là");
                     NpgsqlConnection conn;
-                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn = new NpgsqlConnection(chaineConnection);
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
@@ -489,7 +536,7 @@ namespace Madera
             while (dr.Read())
             {
 
-                ListeModules.Add(new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(),BDDExterne.GetGamme(Guid.Parse(dr[5].ToString())),BDDExterne.GetMatiere(dr[4].ToString()),double.Parse(dr[2].ToString()),BDDExterne.GetAllParametreByModule(dr[0].ToString()),dr[6].ToString()));
+                ListeModules.Add(new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(),BDDExterne.GetGamme(dr[5].ToString()),BDDExterne.GetMatiere(dr[4].ToString()),double.Parse(dr[2].ToString()),BDDExterne.GetAllParametreByModule(dr[0].ToString()),dr[6].ToString()));
             }
             conn.Close();
             return ListeModules;
@@ -497,14 +544,24 @@ namespace Madera
 
         public static Module GetModule(string id)
         {
-            foreach (Module item in GetAllModules())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id, ""nom "", prix_base, ""uniteUsage"",""matiere"",""gamme"",""uniteUsage"" FROM ""Module where id= =" + id + "";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
             {
-                if (item.modId == Guid.Parse(id))
-                {
-                    return item;
-                }
+                Module OneModule = new Module(Guid.Parse(dr[0].ToString()), dr[1].ToString(), BDDExterne.GetGamme(dr[5].ToString()), BDDExterne.GetMatiere(dr[4].ToString()), double.Parse(dr[2].ToString()), BDDExterne.GetAllParametreByModule(dr[0].ToString()), dr[6].ToString());
+                return OneModule;
             }
+            conn.Close();
             return null;
+
         }
 
         public static List<Module> GetModulesByDevis(string id)
@@ -662,6 +719,28 @@ namespace Madera
             return ListeParametre;
         }
 
+        public static Parametre GetParametre(string id)
+        {
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT par_id, par_nom, mod_id FROM parametre where mod_id ='" + id + "'";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Parametre OneParametre = new Parametre(new Guid(dr[0].ToString()), dr[1].ToString(), 0);
+                return OneParametre;
+            }
+            conn.Close();
+            return null;
+
+        }
+
         public static Boolean SupprimerParametre(string id)
         {
             return true;
@@ -736,21 +815,31 @@ namespace Madera
             }
             conn.Close();
             return ListeSalarie;
-
-
-
+            
         }
+
         public static Salarie GetSalarie(string id)
         {
-            foreach (Salarie item in BDDExterne.GetAllSalarie())
+            NpgsqlConnection conn;
+            conn = new NpgsqlConnection(chaineConnection);
+            conn.Open();
+
+            string query = @"SELECT id,nom,prenom,mail,tel,fonction FROM ""Salarie"" where id ="+id+"";
+            Debug.WriteLine(query);
+
+            NpgsqlCommand command = new NpgsqlCommand(query, conn);
+            NpgsqlDataReader dr = command.ExecuteReader();
+            
+            while (dr.Read())
             {
-                if (item.salId == Guid.Parse(id))
-                {
-                    return item;
-                }
+                Salarie OneSalarie = new Salarie(new Guid(dr[0].ToString()), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[3].ToString(), Int32.Parse(dr[4].ToString()));
+                return OneSalarie;
             }
+            conn.Close();
             return null;
+            
         }
+        
 
         public static Boolean SupprimerSalarie(string id)
         {
