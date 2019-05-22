@@ -47,7 +47,7 @@ namespace Madera
                 if (item.cliId.ToString() == id)
                 {
                     NpgsqlConnection conn;
-                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn = new NpgsqlConnection(chaineConnection);
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue

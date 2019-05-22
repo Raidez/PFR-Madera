@@ -158,7 +158,7 @@ namespace Madera
 
         private void BtnSupprimer_Click(object sender, EventArgs e)
         {
-            
+            listBoxModuleDevis.Enabled = false;
             // listBoxParam.Items
             string numBox = listBoxParam.SelectedValue.ToString();
             if (BDDExterne.DeletePreciseByDevisAndNumModule(monDevis.devId.ToString(), BDDExterne.getNumModuleFromIDPrecise(numBox).ToString()) == false)
@@ -166,6 +166,7 @@ namespace Madera
                 MessageBox.Show("echec supression ");
             }
             refresh();
+            listBoxModuleDevis.Enabled = true;
         }
         public void refresh()
         {

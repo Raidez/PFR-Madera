@@ -129,7 +129,29 @@ namespace Madera.Vues
 		{
             Devis monDevis = new Devis(Guid.NewGuid(),0,DateTime.Now,BDDExterne.GetClient(comboBoxListeClient.SelectedValue.ToString()),BDDExterne.GetSalarie("b807c385-2737-413a-b9b2-c076638275bd"));
             BDDExterne.AjouterDevis(monDevis);
-			ActionButtonGeneric.GoNextForm(this, new ListeModuleParDevis(comboBoxListeClient.SelectedValue.ToString()));
+			ActionButtonGeneric.GoNextForm(this, new ListeModuleParDevis(monDevis.devId.ToString()));
 		}
+        void refresh()
+        {
+            try
+            {
+
+                List<ComboxItem> data = new List<ComboxItem>();
+
+                foreach (Client unClient in BDDExterne.GetAllClients())
+                {
+                    data.Add(new ComboxItem() { Value = unClient.cliId, Text = unClient.cliNom + " " + unClient.cliPrenom });
+                }
+
+                comboBoxListeClient.DisplayMember = "Text";
+                comboBoxListeClient.DataSource = data;
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+
+            }
+        }
 	}
 }
