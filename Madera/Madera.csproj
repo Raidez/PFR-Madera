@@ -36,6 +36,9 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IronPdf, Version=5.2.0.22321, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\IronPdf.5.2.0.1\lib\net40\IronPdf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -67,6 +70,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
@@ -74,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\BDDExterne.cs" />
     <Compile Include="Classes\Client.cs" />
     <Compile Include="Classes\Devis.cs" />
     <Compile Include="Classes\Fournisseur.cs" />
@@ -81,6 +86,7 @@
     <Compile Include="Classes\Matiere.cs" />
     <Compile Include="Classes\Module.cs" />
     <Compile Include="Classes\Parametre.cs" />
+    <Compile Include="Classes\Precise.cs" />
     <Compile Include="Classes\Salarie.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -113,23 +119,41 @@
     <Compile Include="Vues\Configuration\GestionGamme.Designer.cs">
       <DependentUpon>GestionGamme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vues\Configuration\GestionMatière.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionMatière.Designer.cs">
+      <DependentUpon>GestionMatière.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Configuration\GestionModule.Designer.cs">
+      <DependentUpon>GestionModule.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vues\Configuration\ModificationFournisseur.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vues\Configuration\ModificationFournisseur.Designer.cs">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\CreerClient.cs">
+    <Compile Include="Vues\Configuration\ModificationModule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vues\CreerClient.Designer.cs">
+    <Compile Include="Vues\Configuration\ModificationModule.Designer.cs">
+      <DependentUpon>ModificationModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\ListeModuleParDevis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\ListeModuleParDevis.Designer.cs">
+      <DependentUpon>ListeModuleParDevis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Devis\CreerClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vues\Devis\CreerClient.Designer.cs">
       <DependentUpon>CreerClient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Vues\CreerProjet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vues\CreerProjet.Designer.cs">
-      <DependentUpon>CreerProjet.cs</DependentUpon>
     </Compile>
     <Compile Include="Vues\ModificationClient.cs">
       <SubType>Form</SubType>
@@ -189,14 +213,20 @@
     <EmbeddedResource Include="Vues\Configuration\GestionGamme.resx">
       <DependentUpon>GestionGamme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Configuration\GestionMatière.resx">
+      <DependentUpon>GestionMatière.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vues\Configuration\GestionModule.resx">
+      <DependentUpon>GestionModule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vues\Configuration\ModificationFournisseur.resx">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vues\CreerClient.resx">
-      <DependentUpon>CreerClient.cs</DependentUpon>
+    <EmbeddedResource Include="Vues\ListeModuleParDevis.resx">
+      <DependentUpon>ListeModuleParDevis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vues\CreerProjet.resx">
-      <DependentUpon>CreerProjet.cs</DependentUpon>
+    <EmbeddedResource Include="Vues\Devis\CreerClient.resx">
+      <DependentUpon>CreerClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\ModificationClient.resx">
       <DependentUpon>ModificationClient.cs</DependentUpon>
@@ -220,5 +250,6 @@
     <None Include="packages.config" />
     <None Include="Resources\logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
