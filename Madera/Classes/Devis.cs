@@ -128,7 +128,7 @@ namespace Madera
 
 			using (HtmlTextWriter writer = new HtmlTextWriter(stringWriter))
 			{
-				writer.Write(this.ToString());
+				writer.Write(this.devClient.cliNom + "<br>" + this.devDateCreation.ToString());
 			}
 
 			System.IO.File.WriteAllText(@"C:\Users\Public\TestFolder\WriteText.html", stringWriter.ToString());
