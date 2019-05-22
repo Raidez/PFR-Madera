@@ -147,11 +147,14 @@
             // 
             // listBoxDevis
             // 
+            this.listBoxDevis.DisplayMember = "Value";
             this.listBoxDevis.FormattingEnabled = true;
             this.listBoxDevis.Location = new System.Drawing.Point(314, 168);
             this.listBoxDevis.Name = "listBoxDevis";
             this.listBoxDevis.Size = new System.Drawing.Size(184, 316);
             this.listBoxDevis.TabIndex = 32;
+            this.listBoxDevis.ValueMember = "Value";
+            this.listBoxDevis.SelectedIndexChanged += new System.EventHandler(this.listBoxDevis_SelectedIndexChanged);
             // 
             // BtnSupprimer
             // 

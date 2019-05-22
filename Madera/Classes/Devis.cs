@@ -22,25 +22,37 @@ namespace Madera
 		public Salarie devSalarie;
 		public List<Module> modules = new List<Module>();
 
-		public Devis(Guid id, int statut, DateTime dateCreation, DateTime dateSignature, DateTime dateFacture, double montantFacture, Client client, Salarie salarie)
-		{
-			devId = id;
-			devStatut = statut;
-			devDateCreation = dateCreation;
-			devDateSignature = dateSignature;
-			devDateFacture = dateFacture;
-			devMontantFacture = montantFacture;
-			devClient = client;
-			devSalarie = salarie;
-		}
-		public Devis(Guid id, int statut, DateTime dateCreation, Client client, Salarie salarie)
-		{
-			devId = id;
-			devStatut = statut;
-			devDateCreation = dateCreation;
-			devClient = client;
-			devSalarie = salarie;
-		}
+        public Devis(Guid id, int statut, DateTime dateCreation, DateTime dateSignature, DateTime dateFacture, double montantFacture, Client client, Salarie salarie)
+        {
+            devId = id;
+            devStatut = statut;
+            devDateCreation = dateCreation;
+            devDateSignature = dateSignature;
+            devDateFacture = dateFacture;
+            devMontantFacture = montantFacture;
+            devClient = client;
+            devSalarie = salarie;
+        }
+        public Devis(Guid id, int statut, DateTime dateCreation, DateTime dateSignature, DateTime dateFacture, double montantFacture, Client client, Salarie salarie, List<Module> LesModules)
+        {
+            devId = id;
+            devStatut = statut;
+            devDateCreation = dateCreation;
+            devDateSignature = dateSignature;
+            devDateFacture = dateFacture;
+            devMontantFacture = montantFacture;
+            devClient = client;
+            devSalarie = salarie;
+            modules = LesModules;
+        }
+        public Devis(Guid id, int statut, DateTime dateCreation, Client client, Salarie salarie)
+        {
+            devId = id;
+            devStatut = statut;
+            devDateCreation = dateCreation;
+            devClient = client;
+            devSalarie = salarie;
+        }
 
 		public bool CreerDevis()
 		{
@@ -108,7 +120,7 @@ namespace Madera
 		public void associerSalarie(Salarie salarie)
 		{
 			this.devSalarie = salarie;
-		}		
+		}
 
 		public void generePDF()
 		{

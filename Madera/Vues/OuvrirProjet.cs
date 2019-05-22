@@ -72,5 +72,10 @@ namespace Madera.Vues
             ActionButtonGeneric.GoNextForm(this, new ListeModuleParDevis(listBoxDevis.SelectedValue.ToString()));
 
         }
+
+        private void listBoxDevis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine(listBoxDevis.SelectedValue.ToString());
+        }
     }
 }

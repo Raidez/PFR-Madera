@@ -15,22 +15,32 @@ namespace Madera
     public partial class ListeModuleParDevis : Form
     {
         List<ComboxItem> data = new List<ComboxItem>();
-        List<Module> dataModuleDevis = new List<Module>();
+        List<ComboxItem> dataModuleDevis = new List<ComboxItem>();
+        Devis monDevis;
         public ListeModuleParDevis(string idDevis)
         {
             
 
             InitializeComponent();
-            
+            monDevis = BDDExterne.GetDevis(idDevis);
+            labelNomClient.Text = monDevis.devClient.cliNom + " " + monDevis.devClient.cliPrenom;
+            labelDevisDateCreation.Text = monDevis.devDateCreation.ToShortDateString();
+
 
             foreach (Module item in BDDExterne.GetAllModules())
             {
                 data.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele});
             }
-
             listBoxModuleDisponible.DisplayMember = "Text";
             listBoxModuleDisponible.ValueMember = "Value";
             listBoxModuleDisponible.DataSource = data;
+
+            foreach  (Module item in BDDExterne.GetModulesByDevis(idDevis))
+            {
+                dataModuleDevis.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
+            }
+
+
             listBoxModuleDevis.DisplayMember = "Text";
             listBoxModuleDevis.ValueMember = "Value";
             listBoxModuleDevis.DataSource = dataModuleDevis;
@@ -39,54 +49,148 @@ namespace Madera
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            Module monMod = BDDExterne.GetModule(listBoxModuleDisponible.SelectedValue.ToString());
+            int newNumMod = BDDExterne.getMaxNumModuleByDevis(monDevis.devId.ToString());
+            newNumMod++;
+            foreach (Parametre item in monMod.modParametres)
+            {
+
+                string query = @"INSERT INTO public.precise(id, id_parametre, id_devis, valeur, num_module) VALUES ('" + Guid.NewGuid().ToString() + "' , '" + item.parId.ToString() + "', '" + monDevis.devId.ToString() + "',0, " + newNumMod +")";
+                
+                if (BDDExterne.Insert(query) == false)
+                {
+                    MessageBox.Show("echec insert");
+                }
+            }
+            dataModuleDevis.Clear();
+            foreach (Module item in BDDExterne.GetModulesByDevis(monDevis.devId.ToString()))
+            {
+                dataModuleDevis.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
+            }
+
+            listBoxModuleDevis.DataSource = null;
+            listBoxModuleDevis.Items.Clear();
+            listBoxModuleDevis.DisplayMember = "Text";
+            listBoxModuleDevis.ValueMember = "Value";
+            listBoxModuleDevis.DataSource = dataModuleDevis;
+
+            // ----
+            monDevis = BDDExterne.GetDevis(monDevis.devId.ToString());
+            labelNomClient.Text = monDevis.devClient.cliNom + " " + monDevis.devClient.cliPrenom;
+            labelDevisDateCreation.Text = monDevis.devDateCreation.ToShortDateString();
+
+
+            foreach (Module item in BDDExterne.GetAllModules())
+            {
+                data.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
+            }
+            listBoxModuleDisponible.DisplayMember = "Text";
+            listBoxModuleDisponible.ValueMember = "Value";
+            listBoxModuleDisponible.DataSource = data;
+
+            foreach (Module item in BDDExterne.GetModulesByDevis(monDevis.devId.ToString()))
+            {
+                dataModuleDevis.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
+            }
+
+
+            listBoxModuleDevis.DisplayMember = "Text";
+            listBoxModuleDevis.ValueMember = "Value";
+            listBoxModuleDevis.DataSource = dataModuleDevis;
+
+
+
 
         }
 
         private void listBoxModuleDisponible_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Module monModule = BDDExterne.GetModule(listBoxModuleDisponible.SelectedValue.ToString());
-            dataModuleDevis.Add(monModule);
 
-            try
-            {
-
-                List<ComboxItem> data = new List<ComboxItem>();
-
-                foreach (Module item in dataModuleDevis)
-                {
-
-                        data.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
-                    
-                }
-
-                listBoxModuleDevis.DisplayMember = "Text";
-                listBoxModuleDevis.DataSource = data;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-
-            }
         }
 
         private void listBoxModuleDevis_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            listBoxParam.DataSource = null;
             listBoxParam.Items.Clear();
-            foreach (Module item in dataModuleDevis)
+            List<ComboxItem> listComboxItemParam = new List<ComboxItem>();
+            if (listBoxModuleDevis.SelectedIndex != -1)
             {
-                if (item.modId == Guid.Parse(listBoxModuleDevis.SelectedValue.ToString()))
+                foreach (Parametre monParam in monDevis.modules[listBoxModuleDevis.SelectedIndex].modParametres)
                 {
-                    foreach (Parametre monParam in item.modParametres)
-                    {
-                        listBoxParam.Items.Add(monParam.parNom + " " +  monParam.parValeur + " " + item.uniteUsage );
-                    }
+                    listComboxItemParam.Add(new ComboxItem() { Value = monParam.parIdValeur, Text = monParam.parNom + " " + monParam.parValeur + " " + monDevis.modules[listBoxModuleDevis.SelectedIndex].uniteUsage });
                 }
+                listBoxParam.DisplayMember = "Text";
+                listBoxParam.ValueMember = "Value";
+                listBoxParam.DataSource = listComboxItemParam;
             }
+
+
         }
 
         private void listBoxParam_DoubleClick(object sender, EventArgs e)
         {
-            Microsoft.VisualBasic.Interaction.InputBox("entrer la nouvelle valeur", "Title", "");
+            if (BDDExterne.ModifierValeurParam(listBoxParam.SelectedValue.ToString(), Int32.Parse(Microsoft.VisualBasic.Interaction.InputBox("entrer la nouvelle valeur", "Title", "").ToString()))== false) 
+            {
+                MessageBox.Show("Erreur modification de la valeur");
+            }
+            listBoxParam.DataSource = null;
+            listBoxParam.Items.Clear();
+            List<ComboxItem> listComboxItemParam = new List<ComboxItem>();
+            
+            monDevis = BDDExterne.GetDevis(monDevis.devId.ToString());
+            foreach (Parametre monParam in monDevis.modules[listBoxModuleDevis.SelectedIndex].modParametres)
+            {
+                listComboxItemParam.Add(new ComboxItem() { Value = monParam.parIdValeur, Text = monParam.parNom + " " + monParam.parValeur + " " + monDevis.modules[listBoxModuleDevis.SelectedIndex].uniteUsage });
+            }
+            listBoxParam.DisplayMember = "Text";
+            listBoxParam.ValueMember = "Value";
+            listBoxParam.DataSource = listComboxItemParam;
+
+
+        }
+
+        private void listBoxParam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine(listBoxParam.SelectedValue);
+        }
+
+        private void BtnSupprimer_Click(object sender, EventArgs e)
+        {
+            
+            // listBoxParam.Items
+            string numBox = listBoxParam.SelectedValue.ToString();
+            if (BDDExterne.DeletePreciseByDevisAndNumModule(monDevis.devId.ToString(), BDDExterne.getNumModuleFromIDPrecise(numBox).ToString()) == false)
+            {
+                MessageBox.Show("echec supression ");
+            }
+            refresh();
+        }
+        public void refresh()
+        {
+            monDevis = BDDExterne.GetDevis(monDevis.devId.ToString());
+            labelNomClient.Text = monDevis.devClient.cliNom + " " + monDevis.devClient.cliPrenom;
+            labelDevisDateCreation.Text = monDevis.devDateCreation.ToShortDateString();
+
+
+            foreach (Module item in BDDExterne.GetAllModules())
+            {
+                data.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
+            }
+            listBoxModuleDisponible.DisplayMember = "Text";
+            listBoxModuleDisponible.ValueMember = "Value";
+            listBoxModuleDisponible.DataSource = data;
+
+            foreach (Module item in BDDExterne.GetModulesByDevis(monDevis.devId.ToString()))
+            {
+                dataModuleDevis.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
+            }
+
+
+            listBoxModuleDevis.DisplayMember = "Text";
+            listBoxModuleDevis.ValueMember = "Value";
+            listBoxModuleDevis.DataSource = dataModuleDevis;
         }
 
 		private void button2_Click(object sender, EventArgs e)

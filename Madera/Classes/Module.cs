@@ -15,6 +15,7 @@ namespace Madera
 		public double prixBase { get; set; }
 		public List<Parametre> modParametres = new List<Parametre>();
         public string uniteUsage { get; set; }
+        public int num_module { get; set; }
 
         /// <summary>
         /// 

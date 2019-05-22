@@ -59,8 +59,6 @@ namespace Madera
 		/// <returns>Vrai si réussi | Faux en cas d'erreur</returns>
 		public static bool supprimerMatiere(Guid matId)
 		{
-
-
 			return true;
 		}
 
