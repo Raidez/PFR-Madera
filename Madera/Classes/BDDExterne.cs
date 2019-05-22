@@ -233,7 +233,7 @@ namespace Madera
             conn = new NpgsqlConnection(chaineConnection);
             conn.Open();
 
-            string query = @"SELECT id,nom,tel,""NUMRUE"",rue,""CODEPOSTAL"",ville,pays,mail FROM ""Fournisseur where id =" + id + "";
+            string query = @"SELECT id,nom,tel,""NUMRUE"",rue,""CODEPOSTAL"",ville,pays,mail FROM ""Fournisseur"" where id = '" + id + "'";
             Debug.WriteLine(query);
 
             NpgsqlCommand command = new NpgsqlCommand(query, conn);
@@ -269,6 +269,7 @@ namespace Madera
                 }
             }
             return false;
+            
         }
             #endregion
 
@@ -347,7 +348,7 @@ namespace Madera
                 if (item.gamId.ToString() == id)
                 {
                     NpgsqlConnection conn;
-                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn = new NpgsqlConnection(chaineConnection);
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
@@ -373,7 +374,7 @@ namespace Madera
                 conn.Open();
                 NpgsqlCommand MyCmd = null;
                 // id , nom , prenom, nomRue,codePostal,ville,tel,email,numRue  
-                string query = @"INSERT INTO ""Matiere"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  ")";
+                string query = @"INSERT INTO ""Matiere"" VALUES ('" + maMatiere.matId + "','" + maMatiere.matLibelle + "','" + maMatiere.matFournisseur.fouId +  "')";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
@@ -437,8 +438,9 @@ namespace Madera
             {
                 if (item.matId.ToString() == id)
                 {
+                    Debug.WriteLine("on passe là");
                     NpgsqlConnection conn;
-                    conn = new NpgsqlConnection("Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001");
+                    conn = new NpgsqlConnection(chaineConnection);
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
