@@ -95,12 +95,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Vues\Configuration\AffichageModule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vues\Configuration\AffichageModule.Designer.cs">
-      <DependentUpon>AffichageModule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vues\Configuration\GestionConfiguration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,9 +188,6 @@
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Vues\Configuration\AffichageModule.resx">
-      <DependentUpon>AffichageModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vues\Configuration\GestionConfiguration.resx">
       <DependentUpon>GestionConfiguration.cs</DependentUpon>

@@ -127,6 +127,8 @@ namespace Madera.Vues.Configuration
 
                 }
                 query = @"INSERT INTO public.parametre(par_id, par_nom, mod_id)VALUES ('" + Guid.NewGuid().ToString() + "', 'prix', '" + monModule.modId + "');";
+                BDDExterne.Insert(query);
+                
             }
         }
 

@@ -77,5 +77,13 @@ namespace Madera.Vues
         {
             Debug.WriteLine(listBoxDevis.SelectedValue.ToString());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormProjet myForm = new FormProjet();
+            this.Hide();
+            myForm.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -272,8 +272,16 @@ namespace Madera
 					writer.Write("<tr><td>"+module.num_module + "</td>");
 					writer.Write("<td>"+module.modLibele + "</td>");
 					writer.Write("<td>"+module.uniteUsage+"</td>");
-					writer.Write("<td>"+ module.prixBase +" €</td></tr>");
-					total += module.prixBase;
+                    foreach (Parametre param in module.modParametres)
+                    {
+                        if (param.parNom == "prix")
+                        {
+                            writer.Write("<td>" + param.parValeur + " €</td></tr>");
+                            total += Double.Parse(param.parValeur.ToString());
+                        }
+                    }
+					
+					
 				}
 				writer.Write("<tr></tr></tbody>"+
 							"<tfoot>"+
@@ -298,26 +306,6 @@ namespace Madera
 					"<aside id=\"sign-client\"><h2>Bon pour accord</h2>Signature du Client</aside>"+
 					"<aside id=\"sign-commer\"><h2>Bon pour accord</h2>Signature du Commercial</aside>" +
 				"</body></html>");
-
-				//writer.AddAttribute(HtmlTextWriterAttribute.Src, @"C:\Users\maxna\source\repos\PFR-Madera\Madera\Resources\logo.png");
-				//writer.AddAttribute(HtmlTextWriterAttribute.Alt, "Madera");
-				//writer.RenderBeginTag(HtmlTextWriterTag.Img); // Begin #3
-				//writer.RenderEndTag(); // End #3
-
-				/*writer.Write(
-					"Client : " + this.devClient.cliNom + " " + this.devClient.cliPrenom + "<br>" +
-					"<br>" + this.devDateCreation.ToString() +
-					"<br><br> Modules associés au projet : <br>"
-				);
-				foreach (Module module in BDDExterne.GetModulesByDevis(this.devId.ToString()))
-				{
-					writer.Write(module.modLibele + " " + module.uniteUsage + "<br>");
-					foreach (Parametre param in module.modParametres)
-					{
-						writer.Write(param.parNom + " " + param.parValeur + "<br>");
-					}
-					writer.Write("<br><br>");
-				}*/
 			}
 
 			System.IO.File.WriteAllText(@"C:\Users\Public\WriteText.html", stringWriter.ToString());

@@ -119,7 +119,15 @@ namespace Madera
             {
                 foreach (Parametre monParam in monDevis.modules[listBoxModuleDevis.SelectedIndex].modParametres)
                 {
-                    listComboxItemParam.Add(new ComboxItem() { Value = monParam.parIdValeur, Text = monParam.parNom + " " + monParam.parValeur + " " + monDevis.modules[listBoxModuleDevis.SelectedIndex].uniteUsage });
+                    if (monParam.parNom == "prix")
+                    {
+                        listComboxItemParam.Add(new ComboxItem() { Value = monParam.parIdValeur, Text = monParam.parNom + " " + monParam.parValeur + " " + " €" });
+                    }
+                    else
+                    {
+                        listComboxItemParam.Add(new ComboxItem() { Value = monParam.parIdValeur, Text = monParam.parNom + " " + monParam.parValeur + " " + monDevis.modules[listBoxModuleDevis.SelectedIndex].uniteUsage });
+                    }
+                    
                 }
                 listBoxParam.DisplayMember = "Text";
                 listBoxParam.ValueMember = "Value";
@@ -142,7 +150,14 @@ namespace Madera
             monDevis = BDDExterne.GetDevis(monDevis.devId.ToString());
             foreach (Parametre monParam in monDevis.modules[listBoxModuleDevis.SelectedIndex].modParametres)
             {
-                listComboxItemParam.Add(new ComboxItem() { Value = monParam.parIdValeur, Text = monParam.parNom + " " + monParam.parValeur + " " + monDevis.modules[listBoxModuleDevis.SelectedIndex].uniteUsage });
+                if (monParam.parNom == "prix")
+                {
+                    listComboxItemParam.Add(new ComboxItem() { Value = monParam.parIdValeur, Text = monParam.parNom + " " + monParam.parValeur + " " + " €" });
+                }
+                else
+                {
+                    listComboxItemParam.Add(new ComboxItem() { Value = monParam.parIdValeur, Text = monParam.parNom + " " + monParam.parValeur + " " + monDevis.modules[listBoxModuleDevis.SelectedIndex].uniteUsage });
+                }
             }
             listBoxParam.DisplayMember = "Text";
             listBoxParam.ValueMember = "Value";
@@ -224,6 +239,14 @@ namespace Madera
         void BtnRetour_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void BtnRetour_Click_1(object sender, EventArgs e)
+        {
+            FormProjet myForm = new FormProjet();
+            this.Hide();
+            myForm.ShowDialog();
+            this.Close();
         }
     }
 }
