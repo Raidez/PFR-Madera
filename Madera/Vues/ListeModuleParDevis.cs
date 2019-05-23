@@ -131,7 +131,7 @@ namespace Madera
 
         private void listBoxParam_DoubleClick(object sender, EventArgs e)
         {
-            if (BDDExterne.ModifierValeurParam(listBoxParam.SelectedValue.ToString(), Int32.Parse(Microsoft.VisualBasic.Interaction.InputBox("entrer la nouvelle valeur", "Title", "").ToString()))== false) 
+            if (BDDExterne.ModifierValeurParam(listBoxParam.SelectedValue.ToString(), Double.Parse(Microsoft.VisualBasic.Interaction.InputBox("entrer la nouvelle valeur", "Title", "").ToString()))== false) 
             {
                 MessageBox.Show("Erreur modification de la valeur");
             }
@@ -158,15 +158,36 @@ namespace Madera
 
         private void BtnSupprimer_Click(object sender, EventArgs e)
         {
-            listBoxModuleDevis.Enabled = false;
             // listBoxParam.Items
             string numBox = listBoxParam.SelectedValue.ToString();
             if (BDDExterne.DeletePreciseByDevisAndNumModule(monDevis.devId.ToString(), BDDExterne.getNumModuleFromIDPrecise(numBox).ToString()) == false)
             {
                 MessageBox.Show("echec supression ");
             }
-            refresh();
-            listBoxModuleDevis.Enabled = true;
+            monDevis = BDDExterne.GetDevis(monDevis.devId.ToString());
+            labelNomClient.Text = monDevis.devClient.cliNom + " " + monDevis.devClient.cliPrenom;
+            labelDevisDateCreation.Text = monDevis.devDateCreation.ToShortDateString();
+
+
+            foreach (Module item in BDDExterne.GetAllModules())
+            {
+                data.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
+            }
+            listBoxModuleDisponible.DisplayMember = "Text";
+            listBoxModuleDisponible.ValueMember = "Value";
+            listBoxModuleDisponible.DataSource = data;
+
+            foreach (Module item in BDDExterne.GetModulesByDevis(monDevis.devId.ToString()))
+            {
+                dataModuleDevis.Add(new ComboxItem() { Value = item.modId, Text = item.modLibele });
+            }
+
+          
+            
+            listBoxModuleDevis.DisplayMember = "Text";
+            listBoxModuleDevis.ValueMember = "Value";
+            listBoxModuleDevis.DataSource = dataModuleDevis;
+            ActionButtonGeneric.GoNextForm(this, new ListeModuleParDevis(monDevis.devId.ToString()));
         }
         public void refresh()
         {
@@ -192,11 +213,17 @@ namespace Madera
             listBoxModuleDevis.DisplayMember = "Text";
             listBoxModuleDevis.ValueMember = "Value";
             listBoxModuleDevis.DataSource = dataModuleDevis;
+            
         }
 
 		private void button2_Click_1(object sender, EventArgs e)
 		{
 			monDevis.generePDF();
 		}
-	}
+
+        void BtnRetour_Click(object sender, EventArgs e)
+        {
+            
+        }
+    }
 }

@@ -37,6 +37,9 @@ namespace Madera.Vues.Configuration
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.LbxParamsAjout = new System.Windows.Forms.ListBox();
             this.BtnSupprimerParam = new System.Windows.Forms.Button();
             this.BtnAjoutParam = new System.Windows.Forms.Button();
@@ -66,9 +69,6 @@ namespace Madera.Vues.Configuration
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -102,6 +102,28 @@ namespace Madera.Vues.Configuration
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(760, 219);
             this.panel1.TabIndex = 2;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(426, 9);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(125, 20);
+            this.textBox3.TabIndex = 20;
+            // 
+            // label6
+            // 
+            this.label6.Location = new System.Drawing.Point(335, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(89, 19);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Unité d\'usage : ";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(95, 165);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(125, 20);
+            this.textBox2.TabIndex = 18;
             // 
             // LbxParamsAjout
             // 
@@ -283,7 +305,7 @@ namespace Madera.Vues.Configuration
             this.panel3.Controls.Add(this.CbxModuleSupprimer);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(3, 279);
+            this.panel3.Location = new System.Drawing.Point(3, 227);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(760, 50);
@@ -400,28 +422,6 @@ namespace Madera.Vues.Configuration
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(765, 1);
             this.panel8.TabIndex = 19;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(95, 165);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 20);
-            this.textBox2.TabIndex = 18;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(426, 9);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 20);
-            this.textBox3.TabIndex = 20;
-            // 
-            // label6
-            // 
-            this.label6.Location = new System.Drawing.Point(335, 12);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 19);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "Unité d\'usage : ";
             // 
             // GestionModule
             // 

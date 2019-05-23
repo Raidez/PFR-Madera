@@ -137,12 +137,6 @@
     <Compile Include="Vues\Configuration\ModificationFournisseur.Designer.cs">
       <DependentUpon>ModificationFournisseur.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vues\Configuration\ModificationModule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vues\Configuration\ModificationModule.Designer.cs">
-      <DependentUpon>ModificationModule.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vues\ListeModuleParDevis.cs">
       <SubType>Form</SubType>
     </Compile>

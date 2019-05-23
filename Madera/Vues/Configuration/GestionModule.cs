@@ -126,17 +126,18 @@ namespace Madera.Vues.Configuration
                     }
 
                 }
-    }
+                query = @"INSERT INTO public.parametre(par_id, par_nom, mod_id)VALUES ('" + Guid.NewGuid().ToString() + "', 'prix', '" + monModule.modId + "');";
+            }
         }
 
         private void BtnModifier_Click(object sender, EventArgs e) {
-    		if (BDDExterne.GetAllModules().Count <= 0) {
-    			MessageBox.Show("Il n'y a pas de modules !");
-    		} else {
-    			ComboxItem item = (ComboxItem) CbxModuleModifier.SelectedItem;
-    			Module modu = BDDExterne.GetAllModules().Find(x => x.modId == (Guid) item.Value);
-    			ActionButtonGeneric.GoNextForm(this, new ModificationModule(modu));
-    		}
+    		//if (BDDExterne.GetAllModules().Count <= 0) {
+    		//	MessageBox.Show("Il n'y a pas de modules !");
+    		//} else {
+    		//	ComboxItem item = (ComboxItem) CbxModuleModifier.SelectedItem;
+    		//	Module modu = BDDExterne.GetAllModules().Find(x => x.modId == (Guid) item.Value);
+    		//	ActionButtonGeneric.GoNextForm(this, new ModificationModule(modu));
+    		//}
         }
 
         private void BtnSupprimer_Click(object sender, EventArgs e) {

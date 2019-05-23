@@ -11,7 +11,8 @@ namespace Madera
 {
     static class BDDExterne
     {
-        public static string chaineConnection = "Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001";
+        //public static string chaineConnection = "Host=hosting-1001.netsteel.space;Username=madera;Password=me2d97m29;Database=madera;Port=51001";
+        public static string chaineConnection = "Host=127.0.0.1;Username=postgres;Password=toor;Database=madera;Port=5432";
         public static void Open()
         {
 
@@ -122,7 +123,7 @@ namespace Madera
                 NpgsqlCommand MyCmd = null;
                 // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
                 // id,fouNom fouTel, fouAdrNumero,  fouAdrRue, fouAdrCodePostal,fouVille, fouPays, fouMail
-                string query = @"INSERT INTO public.devis(id, status, date_creation, ""id_Client"", ""id_Salarie"")VALUES ('" + monDevis.devId.ToString() + "'," + monDevis.devStatut + ", '"+ DateTime.Now.Year + "-" + DateTime.Now.Month + "-"+ DateTime.Now.Day + "',  '" + monDevis.devClient.cliId.ToString() + "','"+monDevis.devSalarie.salId.ToString() + "');";
+                string query = @"INSERT INTO public.devis(id, status, date_creation,date_signature,date_facture,montant_facture, ""id_Client"", ""id_Salarie"")VALUES ('" + monDevis.devId.ToString() + "'," + monDevis.devStatut + ", '"+ DateTime.Now.Year + "-" + DateTime.Now.Month + "-"+ DateTime.Now.Day + "','" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + " ','" + DateTime.Now.Year + "-" + DateTime.Now.Month + "-" + DateTime.Now.Day + "',0,  '" + monDevis.devClient.cliId.ToString() + "','"+monDevis.devSalarie.salId.ToString() + "');";
                 Debug.WriteLine(query);
                 MyCmd = new NpgsqlCommand(query, conn);
                 MyCmd.ExecuteNonQuery(); //Exécution
@@ -519,8 +520,12 @@ namespace Madera
 
             while (dr.Read())
             {
-
-               numMod =  Int32.Parse(dr[0].ToString());
+                string test = dr[0].ToString();
+                if (dr[0].ToString() !=  "")
+                {
+                    numMod = Int32.Parse(dr[0].ToString());
+                }
+               
             }
             conn.Close();
             return numMod;
@@ -684,7 +689,7 @@ namespace Madera
                     conn.Open();
                     NpgsqlCommand MyCmd = null;
                     // id, nom ,tel,numrue,codepostal,ville,pays,mail,nom rue
-                    string query = @"DELETE FROM module CASCADE WHERE id == '" + id;
+                    string query = @"DELETE FROM module CASCADE WHERE mod_id = '" + id + "'";
                     Debug.WriteLine(query);
                     MyCmd = new NpgsqlCommand(query, conn);
                     MyCmd.ExecuteNonQuery(); //Exécution
@@ -752,11 +757,11 @@ namespace Madera
         {
             return true;
         }
-        public static Boolean ModifierValeurParam(string idPrecise,int valeur)
+        public static Boolean ModifierValeurParam(string idPrecise,double valeur)
         {
             try
             {
-                string query = @"UPDATE public.precise SET  valeur= " + valeur + " WHERE id = '" + idPrecise + "'";
+                string query = @"UPDATE public.precise SET  valeur= '" + valeur + "' WHERE id = '" + idPrecise + "'";
                 NpgsqlConnection conn;
                 conn = new NpgsqlConnection(chaineConnection);
                 conn.Open();
