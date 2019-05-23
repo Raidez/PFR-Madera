@@ -59,5 +59,15 @@ namespace Madera.Vues {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pictureBox1_BackgroundImage {
+            get {
+                object obj = ResourceManager.GetObject("pictureBox1.BackgroundImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

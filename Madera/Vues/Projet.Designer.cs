@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProjet));
             this.BtnNouveauProjet = new System.Windows.Forms.Button();
             this.BtnOuvrirProjet = new System.Windows.Forms.Button();
             this.BtnConfig = new System.Windows.Forms.Button();
-            this.ImgLogo = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // BtnNouveauProjet
@@ -81,18 +80,6 @@
             this.BtnConfig.UseVisualStyleBackColor = false;
             this.BtnConfig.Click += new System.EventHandler(this.BtnConfig_Click);
             // 
-            // ImgLogo
-            // 
-            this.ImgLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ImgLogo.BackgroundImage = global::Madera.Resources.logo;
-            this.ImgLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ImgLogo.Location = new System.Drawing.Point(246, 0);
-            this.ImgLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.ImgLogo.Name = "ImgLogo";
-            this.ImgLogo.Size = new System.Drawing.Size(300, 100);
-            this.ImgLogo.TabIndex = 0;
-            this.ImgLogo.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -104,15 +91,17 @@
             this.panel1.Size = new System.Drawing.Size(300, 200);
             this.panel1.TabIndex = 12;
             // 
-            // panel2
+            // pictureBox1
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel2.Controls.Add(this.ImgLogo);
-            this.panel2.Location = new System.Drawing.Point(9, 9);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(766, 100);
-            this.panel2.TabIndex = 13;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(253, 50);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(300, 100);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FormProjet
             // 
@@ -120,7 +109,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = global::Madera.Resources.icône;
@@ -128,19 +117,17 @@
             this.Name = "FormProjet";
             this.Text = "Projet";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Deconnexion);
-            ((System.ComponentModel.ISupportInitialize)(this.ImgLogo)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox ImgLogo;
         private System.Windows.Forms.Button BtnNouveauProjet;
         private System.Windows.Forms.Button BtnOuvrirProjet;
         private System.Windows.Forms.Button BtnConfig;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
