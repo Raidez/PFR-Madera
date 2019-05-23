@@ -167,6 +167,18 @@ namespace Madera
 							"top: 150px;" +
 							"right: 10px;" +
 						"}" +
+						"#sign-client {" +
+							"width: 200px;" +
+							"height: 150px;" +
+							"top: 800px;" +
+							"left: 10px;" +
+						"}" +
+						"#sign-commer {" +
+							"width: 200px;" +
+							"height: 150px;" +
+							"top: 800px;" +
+							"right: 10px;" +
+						"}" +
 						"#logo {" +
 							"position: absolute;" +
 							"top: 0;" +
@@ -178,6 +190,34 @@ namespace Madera
 							"display: inline-block;" +
 							"position: absolute;" +
 							"right: 1em;" +
+						"}" +
+						"/* bordure pour le tableau générale */" +
+						"table {"+
+							"border-collapse: collapse;"+
+						"}"+
+						"table tr {"+
+							"border-bottom: 1px solid #8a8787;"+
+						"}"+
+						"table td:last-child {"+
+							"text-align: right;"+
+							"border-left: 1px solid #8a8787;"+
+						"}"+
+						
+						"/* bordure des totaux */"+
+						"tfoot::before {"+
+							"content: '';"+
+							"display: block;"+
+							"height: 18px;"+
+						"}"+
+						"table tfoot {"+
+							"margin-top: 20px;"+
+						"}"+
+						"table tfoot td {"+
+							"/*border-bottom: none;*/"+
+							"border: 1px solid #8a8787;"+
+						"}"+
+						"table tfoot tr, table tfoot td[colspan] {"+
+							"border: none;"+
 						"}" +
 					"</style>" +
 				"</head>" +
@@ -193,7 +233,7 @@ namespace Madera
 				"</ul>" +
 			"</aside>" +
 
-			"<aside id = \"devis\">" +
+			"<aside id=\"devis\">" +
 
 				"<h2> Devis </h2>" +
 
@@ -238,20 +278,25 @@ namespace Madera
 				writer.Write("<tr></tr></tbody>"+
 							"<tfoot>"+
 								"<tr>"+
-									"<td colspan = \"3\" > Hors taxes</td>"+
+									"<td colspan=\"2\"></td>" +
+									"<td>Hors taxes</td>"+
 									"<td>" + total + " €</td>"+
 								"</tr>"+
 								"<tr>"+
-									"<td colspan = \"3\" > Taxe valeur ajoutée </td>"+
-									"<td> 20% </td>"+
+									"<td colspan=\"2\"></td>" +
+									"<td>Taxe valeur ajoutée</td>"+
+									"<td>20%</td>"+
 								"</tr>"+
 								"<tr>"+
-									"<td colspan=\"3\"> Toutes taxes comprises </td>"+
+									"<td colspan=\"2\"></td>" +
+									"<td>Toutes taxes comprises</td>"+
 									"<td>" + total * 1.2 + " €</td>"+
 								"</tr>"+
 							"</tfoot>"+
 						"</table>"+
 					"</section>"+
+					"<aside id=\"sign-client\"><h2>Bon pour accord</h2>Signature du Client</aside>"+
+					"<aside id=\"sign-commer\"><h2>Bon pour accord</h2>Signature du Commercial</aside>" +
 				"</body></html>");
 
 				//writer.AddAttribute(HtmlTextWriterAttribute.Src, @"C:\Users\maxna\source\repos\PFR-Madera\Madera\Resources\logo.png");
@@ -279,7 +324,11 @@ namespace Madera
 
 			var Renderer = new IronPdf.HtmlToPdf();
 			var PDF = Renderer.RenderHTMLFileAsPdf(@"C:\Users\Public\WriteText.html");
-			PDF.SaveAs(@"C:\Users\Public\Devis_du_"+DateTime.Now.Year+DateTime.Now.Month+DateTime.Now.Day+"_"+DateTime.Now.Hour+DateTime.Now.Minute+DateTime.Now.Second+".pdf");
+			string Outpath = @"C:\Users\Public\";
+			string OutpathView = "C:/Users/Public";
+			PDF.SaveAs(Outpath+"Devis_du_"+DateTime.Now.Year+DateTime.Now.Month+DateTime.Now.Day+"_"+DateTime.Now.Hour+DateTime.Now.Minute+DateTime.Now.Second+".pdf");
+
+			System.Windows.Forms.MessageBox.Show("Votre PDF a été généré dans le dossier " + OutpathView);
 		}
 	}
 }
